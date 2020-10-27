@@ -1,4 +1,4 @@
-export default class Review extends HTMLElement {
+export class ReviewElement extends HTMLElement {
     constructor() {
         super();
         
@@ -17,23 +17,58 @@ export default class Review extends HTMLElement {
         date.setAttribute('class', 'reviewDate');
         this.appendChild(date);
     }
+
 }
 
-window.customElements.define("resturante-review", Review);
+window.customElements.define("resturante-review", ReviewElement);
 
 let getReviews = () => JSON.parse(localStorage.getItem('reviews')) || [];
 
-document.querySelector('[name="review-form"').addEventListener("submit", () => {
-    let reviewList = getReviews();
+export class Review {
+    static reviewList = [];
+    constructor(name, reviewText, reviewDate) {
+        this.name = name;
+        this.reviewText = reviewText;
+        this.reviewDate = reviewDate;
 
-    let name = document.querySelector('[name="review-name"]').value;
+        this.addReview();
+    }
+
+    addReview() {
+        Review.reviewList = getReviews();
+        Review.reviewList.push(this);
+        window.localStorage.setItem('reviews', JSON.stringify(Review.reviewList));
+        Review.renderReviews();
+    }
+
+    static renderReviews() {
+        let reviewHTML = "";
+        getReviews().forEach(review => {
+            reviewHTML += `
+            <resturante-review
+                name="${review.name}"
+                text="${review.reviewText}"
+                date="${review.reviewDate}">
+            </resturante-review>`;
+        });
+        document.querySelector('[name="reviews-container"').innerHTML = reviewHTML;
+
+    }
+}
+let reviewContainer = document.querySelector('[name="reviews-container"');
+
+document.querySelector('[name="review-form"').addEventListener("submit", () => {
+    let reviewName = document.querySelector('[name="review-name"]').value;
     let reviewDescription = document.querySelector('[name="review-text"]').value;
     
     let date = new Date();
     let today = `Dato: ${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
 
-    const newReview = [name, reviewDescription, today];
-    reviewList.push(newReview);
-    window.localStorage.setItem('reviews', JSON.stringify(reviewList));
+    const newReview = new Review(reviewName, reviewDescription, today);
+
     event.target.reset();
 });
+
+(function(){
+    Review.renderReviews();
+})();

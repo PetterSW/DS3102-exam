@@ -1,2 +1,1 @@
-import Review from '../script/reviews.js';
-
+import {Review, ReviewElement} from '../script/reviews.js';
