@@ -1,0 +1,1 @@
+import { ProductListElement } from './product.js'
