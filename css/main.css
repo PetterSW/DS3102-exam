@@ -16,21 +16,28 @@ body {
  .fas:hover{
      color: #133b5c;
 }
- .logo{
-     margin: 20px;
-}
+.logo{
+    margin: 20px;
+ }
+
+.logo {
+     grid-column: 2 / 3;
+ }
+
+header {
+    text-align: center;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+    background-color: #1d2d50;
+ }
+
  header {
-     text-align: center;
-     position: fixed;
-     z-index: 999;
-     width: 100%;
-     background-color: #1d2d50;
+     display: grid;
+     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
 }
- footer {
-     text-align: center;
-     width: 100%;
-     background-color: #1d2d50;
-}
+
  nav {
      position: absolute;
      text-align: left;
@@ -60,7 +67,48 @@ body {
 }
  nav a:hover {
      color: #133b5c;
+ }
+
+ nav {
+     position: relative;
+     text-align: left;
+     transition: none;
+     transform: scale(1,1);
+     background: none;
+     top: initial;
+     left: initial;
+     grid-column: 3 / 4;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+ }
+ nav ul {
+     display: flex;
 }
+ nav li {
+     margin-left: 2em;
+     margin-bottom: 0;
+}
+ nav a {
+     opacity: 1;
+     position: relative;
+}
+ nav a::before {
+     content: '';
+     display: block;
+     height: 2px;
+     background: #133b5c;
+     position: absolute;
+     top: -.75em;
+     left: 0;
+     right: 0;
+     transform: scale(0, 1);
+     transition: transform ease-in-out 250ms;
+}
+ nav a:hover::before {
+     transform: scale(1,1);
+}
+
  .contentWrapper{
      margin: 0;
      display: grid;
@@ -88,7 +136,7 @@ body {
      font-size: 1.7em;
      font-weight: 300;
 }
- .menyUtvalg{
+ main{
      background-color: #133b5c;
 }
  .menyBilder{
@@ -101,48 +149,10 @@ body {
      border: 0;
      align-content: center;
 }
- header {
-     display: grid;
-     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+
+
+ footer {
+     text-align: center;
+     width: 100%;
+     background-color: #1d2d50;
 }
- .logo {
-     grid-column: 2 / 3;
-}
- nav {
-     position: relative;
-     text-align: left;
-     transition: none;
-     transform: scale(1,1);
-     background: none;
-     top: initial;
-     left: initial;
-     grid-column: 3 / 4;
-     display: flex;
-     justify-content: flex-end;
-     align-items: center;
-}
- nav ul {
-     display: flex;
-}
- nav li {
-     margin-left: 2em;
-     margin-bottom: 0;
-}
- nav a {
-     opacity: 1;
-     position: relative;
-}
- nav a::before {
-     content: '';
-     display: block;
-     height: 2px;
-     background: #133b5c;
-     position: absolute;
-     top: -.75em;
-     left: 0;
-     right: 0;
-     transform: scale(0, 1);
-     transition: transform ease-in-out 250ms;
-}
- nav a:hover::before {
-     transform: scale(1,1);
