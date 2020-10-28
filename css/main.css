@@ -128,6 +128,8 @@ header {
      filter: blur(2px);
 }
 /* meny */
+
+/*
  .matUtvalg{
      padding: 10px;
      text-align: center;
@@ -135,24 +137,44 @@ header {
      font-family: "Montserrat", sans-serif;
      font-size: 1.7em;
      font-weight: 300;
+}*/
+
+main{
+	background-color: #133b5c;
+	margin: 0;
+	padding: 5px;
+	min-height: 30em;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
 }
- main{
-     background-color: #133b5c;
+
+#main-title{
+	margin-top: 10px;
+	text-align: center;
+    color: #1d2d50;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.7em;
+    font-weight: 300;
 }
+
+
  .menyBilder{
      width: 60%;
-     margin-left: 340px;
-     margin-right: 0px;
+     margin-left: auto;
+     margin-right: auto;
      display: grid;
      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
      grid-gap: 15px;
-     border: 0;
+     border: 2px solid red;
      align-content: center;
 }
 
 
  footer {
-     text-align: center;
-     width: 100%;
-     background-color: #1d2d50;
+ 	background-color: #1d2d50;
+    text-align: center;
+    min-height: 5em;
+    width: 100%;
+    padding: 5px;     
 }

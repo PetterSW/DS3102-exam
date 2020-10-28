@@ -38,9 +38,8 @@ export class Product{
 
 }
 
-//Creating new products
-/*const product = new Product("Flyfish sushi", "../images/food/flyfish-sushi.jpg", "Denne fisken kan fly!");
-const product1 = new Product("Salmon maki", "../images/food/salmon-maki.jpg", "Laks!");*/
+
+
 
 //HTML syntax for produkt element:
 
@@ -83,9 +82,16 @@ export class ProductListElement extends HTMLElement{
 window.customElements.define("product-list-item", ProductListElement);
 
 
-
 //Adding event lisentner only if element is loaded
 if(Product.productContainer){
+	window.localStorage.setItem('productList', JSON.stringify([]));
+	new Product("Flyfish sushi", "../images/food/flyfish-sushi.jpg", "Denne fisken kan fly!");
+	new Product("Dry Fish", "../images/food/dry-fish.jpg", "Tørr fisk!");
+	new Product("Salmon maki", "../images/food/Salmon-maki.jpg", "Laks!");
+	new Product("Stor sushi", "../images/food/Sushi-Big.jpg", "Stor sushi!");
+	new Product("Sushi plate", "../images/food/Sushi-Plate.jpg", "Sushi tallerken");
+	new Product("Tempura plate", "../images/food/Tempura-Plate.jpg", "Tempura tallerken");
+	new Product("Tempura prawnn", "../images/food/Tempura-Prawn.jpg", "Tempura Prawn");
 	Product.productContainer.addEventListener('load', Product.renderProducts() );
 }
 	
