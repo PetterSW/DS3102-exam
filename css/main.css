@@ -28,10 +28,7 @@ body {
 }
  footer {
      text-align: center;
-     position: fixed;
-     z-index: 999;
      width: 100%;
-     bottom: 0;
      background-color: #1d2d50;
 }
  nav {
