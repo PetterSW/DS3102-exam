@@ -1,4 +1,30 @@
 
+//Product class
+//Product varibles: name, img source, description og id
+export class Product{
+	constructor(name, img, description){
+		this.name = name;
+		this.img = img;
+		this.description = description;
+		this.id = Product.getProductList().length;
+		this.addProduct();
+	}
+
+	//Declaring array for objects and function to get objects from localstorage
+	static productList = [];
+	static getProductList = () => JSON.parse(localStorage.getItem('productList')) || [];
+
+	//Function for storing object array in localstorage
+	addProduct(){
+		Product.productList = Product.getProductList();
+		Product.productList.push(this);
+		window.localStorage.setItem('productList', JSON.stringify(Product.productList));
+	}
+}
+
+//Creating new products
+/*const product = new Product("Flyfish sushi", "../images/food/flyfish-sushi.jpg", "Denne fisken kan fly!");
+const product1 = new Product("Salmon maki", "../images/food/salmon-maki.jpg", "Laks!");*/
 
 //HTML syntax for produkt element:
 
