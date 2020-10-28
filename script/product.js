@@ -11,6 +11,7 @@ export class Product{
 	}
 
 	//Declaring array for objects and function to get objects from localstorage
+	static productContainer = document.getElementById('product-container');
 	static productList = [];
 	static getProductList = () => JSON.parse(localStorage.getItem('productList')) || [];
 
@@ -20,6 +21,21 @@ export class Product{
 		Product.productList.push(this);
 		window.localStorage.setItem('productList', JSON.stringify(Product.productList));
 	}
+
+	//Render product using product web component
+	static renderProducts() {
+		let productHTML = "";
+		Product.getProductList().forEach( product => {
+			productHTML += 
+			`<product-list-item
+			name="${product.name}"
+			img="${product.img}"
+			description="${product.description}"
+			></product-list-item>`
+		});
+		Product.productContainer.innerHTML = productHTML;
+	}
+
 }
 
 //Creating new products
@@ -65,3 +81,12 @@ export class ProductListElement extends HTMLElement{
 }
 
 window.customElements.define("product-list-item", ProductListElement);
+
+
+
+//Adding event lisentner only if element is loaded
+if(Product.productContainer){
+	Product.productContainer.addEventListener('load', Product.renderProducts() );
+}
+	
+
