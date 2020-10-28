@@ -1,40 +1,151 @@
-body{
-	background-color: grey;
-	margin: 0px;
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+body {
+     margin: 0;
+     background: #2b2e4a;
+     font-family: 'Work Sans', sans-serif;
+     font-weight: 400;
 }
-
-
-
-header{
-	background-color: red;
-	position: relative;
-	top: 0px;
-	width: 100%;
-	height: 10em;
+/* Logo placeholder foreløpig */
+ .fas{
+     color: #1e5f74;
+     font-size: 70px;
+     transition: all 0.4s ease 0s;
 }
-
-nav{
-	background-color: blue;
-	position: sticky;
-	top: 0px;
-	width: 100%;
-	height: 3em;
-	z-index: 1;
-
+ .fas:hover{
+     color: #133b5c;
 }
-
-main{
-	background-color: green;
-	width: 80%;
-	height: 60em;
-	margin-left: auto;
-	margin-right: auto;
+ .logo{
+     margin: 20px;
 }
-
-footer{
-	background-color: blue;
-	position: relative;
-	bottom: 0px;
-	width: 100%;
-	height: 7em;
+ header {
+     text-align: center;
+     position: fixed;
+     z-index: 999;
+     width: 100%;
+     background-color: #1d2d50;
 }
+ footer {
+     text-align: center;
+     position: fixed;
+     z-index: 999;
+     width: 100%;
+     bottom: 0;
+     background-color: #1d2d50;
+}
+ nav {
+     position: absolute;
+     text-align: left;
+     top: 100%;
+     left: 0;
+     width: 100%;
+     transform: scale(1, 0);
+     transform-origin: top;
+     transition: transform 400ms ease-in-out;
+}
+ nav ul {
+     margin: 0;
+     padding: 0;
+     list-style: none;
+}
+ nav li {
+     margin-bottom: 1em;
+     margin-left: 1em;
+}
+ nav a {
+     color: #1e5f74;
+     text-decoration: none;
+     font-size: 1.5rem;
+     text-transform: uppercase;
+     opacity: 0;
+     transition: opacity 150ms ease-in-out;
+}
+ nav a:hover {
+     color: #133b5c;
+}
+ .contentWrapper{
+     margin: 0;
+     display: grid;
+     position: relative;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+ .imgContainer{
+     width:100%;
+     position: relative;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     -webkit-filter: blur(4px);
+    /* Safari 6.0 - 9.0 */
+     filter: blur(2px);
+}
+/* meny */
+ .matUtvalg{
+     padding: 10px;
+     text-align: center;
+     color: #1d2d50;
+     font-family: "Montserrat", sans-serif;
+     font-size: 1.7em;
+     font-weight: 300;
+}
+ .menyUtvalg{
+     background-color: #133b5c;
+}
+ .menyBilder{
+     width: 60%;
+     margin-left: 340px;
+     margin-right: 0px;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     grid-gap: 15px;
+     border: 0;
+     align-content: center;
+}
+ header {
+     display: grid;
+     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+}
+ .logo {
+     grid-column: 2 / 3;
+}
+ nav {
+     position: relative;
+     text-align: left;
+     transition: none;
+     transform: scale(1,1);
+     background: none;
+     top: initial;
+     left: initial;
+     grid-column: 3 / 4;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+}
+ nav ul {
+     display: flex;
+}
+ nav li {
+     margin-left: 2em;
+     margin-bottom: 0;
+}
+ nav a {
+     opacity: 1;
+     position: relative;
+}
+ nav a::before {
+     content: '';
+     display: block;
+     height: 2px;
+     background: #133b5c;
+     position: absolute;
+     top: -.75em;
+     left: 0;
+     right: 0;
+     transform: scale(0, 1);
+     transition: transform ease-in-out 250ms;
+}
+ nav a:hover::before {
+     transform: scale(1,1);
