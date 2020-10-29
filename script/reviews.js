@@ -16,6 +16,7 @@ export class ReviewElement extends HTMLElement {
         date.textContent = this.getAttribute("date");
         date.setAttribute('class', 'reviewDate');
         this.appendChild(date);
+
     }
 
 }
@@ -24,7 +25,7 @@ window.customElements.define("resturante-review", ReviewElement);
 
 let getReviews = () => JSON.parse(localStorage.getItem('reviews')) || [];
 
-//Review class for adding and rendering
+//Review class for adding and rendering reviews
 export class Review {
     static reviewList = [];
     constructor(name, reviewText, reviewDate, reviewStars) {
@@ -51,6 +52,7 @@ export class Review {
                 name="${review.name}"
                 text="${review.reviewText}"
                 date="${review.reviewDate}">
+                stars=""
             </resturante-review>`;
         });
         document.querySelector('[name="reviews-container"').innerHTML = reviewHTML;
@@ -66,7 +68,7 @@ var amountOfStars;
 document.querySelector("star-review").addEventListener("mouseover", () => {
     var star = document.querySelectorAll('.star');
     for(var i = 0; i < star.length; i++) {
-        // If the amount not has been set yes
+        // If the amount not has been placed
         if(!isClicked) {
             (function(index) {
                 //Event mouseover, "gold stars" from star number one to the users pointer
@@ -83,7 +85,7 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
                         }
                     }
                 })
-                //Event click, when the user clickes one of the stars.
+                //Eventclick, when the user clickes one of the stars.
                 star[index].addEventListener("click", function() {
                     isClicked = true;
                     amountOfStars = index+1;
@@ -93,7 +95,7 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
                 })
             })(i);
         }
-        //If the amout of stars has already been setted, and the user want to change it. 
+        //If the amout of stars has already been placed, and the user want to change it. 
         else {(function(index) {
             star[index].addEventListener("click", function() {
                 isClicked = true;
