@@ -16,6 +16,11 @@ export class ReviewElement extends HTMLElement {
         date.textContent = this.getAttribute("date");
         date.setAttribute('class', 'reviewDate');
         this.appendChild(date);
+
+        let stars = document.createElement('div');
+        stars.innerHTML = this.getAttribute("stars");
+        stars.setAttribute('class', 'review-star-element');
+        this.appendChild(stars);
     }
 
 }
@@ -45,17 +50,30 @@ export class Review {
 
     static renderReviews() {
         let reviewHTML = "";
+
         getReviews().forEach(review => {
             reviewHTML += `
             <resturante-review
                 name="${review.name}"
                 text="${review.reviewText}"
-                date="${review.reviewDate}">
+                date="${review.reviewDate}"
+                stars="${renderReviewStars(review.reviewStars)}
             </resturante-review>`;
         });
         document.querySelector('[name="reviews-container"').innerHTML = reviewHTML;
-
     }
+}
+//Rendering the amount of stars per review per review
+function renderReviewStars(stars) {
+    var html = ``;
+    for(var i = 0; i <= stars; i++) {
+        html += `<i class="fas fa-star"></i>`;
+    };
+    
+    for(var r = stars+1; r <= 5; r++) {
+        html += `<i class="far fa-star"></i>`;
+    }
+    return html;  
 }
 
 let reviewContainer = document.querySelector('[name="reviews-container"');
@@ -93,7 +111,7 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
                 })
             })(i);
         }
-        //If the amout of stars has already been setted, and the user want to change it. 
+        //If the amout of stars has already been choosen, and the user want to change it. 
         else {(function(index) {
             star[index].addEventListener("click", function() {
                 isClicked = true;
