@@ -12,15 +12,15 @@ body {
      font-weight: 400;
 }
 /* Logo placeholder foreløpig */
- .fas{
+ .logo-fish{
      color: #1e5f74;
      font-size: 70px;
      transition: all 0.4s ease 0s;
 }
- .fas:hover{
+ .logo-fish:hover{
      color: #133b5c;
 }
-.logo{
+.logo-fish{
     margin: 20px;
  }
 

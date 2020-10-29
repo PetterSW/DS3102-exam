@@ -2,30 +2,34 @@ export class ReviewElement extends HTMLElement {
     constructor() {
         super();
         //Creating HTML elements to reviews 
+        let article = document.createElement('article');
+        article.setAttribute('class', 'review-article');
+        this.appendChild(article);
+
         let name = document.createElement('h3');
         name.textContent = this.getAttribute("name");
-        name.setAttribute('class', 'reviewName');
-        this.appendChild(name);
+        name.setAttribute('class', 'review-name');
+        article.appendChild(name);
 
         let text = document.createElement('p');
         text.textContent = this.getAttribute("text");
-        text.setAttribute('class', 'ReviewText');
-        this.appendChild(text);
+        text.setAttribute('class', 'review-name');
+        article.appendChild(text);
 
         let date = document.createElement('p');
         date.textContent = this.getAttribute("date");
-        date.setAttribute('class', 'reviewDate');
-        this.appendChild(date);
+        date.setAttribute('class', 'review-name');
+        article.appendChild(date);
 
         let stars = document.createElement('div');
         stars.innerHTML = this.getAttribute("stars");
         stars.setAttribute('class', 'review-star-element');
-        this.appendChild(stars);
+        article.appendChild(stars);
     }
 
 }
 
-window.customElements.define("resturante-review", ReviewElement);
+window.customElements.define("hk-review", ReviewElement);
 
 let getReviews = () => JSON.parse(localStorage.getItem('reviews')) || [];
 
@@ -52,14 +56,14 @@ export class Review {
         let reviewHTML = "";
         getReviews().forEach(review => {
             reviewHTML += `
-            <resturante-review
+            <hk-review
                 name="${review.name}"
                 text="${review.reviewText}"
                 date="${review.reviewDate}"
                 stars="${renderReviewStars(review.reviewStars)}
-            </resturante-review>`;
+            </hk-review>`;
         });
-        document.querySelector('[name="reviews-container"').innerHTML = reviewHTML;
+        document.getElementById("reviews-section").innerHTML = reviewHTML;
     }
 }
 //Rendering the amount of stars per review per review
@@ -73,8 +77,6 @@ function renderReviewStars(stars) {
     }
     return html;  
 }
-
-let reviewContainer = document.querySelector('[name="reviews-container"');
 
 //Let the user set the amount of stars.
 var isClicked = false;
