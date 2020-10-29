@@ -47,7 +47,6 @@ body {
 
 /*Styling nav bar*/
 nav {
-    text-align: center;
     position: sticky;
     top: 0px;
     z-index: 1;
@@ -55,17 +54,16 @@ nav {
     background-color: #1d2d50;
 }
 
+/*Styling navigation list using flex to posisioning list items*/
 nav ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
-
-nav li {
-	margin-left: 2em;
-}
 
 /* Logo placeholder foreløpig */
 .logo{
