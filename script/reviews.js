@@ -17,13 +17,10 @@ export class ReviewElement extends HTMLElement {
         date.setAttribute('class', 'reviewDate');
         this.appendChild(date);
 
-<<<<<<< HEAD
-=======
         let stars = document.createElement('div');
         stars.innerHTML = this.getAttribute("stars");
         stars.setAttribute('class', 'review-star-element');
         this.appendChild(stars);
->>>>>>> renderreviws
     }
 
 }
@@ -32,7 +29,7 @@ window.customElements.define("resturante-review", ReviewElement);
 
 let getReviews = () => JSON.parse(localStorage.getItem('reviews')) || [];
 
-//Review class for adding and rendering reviews
+//Review class for adding and rendering
 export class Review {
     static reviewList = [];
     constructor(name, reviewText, reviewDate, reviewStars) {
@@ -53,19 +50,13 @@ export class Review {
 
     static renderReviews() {
         let reviewHTML = "";
-
         getReviews().forEach(review => {
             reviewHTML += `
             <resturante-review
                 name="${review.name}"
                 text="${review.reviewText}"
-<<<<<<< HEAD
-                date="${review.reviewDate}">
-                stars=""
-=======
                 date="${review.reviewDate}"
                 stars="${renderReviewStars(review.reviewStars)}
->>>>>>> renderreviws
             </resturante-review>`;
         });
         document.querySelector('[name="reviews-container"').innerHTML = reviewHTML;
@@ -77,7 +68,6 @@ function renderReviewStars(stars) {
     for(var i = 0; i <= stars; i++) {
         html += `<i class="fas fa-star"></i>`;
     };
-    
     for(var r = stars+1; r <= 5; r++) {
         html += `<i class="far fa-star"></i>`;
     }
@@ -92,7 +82,7 @@ var amountOfStars;
 document.querySelector("star-review").addEventListener("mouseover", () => {
     var star = document.querySelectorAll('.star');
     for(var i = 0; i < star.length; i++) {
-        // If the amount not has been placed
+        // If the amount not has been set yes
         if(!isClicked) {
             (function(index) {
                 //Event mouseover, "gold stars" from star number one to the users pointer
@@ -109,7 +99,7 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
                         }
                     }
                 })
-                //Eventclick, when the user clickes one of the stars.
+                //Event click, when the user clickes one of the stars.
                 star[index].addEventListener("click", function() {
                     isClicked = true;
                     amountOfStars = index+1;
@@ -119,11 +109,7 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
                 })
             })(i);
         }
-<<<<<<< HEAD
-        //If the amout of stars has already been placed, and the user want to change it. 
-=======
         //If the amout of stars has already been choosen, and the user want to change it. 
->>>>>>> renderreviws
         else {(function(index) {
             star[index].addEventListener("click", function() {
                 isClicked = true;
