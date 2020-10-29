@@ -8,6 +8,8 @@ grid-row-gap: 0px;
     
 }
 /*Styling for product element*/
+.product{}
+
 .product-name{
     text-align: center;
 }
