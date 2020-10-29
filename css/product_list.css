@@ -1,6 +1,6 @@
 #product-container{
  display: grid;
-grid-template-columns: repeat(2, 1fr);
+ grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 grid-template-rows: repeat(8, 1fr);
 grid-column-gap: 1px;
 grid-row-gap: 0px;
@@ -14,6 +14,7 @@ grid-row-gap: 0px;
 
 .product-image{
     display: block;
+    
   margin-left: auto;
   margin-right: auto;
 }
