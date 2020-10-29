@@ -52,7 +52,7 @@ export class Review {
         getReviews().forEach(review => {
             reviewHTML += `
             <restaurant-review
-                name="${review.name} (${review.reviewDate})"
+                name="${review.name} (Publisert: ${review.reviewDate})"
                 text="${review.reviewText}"
                 stars="${renderReviewStars(review.reviewStars)}">
             </restaurant-review>`;
@@ -76,7 +76,7 @@ function renderReviewStars(stars) {
 var isClicked = false;
 var amountOfStars; 
 document.querySelector("star-review").addEventListener("mouseover", () => {
-    var star = document.querySelectorAll('.star');
+    var star = document.querySelectorAll('.input-star');
     for(var i = 0; i < star.length; i++) {
         // If the amount not has been set yes
         if(!isClicked) {
@@ -124,7 +124,7 @@ document.querySelector('[name="review-form"').addEventListener("submit", () => {
     let reviewDescription = document.querySelector('[name="review-text"]').value;
     
     let date = new Date();
-    let today = `Dato: ${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
+    let today = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
 
     const newReview = new Review(reviewName, reviewDescription, today, amountOfStars);
 

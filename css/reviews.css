@@ -1,3 +1,5 @@
+/*Rendering existing reviews*/
+
 #reviews-container {
     width: 100%;
     margin: 0;
@@ -36,3 +38,58 @@ restaurant-review {
     padding-bottom: 10px;
     padding-right: 10px;
 }
+
+/*Form for adding a review*/
+
+.review-form {
+    width: 100%;
+    padding: 10px;
+}
+
+.review-input {
+    width: 100%;
+    padding: 7px 10px 5px 10px;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    background-color: #2b2e4a;
+    margin: 0px 0px 10px 10px;
+    color: #FFFFFF;
+}
+#input-name {
+    width: auto;
+    max-width: 400px;
+    height: 20px;
+    font-size: 1.5em;
+
+}
+#input-text {
+    width: 80%;
+    resize: none;
+    height: 100px;
+    font-size: 1.2em;
+    font-family: 'Work Sans', sans-serif;
+}
+
+#review-visitor-title {
+    color: #FFFFFF;
+    margin: 30px 20px 20px 15px;
+}
+
+.input-star {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#review-submit-btn {
+    border: 1px solid #FFFFFF;
+    border-radius: 0px;
+    background-color: transparent;
+    color: #FFFFFF;
+    padding: 5px;
+    margin: 10px 0px 30px 11px;
+    font-size: 1.3em;
+}
+
+/*
+margin: top right bottom left
+

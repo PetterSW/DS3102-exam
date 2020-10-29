@@ -35,19 +35,19 @@
       </div>
 
       <main>
-        <h3 id="main-title"></h3>
+        <h3 id="main-title">Våre anmeldelser</h3>
         <section id="reviews-container">
         </section>
 
-        <h3>Besøkt oss? Legg igjen din anmeldelse!</h3>
+        <h3 id="review-visitor-title" >Besøkt oss? Legg igjen din anmeldelse!</h3>
 
-        <form name="review-form">
-            <input name="review-name" type="text" placeholder="Navn">
+        <form name="review-form" id="review-form">
+            <input class="review-input" id="input-name" name="review-name" type="text" placeholder="Navn">
+            <star-review id="star-review"><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i></star-review>
             <br>
-            <input name="review-text" type="text" placeholder="Din anmeldelse" style="width: 300px;">
+            <textarea class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse"></textarea>
             <br>
-            <star-review id="star-review"><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i class="star fas fa-star"></i></star-review>
-            <button type="submit">Legg til din opplevelse med oss!</button>
+            <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
             
         </form>
       </main>
