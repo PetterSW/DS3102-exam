@@ -1,0 +1,38 @@
+#reviews-container {
+    width: 100%;
+    margin: 0;
+}
+
+restaurant-review {
+    margin: 0;
+    padding: 0;
+    position: relative;
+} 
+
+.review-article {
+    position: relative;
+    width: auto;
+    margin: 10px;
+    background-color: #2b2e4a;
+    border: 1px solid #2b2e4a;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.review-name {
+    position: relative;
+    color: #FFFFFF;
+}
+.review-text {
+    color: #FFFFFF;
+}
+.review-date {
+    color: #FFFFFF;
+
+}
+.review-star-element {
+    color: #FFFFFF;
+    text-align: right;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}

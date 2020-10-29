@@ -13,13 +13,8 @@ export class ReviewElement extends HTMLElement {
 
         let text = document.createElement('p');
         text.textContent = this.getAttribute("text");
-        text.setAttribute('class', 'review-name');
+        text.setAttribute('class', 'review-text');
         article.appendChild(text);
-
-        let date = document.createElement('p');
-        date.textContent = this.getAttribute("date");
-        date.setAttribute('class', 'review-name');
-        article.appendChild(date);
 
         let stars = document.createElement('div');
         stars.innerHTML = this.getAttribute("stars");
@@ -29,7 +24,7 @@ export class ReviewElement extends HTMLElement {
 
 }
 
-window.customElements.define("hk-review", ReviewElement);
+window.customElements.define("restaurant-review", ReviewElement);
 
 let getReviews = () => JSON.parse(localStorage.getItem('reviews')) || [];
 
@@ -51,29 +46,28 @@ export class Review {
         window.localStorage.setItem('reviews', JSON.stringify(Review.reviewList));
         Review.renderReviews();
     }
-
+    
     static renderReviews() {
         let reviewHTML = "";
         getReviews().forEach(review => {
             reviewHTML += `
-            <hk-review
-                name="${review.name}"
+            <restaurant-review
+                name="${review.name} (${review.reviewDate})"
                 text="${review.reviewText}"
-                date="${review.reviewDate}"
-                stars="${renderReviewStars(review.reviewStars)}
-            </hk-review>`;
+                stars="${renderReviewStars(review.reviewStars)}">
+            </restaurant-review>`;
         });
-        document.getElementById("reviews-section").innerHTML = reviewHTML;
+        document.getElementById("reviews-container").innerHTML = reviewHTML;
     }
 }
 //Rendering the amount of stars per review per review
 function renderReviewStars(stars) {
     var html = ``;
-    for(var i = 0; i <= stars; i++) {
-        html += `<i class="fas fa-star"></i>`;
+    for(var i = 1; i <= stars; i++) {
+        html += `<i class='fas fa-star'></i>`;
     };
     for(var r = stars+1; r <= 5; r++) {
-        html += `<i class="far fa-star"></i>`;
+        html += `<i class='far fa-star'></i>`;
     }
     return html;  
 }
