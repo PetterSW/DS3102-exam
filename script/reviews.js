@@ -2,25 +2,29 @@ export class ReviewElement extends HTMLElement {
     constructor() {
         super();
         //Creating HTML elements to reviews 
+        let article = document.createElement('article');
+        article.setAttribute('class', 'review-article');
+        this.appendChild(article);
+
         let name = document.createElement('h3');
         name.textContent = this.getAttribute("name");
-        name.setAttribute('class', 'reviewName');
-        this.appendChild(name);
+        name.setAttribute('class', 'review-name');
+        article.appendChild(name);
 
         let text = document.createElement('p');
         text.textContent = this.getAttribute("text");
-        text.setAttribute('class', 'ReviewText');
-        this.appendChild(text);
+        text.setAttribute('class', 'review-text');
+        article.appendChild(text);
 
-        let date = document.createElement('p');
-        date.textContent = this.getAttribute("date");
-        date.setAttribute('class', 'reviewDate');
-        this.appendChild(date);
+        let stars = document.createElement('div');
+        stars.innerHTML = this.getAttribute("stars");
+        stars.setAttribute('class', 'review-star-element');
+        article.appendChild(stars);
     }
 
 }
 
-window.customElements.define("resturante-review", ReviewElement);
+window.customElements.define("restaurant-review", ReviewElement);
 
 let getReviews = () => JSON.parse(localStorage.getItem('reviews')) || [];
 
@@ -42,29 +46,37 @@ export class Review {
         window.localStorage.setItem('reviews', JSON.stringify(Review.reviewList));
         Review.renderReviews();
     }
-
+    
     static renderReviews() {
         let reviewHTML = "";
         getReviews().forEach(review => {
             reviewHTML += `
-            <resturante-review
-                name="${review.name}"
+            <restaurant-review
+                name="${review.name} (Publisert: ${review.reviewDate})"
                 text="${review.reviewText}"
-                date="${review.reviewDate}">
-            </resturante-review>`;
+                stars="${renderReviewStars(review.reviewStars)}">
+            </restaurant-review>`;
         });
-        document.querySelector('[name="reviews-container"').innerHTML = reviewHTML;
-
+        document.getElementById("reviews-container").innerHTML = reviewHTML;
     }
 }
-
-let reviewContainer = document.querySelector('[name="reviews-container"');
+//Rendering the amount of stars per review per review
+function renderReviewStars(stars) {
+    var html = ``;
+    for(var i = 1; i <= stars; i++) {
+        html += `<i class='fas fa-star'></i>`;
+    };
+    for(var r = stars+1; r <= 5; r++) {
+        html += `<i class='far fa-star'></i>`;
+    }
+    return html;  
+}
 
 //Let the user set the amount of stars.
 var isClicked = false;
 var amountOfStars; 
 document.querySelector("star-review").addEventListener("mouseover", () => {
-    var star = document.querySelectorAll('.star');
+    var star = document.querySelectorAll('.input-star');
     for(var i = 0; i < star.length; i++) {
         // If the amount not has been set yes
         if(!isClicked) {
@@ -93,7 +105,7 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
                 })
             })(i);
         }
-        //If the amout of stars has already been setted, and the user want to change it. 
+        //If the amout of stars has already been choosen, and the user want to change it. 
         else {(function(index) {
             star[index].addEventListener("click", function() {
                 isClicked = true;
@@ -112,7 +124,7 @@ document.querySelector('[name="review-form"').addEventListener("submit", () => {
     let reviewDescription = document.querySelector('[name="review-text"]').value;
     
     let date = new Date();
-    let today = `Dato: ${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
+    let today = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
 
     const newReview = new Review(reviewName, reviewDescription, today, amountOfStars);
 

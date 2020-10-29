@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+h1, h2, h3{
+    font-family: "Montserrat", sans-serif;
+}
+
 body {
      margin: 0;
      background: #2b2e4a;

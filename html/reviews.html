@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Document</title>
+      <title>Våre Anmeldelser - HK Sushi</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,42 +12,41 @@
       <!-- Script links -->
       <script src="../script/main.js" type="module" defer></script>
       <script src="https://kit.fontawesome.com/d02ce28bec.js" crossorigin="anonymous"></script>
-      <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js" defer></script>
       <!-- Fontawesome plugin -->
    </head>
    <body>
-      <header>
-        <a href="/html/index.html">
-            <div class="logo">
-               <i class="fas fa-fish"></i>
-            </div>
-         </a>
-         <nav>
+
+    <!--Navigation bar-->
+        <nav>
             <ul>
-               <li><a href="index.html">Meny</a></li>
-               <li><a href="reviews.html">Anmeldelser</a></li>
-               <li><a href="universal_design.html">Universell Utforming</a></li>
+                <li><a href="/html/index.html" class="logo">
+                    <i class="fas fa-fish"></i>
+                </a></li>
+                <li><a href="index.html">Meny</a></li>
+                <li><a href="reviews.html">Anmeldelser</a></li>
+                <li><a href="universal_design.html">Universell Utforming</a></li>
             </ul>
-         </nav>
-      </header>
+        </nav>
 
       <div class="contentWrapper">
          <img class="imgContainer" src="../images/banner/banner-bg1.jpg">
       </div>
 
       <main>
-        <h3 id="main-title"></h3>
-        <section name="reviews-container"></section>
+        <h3 id="main-title">Våre anmeldelser</h3>
+        <section id="reviews-container">
+        </section>
 
-        <h3>Besøkt oss? Legg igjen din anmeldelse!</h3>
+        <h3 id="review-visitor-title" >Besøkt oss? Legg igjen din anmeldelse!</h3>
 
-        <form name="review-form">
-            <input name="review-name" type="text" placeholder="Navn">
+        <form name="review-form" id="review-form">
+            <input class="review-input" id="input-name" name="review-name" type="text" placeholder="Navn">
+            <star-review id="star-review"><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i></star-review>
             <br>
-            <input name="review-text" type="text" placeholder="Din anmeldelse" style="width: 300px;">
+            <textarea class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse"></textarea>
             <br>
-            <star-review id="star-review"><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i class="star fas fa-star"></i></star-review>
-            <button type="submit">Legg til din opplevelse med oss!</button>
+            <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
+            
         </form>
       </main>
 
