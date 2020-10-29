@@ -55,27 +55,31 @@ export class ProductListElement extends HTMLElement{
 		super();
 
 		//creating elements and setting attribute, content and parent element
+		let product = document.createElement('article');
+		product.setAttribute('class', 'product');
+		this.appendChild(product);
+
 		let name = document.createElement('h3');
 		name.setAttribute('class', 'product-name');
 		name.textContent = this.getAttribute('name');
-		this.appendChild(name);
+		product.appendChild(name);
 
 		let img = document.createElement('img');
 		img.setAttribute('alt', 'Product image.');
 		img.setAttribute('class', 'product-image');
 		img.setAttribute('src', this.getAttribute('img'));
-		this.appendChild(img);
+		product.appendChild(img);
 
 		let description = document.createElement('p');
 		description.setAttribute('class', 'product-description');
 		description.textContent = this.getAttribute('description');
-		this.appendChild(description);
+		product.appendChild(description);
 
 		let addToCartBtn = document.createElement('button');
 		addToCartBtn.setAttribute('type', 'button');
 		addToCartBtn.setAttribute('class', 'add-to-cart-btn');
 		addToCartBtn.textContent = "Legg til handlekurven!";
-		this.appendChild(addToCartBtn);
+		product.appendChild(addToCartBtn);
 	}
 }
 
@@ -92,6 +96,7 @@ if(Product.productContainer){
 	new Product("Sushi plate", "../images/food/Sushi-Plate.jpg", "Sushi tallerken");
 	new Product("Tempura plate", "../images/food/Tempura-Plate.jpg", "Tempura tallerken");
 	new Product("Tempura prawnn", "../images/food/Tempura-Prawn.jpg", "Tempura Prawn");
+	new Product("Sushi Wrap", "../images/food/wrap.jpg", "Sushi i wrap");
 	Product.productContainer.addEventListener('load', Product.renderProducts() );
 }
 	
