@@ -83,7 +83,7 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
                         }
                     }
                 })
-                //Event click, when the user clickes one of the stars.
+                //Eventclick, when the user clickes one of the stars.
                 star[index].addEventListener("click", function() {
                     isClicked = true;
                     amountOfStars = index+1;
@@ -93,7 +93,7 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
                 })
             })(i);
         }
-        //If the amout of stars has already been setted, and the user want to change it. 
+        //If the amout of stars has already been placed, and the user want to change it. 
         else {(function(index) {
             star[index].addEventListener("click", function() {
                 isClicked = true;
