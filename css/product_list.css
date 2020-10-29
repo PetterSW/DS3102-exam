@@ -1,9 +1,27 @@
+#product-container{
+ display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(8, 1fr);
+grid-column-gap: 1px;
+grid-row-gap: 0px;
 
+    
+}
 /*Styling for product element*/
-.product-name{}
+.product-name{
+    text-align: center;
+}
 
-.product-image{}
+.product-image{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-.product-description{}
+.product-description{
+    text-align: center;
+}
 
-.add-to-cart-btn{}
+.add-to-cart-btn{
+ 
+}
