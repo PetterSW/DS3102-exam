@@ -69,9 +69,13 @@ nav ul {
 }
 
 
-/* Logo placeholder foreløpig */
-.logo{
+/* Navbar icons fonts size */
+.fa-fish{
     font-size: 70px;
+ }
+
+ .fa-shopping-cart{
+    font-size: 35px;
  }
 
 /*Nav links fade trasition*/
@@ -90,7 +94,7 @@ nav a:hover {
 }
 
 /*Nav links line transition*/
-nav a:not(.logo)::before {
+nav a:not(.navbar-icon)::before {
 	content: '';
 	display: block;
 	height: 2px;
