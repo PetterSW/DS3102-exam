@@ -26,11 +26,12 @@ export class ReviewElement extends HTMLElement {
 
 window.customElements.define("restaurant-review", ReviewElement);
 
-let getReviews = () => JSON.parse(localStorage.getItem('reviews')) || [];
-
 //Review class for adding and rendering
 export class Review {
     static reviewList = [];
+    static getSortOrder = () => document.querySelector("[name='review-sort']").value;
+    static getReviews = () => JSON.parse(localStorage.getItem('reviews')) || [];
+
     constructor(name, reviewText, reviewDate, reviewStars) {
         this.name = name;
         this.reviewText = reviewText;
@@ -41,15 +42,33 @@ export class Review {
     }
 
     addReview() {
-        Review.reviewList = getReviews();
+        Review.reviewList = Review.getReviews();
         Review.reviewList.push(this);
         window.localStorage.setItem('reviews', JSON.stringify(Review.reviewList));
         Review.renderReviews();
     }
     
     static renderReviews() {
+        console.log("YES");
         let reviewHTML = "";
-        getReviews().forEach(review => {
+        let sortReview = reviewList => {
+            switch(Review.getSortOrder()) {
+                case "date-new-first":
+                    return reviewList.sort( (a,b) => new Date(b.reviewDate) - new Date(a.reviewDate));
+                    break;
+                case "date-old-first":
+                    return reviewList.sort( (a,b) => new Date(a.reviewDate) - new Date(b.reviewDate));;
+                    break;
+                case "review-best-first":
+                    return reviewList.sort((a,b) => a.reviewStars < b.reviewStars ? 1 : -1);
+                    break;
+                case "review-bad-first":
+                    return reviewList.sort((a,b) => a.reviewStars > b.reviewStars ? 1 : -1);;
+                    break;
+            }
+        }
+        sortReview(Review.getReviews())
+        .forEach(review => {
             reviewHTML += `
             <restaurant-review
                 name="${review.name} (Publisert: ${review.reviewDate})"
@@ -71,6 +90,9 @@ function renderReviewStars(stars) {
     }
     return html;  
 }
+
+//Sort reviews change
+document.querySelector(`[name="review-sort"]`).addEventListener( "change", Review.renderReviews );
 
 //Let the user set the amount of stars.
 var isClicked = false;
@@ -134,3 +156,11 @@ document.querySelector('[name="review-form"').addEventListener("submit", () => {
 (function(){
     Review.renderReviews();
 })();
+
+
+//Sets default reviews in localStorage
+if (localStorage.getItem("reviews") === null) {
+    let review1 = new Review("Petter Wibstad", "Total opplevelsen 5/5 - dette er best 🏆🥇skal du ha en fantastisk sushi opplevelse, så er dette stedet,Mat 5/5 - beste sushi og en bra vinmeny Service 5/5 - bra service og presentasjon av maten", "2010-10-10", 5);
+    let review2 = new Review("Magnus Om", "Bestilte Sushi middag til hele familien men fikk feil leveranse. Vi ga beskjed og tilbakemeldingen fra Maki Sushi var at vi skulle gi beskjed neste gang vi bestilte så skulle de ordne opp. Når vi så bestilte neste gang fikk vi beskjed om dette skulle vært ordnet med en gang, noe som er stikk motsatt av den første beskjeden", "2020-03-20", 1);
+    let review3 = new Review("Martin Tordal", "Jeg gir dette stedet 3 stjerner fordi kvaliteten sto til prisen. 210 kr for 20 biter er på ingen måte en stiv pris. Passer perfekt hvis man vil spise en stor porsjon uten å bruke mye penger", "2011-09-30", 3);
+}
