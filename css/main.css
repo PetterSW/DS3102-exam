@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+h1, h2, h3{
+    font-family: "Montserrat", sans-serif;
+}
+
 body {
      margin: 0;
      background: #2b2e4a;
@@ -47,7 +51,6 @@ body {
 
 /*Styling nav bar*/
 nav {
-    text-align: center;
     position: sticky;
     top: 0px;
     z-index: 1;
@@ -55,17 +58,16 @@ nav {
     background-color: #1d2d50;
 }
 
+/*Styling navigation list using flex to posisioning list items*/
 nav ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
-
-nav li {
-	margin-left: 2em;
-}
 
 /* Logo placeholder foreløpig */
 .logo{
