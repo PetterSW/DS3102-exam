@@ -108,7 +108,7 @@ nav a:hover::before {
 }
 
 
- .contentWrapper{
+ .banner-wrapper{
      margin: 0;
      display: grid;
      position: relative;
@@ -116,7 +116,7 @@ nav a:hover::before {
      background-repeat: no-repeat;
      background-size: cover;
 }
- .imgContainer{
+ .banner{
      width:100%;
      position: relative;
      background-position: center;
