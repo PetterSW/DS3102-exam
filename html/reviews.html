@@ -28,14 +28,21 @@
             </ul>
         </nav>
 
-      <div class="contentWrapper">
-         <img class="imgContainer" src="../images/banner/banner-bg1.jpg">
+      <div class="banner-wrapper">
+         <img class="banner" src="../images/banner/banner-bg1.jpg">
       </div>
 
-      <main>
-        <h3 id="main-title">Våre anmeldelser</h3>
-        <section id="reviews-container">
-        </section>
+    <main>
+        <header>
+            <h3 id="main-title">Våre anmeldelser</h3>
+            <select name="review-sort">
+                <option selected value="date-new-first">Nyeste først</option>
+                <option value="date-old-first">Eldste først</option>
+                <option value="review-best-first">Høyeste vurdering</option>
+                <option value="review-bad-first">Laveste vurdering</option>
+            </select>
+        </header>
+        <section id="reviews-container"></section>
 
         <h3 id="review-visitor-title" >Besøkt oss? Legg igjen din anmeldelse!</h3>
 
@@ -48,7 +55,7 @@
             <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
             
         </form>
-      </main>
+    </main>
 
       <footer>
          <p>Kontaktinfo Placeholder</p>
