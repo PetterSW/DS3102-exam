@@ -2,10 +2,11 @@
 //Product class
 //Product varibles: name, img source, description og id
 export class Product{
-	constructor(name, img, description){
+	constructor(name, img, description, price){
 		this.name = name;
 		this.img = img;
 		this.description = description;
+		this.price = price + "Kr";
 		this.id = Product.getProductList().length;
 		this.addProduct();
 	}
@@ -31,6 +32,7 @@ export class Product{
 			name="${product.name}"
 			img="${product.img}"
 			description="${product.description}"
+			price="${product.price}"
 			></product-list-item>`
 		});
 		Product.productContainer.innerHTML = productHTML;
@@ -47,6 +49,7 @@ export class Product{
 	name=""
 	img="../images/food/<filnavn>"
 	description=""
+	price=""
 	></product-list-item>*/
 
 //Custom web-component for product list element
@@ -75,6 +78,11 @@ export class ProductListElement extends HTMLElement{
 		description.textContent = this.getAttribute('description');
 		product.appendChild(description);
 
+		let price = document.createElement('b');
+		price.setAttribute('class', 'product-price');
+		price.textContent = this.getAttribute('price');
+		product.appendChild(price);
+
 		let addToCartBtn = document.createElement('button');
 		addToCartBtn.setAttribute('type', 'button');
 		addToCartBtn.setAttribute('class', 'add-to-cart-btn');
@@ -89,14 +97,14 @@ window.customElements.define("product-list-item", ProductListElement);
 //Adding event lisentner only if element is loaded
 if(Product.productContainer){
 	window.localStorage.setItem('productList', JSON.stringify([]));
-	new Product("Flyfish sushi", "../images/food/flyfish-sushi.jpg", "Denne fisken kan fly!");
-	new Product("Dry Fish", "../images/food/dry-fish.jpg", "Tørr fisk!");
-	new Product("Salmon maki", "../images/food/Salmon-maki.jpg", "Laks!");
-	new Product("Stor sushi", "../images/food/Sushi-Big.jpg", "Stor sushi!");
-	new Product("Sushi plate", "../images/food/Sushi-Plate.jpg", "Sushi tallerken");
-	new Product("Tempura plate", "../images/food/Tempura-Plate.jpg", "Tempura tallerken");
-	new Product("Tempura prawnn", "../images/food/Tempura-Prawn.jpg", "Tempura Prawn");
-	new Product("Sushi Wrap", "../images/food/wrap.jpg", "Sushi i wrap");
+	new Product("Flyfish sushi", "../images/food/flyfish-sushi.jpg", "Denne fisken kan fly!", "149");
+	new Product("Dry Fish", "../images/food/dry-fish.jpg", "Tørr fisk!", "149");
+	new Product("Salmon maki", "../images/food/Salmon-maki.jpg", "Laks!", "149");
+	new Product("Stor sushi", "../images/food/Sushi-Big.jpg", "Stor sushi!", "149");
+	new Product("Sushi plate", "../images/food/Sushi-Plate.jpg", "Sushi tallerken", "149");
+	new Product("Tempura plate", "../images/food/Tempura-Plate.jpg", "Tempura tallerken", "149");
+	new Product("Tempura prawnn", "../images/food/Tempura-Prawn.jpg", "Tempura Prawn", "149");
+	new Product("Sushi Wrap", "../images/food/wrap.jpg", "Sushi i wrap", "149");
 	Product.productContainer.addEventListener('load', Product.renderProducts() );
 }
 	
