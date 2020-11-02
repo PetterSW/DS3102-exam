@@ -97,14 +97,14 @@ window.customElements.define("product-list-item", ProductListElement);
 //Adding event lisentner only if element is loaded
 if(Product.productContainer){
 	window.localStorage.setItem('productList', JSON.stringify([]));
-	new Product("Flyfish sushi", "../images/food/flyfish-sushi.jpg", "Denne fisken kan fly!", "149");
-	new Product("Dry Fish", "../images/food/dry-fish.jpg", "Tørr fisk!", "149");
-	new Product("Salmon maki", "../images/food/Salmon-maki.jpg", "Laks!", "149");
-	new Product("Stor sushi", "../images/food/Sushi-Big.jpg", "Stor sushi!", "149");
-	new Product("Sushi plate", "../images/food/Sushi-Plate.jpg", "Sushi tallerken", "149");
-	new Product("Tempura plate", "../images/food/Tempura-Plate.jpg", "Tempura tallerken", "149");
-	new Product("Tempura prawnn", "../images/food/Tempura-Prawn.jpg", "Tempura Prawn", "149");
-	new Product("Sushi Wrap", "../images/food/wrap.jpg", "Sushi i wrap", "149");
+	new Product("Liten Tallerken", "../images/food/Liten-tallerken.jpg", "Perfekt som en porsjon.", "89");
+	new Product("Stor Tallerken", "../images/food/Stor-tallerken.jpg", "Ekstra sulten eller på deling?", "149");
+	new Product("Lakse-Maki", "../images/food/Maki-salmon.jpg", "Vår klassiske Maki med laks.", "109");
+	new Product("Vegetar-Maki", "../images/food/Maki-vegetar.jpg", "Kutte ned på kjøttinntak? Vegetar-Maki!", "99");
+	new Product("Tempura-Reker", "../images/food/Tempura-Reke.jpg", "Store, friterte reker.", "149");
+	new Product("Sushi-Skål", "../images/food/Sushi-bowl.jpg", "Vår anerkjente Sushi-skål.", "119");
+	new Product("Sushi-Burrito", "../images/food/Sushi-Wrap.jpg", "Prøve noe nytt? Sushi i burrito-form!", "99");
+	new Product("Sushi for eventer", "../images/food/Event-tallerken.jpg", "Utrolig stor tallerken, perfekt for eventer!", "999");
 	Product.productContainer.addEventListener('load', Product.renderProducts() );
 }
 	
