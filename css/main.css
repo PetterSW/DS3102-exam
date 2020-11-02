@@ -3,6 +3,7 @@
 
 h1, h2, h3{
     font-family: "Montserrat", sans-serif;
+    color: #ffffff;
 }
 
 body {
@@ -179,4 +180,11 @@ main{
     min-height: 5em;
     width: 100%;
     padding: 5px;     
+}
+
+.contact-us-p-tag {
+    color: #ffffff;
+}
+.fa-phone {
+    color: #ffffff;
 }
