@@ -1,4 +1,3 @@
-
 //Product class
 //Product varibles: name, img source, description og id
 export class Product{
@@ -30,6 +29,7 @@ export class Product{
 			productHTML += 
 			`<product-list-item
 			name="${product.name}"
+			data-product-id="${product.id}"
 			img="${product.img}"
 			description="${product.description}"
 			price="${product.price}"
@@ -47,6 +47,7 @@ export class Product{
 
 	/*<product-list-item
 	name=""
+	data-product-id=""
 	img="../images/food/<filnavn>"
 	description=""
 	price=""
@@ -88,6 +89,34 @@ export class ProductListElement extends HTMLElement{
 		addToCartBtn.setAttribute('class', 'add-to-cart-btn');
 		addToCartBtn.textContent = "Legg til handlekurven!";
 		product.appendChild(addToCartBtn);
+
+		//Eventlisentner on button
+		addToCartBtn.addEventListener('click', () => this.addToCart(this.getAttribute('data-product-id')));
+	}
+
+	//Adding product to cart
+	addToCart(productId){
+		var shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+		//Adding or increas qty in local storage
+		if(AlreadyInCart(productId) === false){
+			let cartItem = {id: productId, qty: 1};
+			shoppingCart.push(cartItem);
+		}else{
+			shoppingCart[AlreadyInCart(productId)].qty += 1;
+		}
+
+		window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+		//Returns false if item dont exist in array or index if item exists
+		function AlreadyInCart(productId){
+			let index = false;
+			for(var i = 0; shoppingCart.length > i; i++){
+				if(shoppingCart[i].id === productId){ index = i;}
+			}
+			console.log(index);
+			return index;
+		}
 	}
 }
 
