@@ -114,7 +114,6 @@ export class ProductListElement extends HTMLElement{
 			for(var i = 0; shoppingCart.length > i; i++){
 				if(shoppingCart[i].id === productId){ index = i;}
 			}
-			console.log(index);
 			return index;
 		}
 	}
