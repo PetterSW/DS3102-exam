@@ -1,7 +1,6 @@
 export class UUElement extends HTMLElement {
 	constructor(){
 		super();
-        //this.appendChild( template.content.cloneNode(true) );
 		//creating elements and setting attribute, content and parent element
 		let article = document.createElement('article');
 		article.setAttribute('class', 'universal-design-article');
