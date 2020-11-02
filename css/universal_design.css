@@ -1,0 +1,24 @@
+#universal-styling-container{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr));
+    grid-gap: 30px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    text-align: center;
+}
+.universal-design-article{
+    background-color: #2b2e4a;
+    border: 1px solid #2b2e4a;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.uu-title{
+    text-align: center;
+}
+
+.uu-description {
+    color: #ffffff;
+    display: block; 
+    margin: 10px;
+}
