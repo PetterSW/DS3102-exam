@@ -47,9 +47,19 @@ export class Review {
         window.localStorage.setItem('reviews', JSON.stringify(Review.reviewList));
         Review.renderReviews();
     }
+
+    static renderReviewStars(stars) {
+        var html = ``;
+        for(var i = 1; i <= stars; i++) {
+            html += `<i class='fas fa-star'></i>`;
+        };
+        for(var r = stars+1; r <= 5; r++) {
+            html += `<i class='far fa-star'></i>`;
+        }
+        return html;  
+    }
     
     static renderReviews() {
-        console.log("YES");
         let reviewHTML = "";
         let sortReview = reviewList => {
             switch(Review.getSortOrder()) {
@@ -73,23 +83,14 @@ export class Review {
             <restaurant-review
                 name="${review.name} (Publisert: ${review.reviewDate})"
                 text="${review.reviewText}"
-                stars="${renderReviewStars(review.reviewStars)}">
+                stars="${Review.renderReviewStars(review.reviewStars)}">
             </restaurant-review>`;
         });
         document.getElementById("reviews-container").innerHTML = reviewHTML;
     }
 }
 //Rendering the amount of stars per review per review
-function renderReviewStars(stars) {
-    var html = ``;
-    for(var i = 1; i <= stars; i++) {
-        html += `<i class='fas fa-star'></i>`;
-    };
-    for(var r = stars+1; r <= 5; r++) {
-        html += `<i class='far fa-star'></i>`;
-    }
-    return html;  
-}
+
 
 //Sort reviews change
 document.querySelector(`[name="review-sort"]`).addEventListener( "change", Review.renderReviews );
@@ -157,6 +158,9 @@ document.querySelector('[name="review-form"').addEventListener("submit", () => {
     Review.renderReviews();
 })();
 
+if(document.readyState === 'complete') {
+    
+}
 
 //Sets default reviews in localStorage
 if (localStorage.getItem("reviews") === null) {

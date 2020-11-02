@@ -50,10 +50,10 @@
         <h3 id="review-visitor-title" >Besøkt oss? Legg igjen din anmeldelse!</h3>
 
         <form name="review-form" id="review-form">
-            <input class="review-input" id="input-name" name="review-name" type="text" placeholder="Navn">
+            <input class="review-input" id="input-name" name="review-name" type="text" maxlength="30" placeholder="Navn">
             <star-review id="star-review"><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i></star-review>
             <br>
-            <textarea class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse"></textarea>
+            <textarea maxlength="600" class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse"></textarea>
             <br>
             <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
             
@@ -61,7 +61,13 @@
     </main>
 
       <footer>
-         <p>Kontaktinfo Placeholder</p>
+        <section id="contact-us-container">
+            <h3>Kontakt oss!</h3>
+            <i class="fas fa-phone"></i>
+            <p class="contact-us-p-tag">Telefon: 67 10 00 00</p>
+            <p class="contact-us-p-tag">Åpningstider: 10:00 - 21:00 (Søndag: 13:00 - 21:00)</p>
+            <p class="contact-us-p-tag">Adresse: Salmakersvenn Marius Jantzens plass 3, 0252 Oslo</p>
+         </section>
       </footer>
    </body>
 </html>

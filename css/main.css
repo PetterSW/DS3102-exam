@@ -3,6 +3,7 @@
 
 h1, h2, h3{
     font-family: "Montserrat", sans-serif;
+    color: #ffffff;
 }
 
 body {
@@ -82,7 +83,7 @@ nav ul {
 nav a {
 	position: relative;
 
-	color: #1e5f74;
+	color: #34A4C9;
 	text-decoration: none;
 	font-size: 1.5rem;
 	text-transform: uppercase;
@@ -90,7 +91,7 @@ nav a {
 }
 
 nav a:hover {
-	color: #133b5c;
+	color: #1e5f74;
 }
 
 /*Nav links line transition*/
@@ -155,7 +156,7 @@ main{
 #main-title{
 	margin-top: 10px;
 	text-align: center;
-    color: #1d2d50;
+    color: #34A4C9;
     font-family: "Montserrat", sans-serif;
     font-size: 1.7em;
     font-weight: 300;
@@ -173,11 +174,17 @@ main{
      align-content: center;
 }
 
-
  footer {
  	background-color: #1d2d50;
     text-align: center;
     min-height: 5em;
     width: 100%;
     padding: 5px;     
+}
+
+.contact-us-p-tag {
+    color: #ffffff;
+}
+.fa-phone {
+    color: #ffffff;
 }
