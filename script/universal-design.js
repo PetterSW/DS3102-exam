@@ -1,22 +1,22 @@
-export class UUElement extends HTMLElement{
+export class UUElement extends HTMLElement {
 	constructor(){
 		super();
-
 		//creating elements and setting attribute, content and parent element
-		let section = document.createElement('section');
-		product.setAttribute('class', 'unieversell-utforming-container');
-		this.appendChild(section);
+		let article = document.createElement('article');
+		article.setAttribute('class', 'universal-design-article');
+		this.appendChild(article);
 
 		let name = document.createElement('h3');
 		name.setAttribute('class', 'uu-title');
 		name.textContent = this.getAttribute('name');
-		product.appendChild(section);
+		article.appendChild(name);
 
 		let description = document.createElement('p');
 		description.setAttribute('class', 'uu-description');
 		description.textContent = this.getAttribute('description');
-		product.appendChild(section);
-	}
+        article.appendChild(description);
+        
+    }
 }
 
-window.customElements.define("uu-section", ProductListElement);
+window.customElements.define("universal-design", UUElement);
