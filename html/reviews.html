@@ -50,12 +50,13 @@
         <h3 id="review-visitor-title" >Besøkt oss? Legg igjen din anmeldelse!</h3>
 
         <form name="review-form" id="review-form">
-            <input class="review-input" id="input-name" name="review-name" type="text" maxlength="30" placeholder="Navn">
+            <input class="review-input" id="input-name" name="review-name" type="text" maxlength="30" placeholder="Navn" required>
             <star-review id="star-review"><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i></star-review>
             <br>
-            <textarea maxlength="600" class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse"></textarea>
+            <textarea maxlength="600" class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse" required></textarea>
             <br>
             <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
+            <p id="submitFeedback"></p>
             
         </form>
     </main>
