@@ -1,3 +1,4 @@
+import { ShoppingCart } from '../script/shopping_cart.js';
 //Product class
 //Product varibles: name, img source, description og id
 export class Product{
@@ -105,7 +106,7 @@ export class ProductListElement extends HTMLElement{
 		}else{
 			shoppingCartItems[AlreadyInCart(productId)].qty += 1;
 		}
-
+		
 		window.localStorage.setItem('shoppingCartItems', JSON.stringify(shoppingCartItems));
 
 		//Returns false if item dont exist in array or index if item exists
@@ -116,6 +117,7 @@ export class ProductListElement extends HTMLElement{
 			}
 			return index;
 		}
+		ShoppingCart.setMenuBarQty();
 	}
 }
 

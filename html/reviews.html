@@ -26,8 +26,11 @@
                 <li><a href="reviews.html">Anmeldelser</a></li>
                 <li><a href="universal_design.html">Universell Utforming</a></li>
                 <li><a href="/html/shopping_cart.html" class="navbar-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                </a></li>
+                    <div id="cart-icon-wrapper">
+                       <i id="cart-icon" class="fas fa-shopping-cart"></i>
+                       <p id="menubar-shoppingcart-qty"></p>
+                    </div>
+                 </a></li>
             </ul>
         </nav>
 
@@ -56,7 +59,6 @@
             <textarea maxlength="600" class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse" required></textarea>
             <br>
             <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
-            <p id="submitFeedback"></p>
             
         </form>
     </main>
