@@ -1,5 +1,3 @@
-
-
 export class ShoppingCart{
 	static shoppingCartItems = [];
 	static container = document.getElementById('checkout-container');
@@ -14,7 +12,6 @@ export class ShoppingCart{
 		let totalQty = 0;
 		let totalPrice = 0;
 		let productList = JSON.parse(localStorage.getItem('productList')) || [];
-
 		//Finding product based on id in shoppingcart
 		ShoppingCart.getCart().forEach( cartItem => {
 			const product = productList.find( product => product.id == cartItem.id );
@@ -63,7 +60,7 @@ export class ShoppingCart{
 		</tr>`;
 
 	}
-
+	
 	static removeFromCart(id){
 		let shoppingCartItems = ShoppingCart.getCart()
 		shoppingCartItems.filter( cartItem =>  cartItem.id != id);
@@ -71,12 +68,33 @@ export class ShoppingCart{
 		ShoppingCart.renderShoppingCart();
 	}
 
+	static clearCart() {
+		localStorage.removeItem('shoppingCartItems');
+		ShoppingCart.renderShoppingCart();
+	}
+
 }
 
+export function deliveryMethodChanged() {
+	let method = document.querySelector('input[name="delivery-method"]:checked').value;
+	if (method == "sushiToHome") {
+		document.getElementById("input-address-container").style.visibility = "visible";
+		document.getElementById("input-address").required = true;
+	}
+	if (method == "pickup") {
+		document.getElementById("input-address-container").style.visibility = "hidden";
+	}
+}
 
-
+export function placeOrder() {
+	event.preventDefault();
+	ShoppingCart.clearCart();
+	document.getElementById("confirm-order-text").innerHTML = "Takk for din bestilling! Din ordre er klar om 15 minutter";
+	event.target.reset;
+}
 
 if(ShoppingCart.container){
 	ShoppingCart.renderShoppingCart();
+	document.getElementById("delivery-method").addEventListener("click", deliveryMethodChanged);
+	document.querySelector("[name='form-place-order']").addEventListener("submit", placeOrder); 
 }
-
