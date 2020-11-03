@@ -1,3 +1,7 @@
+#checkout-container{
+    padding: 1em;
+}
+
 .input-delivery{
     padding: 7px 10px 5px 10px;
     border: 1px solid #FFFFFF;
@@ -33,4 +37,76 @@
     font-family: "Montserrat", sans-serif;
     font-size: 1.4em;
     font-weight: 300;
+}
+
+
+/*Center table*/
+#cart-table{
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid white;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/*Applying common vertical padding*/
+#cart-table th, #cart-table td{    
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+} 
+
+/*Setting heith for th and td*/
+#cart-table th{
+    height: 2.5em;
+}
+
+#cart-table td{
+    height: 2em;
+}
+
+/*Setting alignment, horizontal padding and border
+for name, quantity and price column, inc. tfoot*/
+.cart-table__name{
+    text-align: left;
+    padding-left: 0.5em;
+    border-bottom: 1px solid white;
+}
+
+.cart-table__tfoot__name{
+    text-align: left;
+    padding-left: 0.5em;
+}
+
+.cart-table__qty{
+    text-align: right;
+    padding-right: 0.5em;
+    border-bottom: 1px solid white;
+}
+
+.cart-table__tfoot__qty{
+    text-align: right;
+    padding-right: 2em;
+}
+
+.cart-table__price{
+    text-align: right;
+    padding-right: 0.5em;
+    border-bottom: 1px solid white;
+}
+
+#cart-table-thead__price, .cart-table__tfoot__price{
+    text-align: right;
+    padding-right: 1.7em;
+}
+
+
+/*Setting size and aligning quantity input and remove button*/
+.cart-qty-input{
+    height: 1.5em;
+    width: 2.3em;
+}
+
+.cart-remove-btn{
+    margin-left: 0.5em;
+    cursor: pointer;
 }

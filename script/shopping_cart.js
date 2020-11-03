@@ -29,15 +29,18 @@ export class ShoppingCart{
 			document.querySelector('#cart-table tbody').appendChild(tableRow);
 
 			let tableDataName = document.createElement('td');
+			tableDataName.setAttribute('class', 'cart-table__name');
 			tableDataName.textContent = product.name;
 			tableRow.appendChild(tableDataName);
 
 			let tableDataQuantity = document.createElement('td');
+			tableDataQuantity.setAttribute('class', 'cart-table__qty');
 			tableRow.appendChild(tableDataQuantity);
 
 			//Input to change qty
 			let qtyInput = document.createElement('input');
 			qtyInput.setAttribute('type', 'number');
+			qtyInput.setAttribute('max', 99);
 			qtyInput.setAttribute('class', 'cart-qty-input');
 			qtyInput.value = cartItem.qty;
 			tableDataQuantity.appendChild(qtyInput);
@@ -45,17 +48,14 @@ export class ShoppingCart{
 			
 
 			let tableDataPrice = document.createElement('td');
+			tableDataPrice.setAttribute('class', 'cart-table__price');
 			tableDataPrice.textContent = product.price * cartItem.qty + "Kr";
 			tableRow.appendChild(tableDataPrice);
 
-			let tableDataRemove = document.createElement('td');
-			tableRow.appendChild(tableDataRemove);
-
 			//Remove button for removeing items from cart
-			let removeBtn = document.createElement('button');
-			removeBtn.setAttribute('class', 'cart-remove-btn');
-			removeBtn.textContent = "x";
-			tableDataRemove.appendChild(removeBtn);
+			let removeBtn = document.createElement('i');
+			removeBtn.setAttribute('class', 'fas fa-times cart-remove-btn');
+			tableDataPrice.appendChild(removeBtn);
 			removeBtn.addEventListener('click', () => ShoppingCart.removeFromCart(cartItem.id));
 
 		});
@@ -65,17 +65,20 @@ export class ShoppingCart{
 		let tableRow = document.createElement('tr');
 			document.querySelector('#cart-table tfoot').appendChild(tableRow);
 
-			let tableData = document.createElement('td');
-			tableData.textContent = "Totalt";
-			tableRow.appendChild(tableData);
+			let tableDataTotal = document.createElement('td');
+			tableDataTotal.setAttribute('class', 'cart-table__tfoot__name');
+			tableDataTotal.textContent = "Totalt";
+			tableRow.appendChild(tableDataTotal);
 
-			let tableData1 = document.createElement('td');
-			tableData1.textContent = totalQty;
-			tableRow.appendChild(tableData1);
+			let tableDataQuantity = document.createElement('td');
+			tableDataQuantity.setAttribute('class', 'cart-table__tfoot__qty');
+			tableDataQuantity.textContent = totalQty;
+			tableRow.appendChild(tableDataQuantity);
 
-			let tableData2 = document.createElement('td');
-			tableData2.textContent = totalPrice + "Kr";
-			tableRow.appendChild(tableData2);
+			let tableDataPrice = document.createElement('td');
+			tableDataPrice.setAttribute('class', 'cart-table__tfoot__price');
+			tableDataPrice.textContent = totalPrice + "Kr";
+			tableRow.appendChild(tableDataPrice);
 	}
 
 
