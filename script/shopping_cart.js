@@ -9,7 +9,12 @@ export class ShoppingCart{
 
 	//Function to render shoppingcart at checkout
 	static renderShoppingCart(){
-		
+
+		//Remove previusly rendered items
+		document.querySelector('#cart-table tbody').innerHTML = "";
+		document.querySelector('#cart-table tfoot').innerHTML = "";
+
+
 		//Varible to store total qty and price
 		let totalQty = 0;
 		let totalPrice = 0;
@@ -21,14 +26,8 @@ export class ShoppingCart{
 			totalQty += cartItem.qty;
 			totalPrice += product.price * cartItem.qty;
 
-			//Print table row into table body
-			/*document.querySelector('#cart-table tbody').innerHTML += 
-			`<tr>
-				<td>${product.name}</td>
-				<td>${cartItem.qty}</td>
-				<td>${product.price * cartItem.qty}Kr</td>
-			</tr>`;*/
 
+			//Creating, appending and setting content for table body elements
 			let tableRow = document.createElement('tr');
 			document.querySelector('#cart-table tbody').appendChild(tableRow);
 
@@ -47,6 +46,7 @@ export class ShoppingCart{
 			let tableData3 = document.createElement('td');
 			tableRow.appendChild(tableData3);
 
+			//Remove button for removeing items from cart
 			let removeBtn = document.createElement('button');
 			removeBtn.textContent = "x";
 			tableData3.appendChild(removeBtn);
@@ -55,19 +55,28 @@ export class ShoppingCart{
 		});
 
 		//Printing total qty and total price in table foot
-		document.querySelector('#cart-table tfoot').innerHTML = 
-		`<tr>
-			<td>Totalt</td>
-			<td>${totalQty}</td>
-			<td>${totalPrice}Kr</td>
-		</tr>`;
+		//Creating, appending and setting content for table footer elements
+		let tableRow = document.createElement('tr');
+			document.querySelector('#cart-table tfoot').appendChild(tableRow);
 
+			let tableData = document.createElement('td');
+			tableData.textContent = "Totalt";
+			tableRow.appendChild(tableData);
+
+			let tableData1 = document.createElement('td');
+			tableData1.textContent = totalQty;
+			tableRow.appendChild(tableData1);
+
+			let tableData2 = document.createElement('td');
+			tableData2.textContent = totalPrice + "Kr";
+			tableRow.appendChild(tableData2);
 	}
 
-	static removeFromCart(id){
-		let shoppingCartItems = ShoppingCart.getCart()
-		shoppingCartItems.filter( cartItem =>  cartItem.id != id);
-		window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+
+	//Removing item from cart
+	static removeFromCart(itemId){
+		let itemRemoved = ShoppingCart.getCart().filter( cartItem =>  cartItem.id != itemId);
+		window.localStorage.setItem('shoppingCartItems', JSON.stringify(itemRemoved));
 		ShoppingCart.renderShoppingCart();
 	}
 
