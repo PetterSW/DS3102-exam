@@ -61,7 +61,8 @@ nav {
 
 /*Styling navigation list using flex to posisioning list items*/
 nav ul {
-	margin: 0;
+    margin: 0;
+    height: 75px;
 	padding: 0;
 	list-style: none;
 	display: flex;
@@ -75,8 +76,28 @@ nav ul {
     font-size: 70px;
  }
 
- .fa-shopping-cart{
-    font-size: 35px;
+ /*Shopping cart icon */
+
+ #cart-icon-wrapper {
+     position: relative;
+     width: 50px;
+     top: -20px;
+ }
+
+ #cart-icon {
+     position: absolute;
+     font-size: 45px;
+ }
+ #menubar-shoppingcart-qty {
+     position: absolute;
+     background-color: red;
+     top: -24px;
+     right: -16px;
+     text-align: center;
+     padding: 2px 6px 2px 6px;
+     border-radius: 60px;
+     color: white;
+     font-size: 0.7em;
  }
 
 /*Nav links fade trasition*/
@@ -107,6 +128,7 @@ nav a:not(.navbar-icon)::before {
 	transform: scale(0, 1);
 	transition: transform ease-in-out 250ms;
 }
+
 
 nav a:hover::before {
 	transform: scale(1,1);

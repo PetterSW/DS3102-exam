@@ -6,3 +6,11 @@ import { Review, ReviewElement } from '../script/reviews.js';
 export {
     UUElement, Product, ProductListElement, Review, ShoppingCart, ReviewElement, deliveryMethodChanged, placeOrder
 }
+/*
+export function shoppingCartQty() {
+    document.getElementById("menubar-shoppingcart-qty").innerHTML = ShoppingCart.getQty();
+
+*/
+(function(){
+    ShoppingCart.setMenuBarQty();
+})(); 

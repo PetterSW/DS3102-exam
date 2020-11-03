@@ -78,6 +78,15 @@ export class ShoppingCart{
 			tableRow.appendChild(tableData2);
 	}
 
+	static setMenuBarQty() {
+		let qty = 0;
+		let productList = JSON.parse(localStorage.getItem('productList')) || [];
+		ShoppingCart.getCart().forEach( cartItem => {
+			const product = productList.find( product => product.id == cartItem.id );
+			qty += parseInt(cartItem.qty);
+		})
+		document.getElementById("menubar-shoppingcart-qty").innerHTML = qty;
+	}
 
 	//Removing item from cart
 	static removeFromCart(itemId){
