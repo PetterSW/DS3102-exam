@@ -92,13 +92,12 @@ export class Review {
 //Rendering the amount of stars per review per review
 
 
-//Sort reviews change
-document.querySelector(`[name="review-sort"]`).addEventListener( "change", Review.renderReviews );
+
 
 //Let the user set the amount of stars.
 var isClicked = false;
 var amountOfStars; 
-document.querySelector("star-review").addEventListener("mouseover", () => {
+function setAmountOfStars () {
     var star = document.querySelectorAll('.input-star');
     for(var i = 0; i < star.length; i++) {
         // If the amount not has been set yes
@@ -141,10 +140,10 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
             })
         })(i);}
     }
-})
+}
 
 //Click event for submit-butten to add an review.
-document.querySelector('[name="review-form"').addEventListener("submit", () => {
+function addReview() {
     let reviewName = document.querySelector('[name="review-name"]').value;
     let reviewDescription = document.querySelector('[name="review-text"]').value;
     
@@ -154,14 +153,19 @@ document.querySelector('[name="review-form"').addEventListener("submit", () => {
     const newReview = new Review(reviewName, reviewDescription, today, amountOfStars);
 
     event.target.reset()
-    ;});
+    ;};
 
-(function(){
+if(document.getElementById("reviews-container")) {
     Review.renderReviews();
-})();
-
-if(document.readyState === 'complete') {
-    
+    document.querySelector(`[name="review-sort"]`).addEventListener( "change", () => {
+        Review.renderReviews()
+    } );
+    document.querySelector("star-review").addEventListener("mouseover", () => {
+        setAmountOfStars();
+    } );
+    document.querySelector('[name="review-form"').addEventListener("submit", () => {
+        addReview();
+    } );
 }
 
 //Sets default reviews in localStorage
