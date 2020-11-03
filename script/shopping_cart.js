@@ -77,7 +77,6 @@ export class ShoppingCart{
 			tableData2.textContent = totalPrice + "Kr";
 			tableRow.appendChild(tableData2);
 	}
-<<<<<<< HEAD
 
 
 	//Removing item from cart
@@ -97,22 +96,11 @@ export class ShoppingCart{
 			ShoppingCart.renderShoppingCart();
 		}		
 	}
-
-}
-=======
 	
-	static removeFromCart(id){
-		let shoppingCartItems = ShoppingCart.getCart()
-		shoppingCartItems.filter( cartItem =>  cartItem.id != id);
-		window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-		ShoppingCart.renderShoppingCart();
-	}
-
 	static clearCart() {
 		localStorage.removeItem('shoppingCartItems');
 		ShoppingCart.renderShoppingCart();
 	}
->>>>>>> order
 
 }
 
