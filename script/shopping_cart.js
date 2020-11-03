@@ -96,7 +96,7 @@ export class ShoppingCart{
 			ShoppingCart.renderShoppingCart();
 		}		
 	}
-	
+	//Clearing shoppingcart localStorage
 	static clearCart() {
 		localStorage.removeItem('shoppingCartItems');
 		ShoppingCart.renderShoppingCart();
@@ -104,6 +104,7 @@ export class ShoppingCart{
 
 }
 
+//View address input if the user want the sushi home
 export function deliveryMethodChanged() {
 	let method = document.querySelector('input[name="delivery-method"]:checked').value;
 	if (method == "sushiToHome") {
@@ -114,7 +115,7 @@ export function deliveryMethodChanged() {
 		document.getElementById("input-address-container").style.visibility = "hidden";
 	}
 }
-
+//Place the selected order
 export function placeOrder() {
 	event.preventDefault();
 	ShoppingCart.clearCart();
