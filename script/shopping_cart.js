@@ -79,6 +79,9 @@ export class ShoppingCart{
 			tableDataPrice.setAttribute('class', 'cart-table__tfoot__price');
 			tableDataPrice.textContent = totalPrice + "Kr";
 			tableRow.appendChild(tableDataPrice);
+
+			//Render navbar quantity
+			ShoppingCart.setMenuBarQty();
 	}
 
 	static setMenuBarQty() {
