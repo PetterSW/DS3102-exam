@@ -96,23 +96,23 @@ export class ProductListElement extends HTMLElement{
 
 	//Adding product to cart
 	addToCart(productId){
-		var shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+		var shoppingCartItems = JSON.parse(localStorage.getItem('shoppingCartItems')) || [];
 
 		//Adding or increas qty in local storage
 		if(AlreadyInCart(productId) === false){
 			let cartItem = {id: productId, qty: 1};
-			shoppingCart.push(cartItem);
+			shoppingCartItems.push(cartItem);
 		}else{
-			shoppingCart[AlreadyInCart(productId)].qty += 1;
+			shoppingCartItems[AlreadyInCart(productId)].qty += 1;
 		}
 
-		window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+		window.localStorage.setItem('shoppingCartItems', JSON.stringify(shoppingCartItems));
 
 		//Returns false if item dont exist in array or index if item exists
 		function AlreadyInCart(productId){
 			let index = false;
-			for(var i = 0; shoppingCart.length > i; i++){
-				if(shoppingCart[i].id === productId){ index = i;}
+			for(var i = 0; shoppingCartItems.length > i; i++){
+				if(shoppingCartItems[i].id === productId){ index = i;}
 			}
 			return index;
 		}

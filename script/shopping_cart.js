@@ -5,7 +5,7 @@ export class ShoppingCart{
 	static container = document.getElementById('checkout-container');
 	static table = document.getElementById('cart-table');
 
-	static getCart = () => JSON.parse(localStorage.getItem('shoppingCart')) || [];
+	static getCart = () => JSON.parse(localStorage.getItem('shoppingCartItems')) || [];
 
 	//Function to render shoppingcart at checkout
 	static renderShoppingCart(){
@@ -22,12 +22,36 @@ export class ShoppingCart{
 			totalPrice += product.price * cartItem.qty;
 
 			//Print table row into table body
-			document.querySelector('#cart-table tbody').innerHTML += 
+			/*document.querySelector('#cart-table tbody').innerHTML += 
 			`<tr>
 				<td>${product.name}</td>
 				<td>${cartItem.qty}</td>
 				<td>${product.price * cartItem.qty}Kr</td>
-			</tr>`;
+			</tr>`;*/
+
+			let tableRow = document.createElement('tr');
+			document.querySelector('#cart-table tbody').appendChild(tableRow);
+
+			let tableData = document.createElement('td');
+			tableData.textContent = product.name;
+			tableRow.appendChild(tableData);
+
+			let tableData1 = document.createElement('td');
+			tableData1.textContent = cartItem.qty;
+			tableRow.appendChild(tableData1);
+
+			let tableData2 = document.createElement('td');
+			tableData2.textContent = product.price * cartItem.qty + "Kr";
+			tableRow.appendChild(tableData2);
+
+			let tableData3 = document.createElement('td');
+			tableRow.appendChild(tableData3);
+
+			let removeBtn = document.createElement('button');
+			removeBtn.textContent = "x";
+			tableData3.appendChild(removeBtn);
+			removeBtn.addEventListener('click', () => ShoppingCart.removeFromCart(cartItem.id));
+
 		});
 
 		//Printing total qty and total price in table foot
@@ -38,6 +62,13 @@ export class ShoppingCart{
 			<td>${totalPrice}Kr</td>
 		</tr>`;
 
+	}
+
+	static removeFromCart(id){
+		let shoppingCartItems = ShoppingCart.getCart()
+		shoppingCartItems.filter( cartItem =>  cartItem.id != id);
+		window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+		ShoppingCart.renderShoppingCart();
 	}
 
 }
