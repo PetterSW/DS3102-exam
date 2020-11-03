@@ -23,33 +23,42 @@ export class ShoppingCart{
 		//Finding product based on id in shoppingcart
 		ShoppingCart.getCart().forEach( cartItem => {
 			const product = productList.find( product => product.id == cartItem.id );
-			totalQty += cartItem.qty;
-			totalPrice += product.price * cartItem.qty;
+			totalQty += parseInt(cartItem.qty);
+			totalPrice += parseInt(product.price) * parseInt(cartItem.qty);
 
 
 			//Creating, appending and setting content for table body elements
 			let tableRow = document.createElement('tr');
 			document.querySelector('#cart-table tbody').appendChild(tableRow);
 
-			let tableData = document.createElement('td');
-			tableData.textContent = product.name;
-			tableRow.appendChild(tableData);
+			let tableDataName = document.createElement('td');
+			tableDataName.textContent = product.name;
+			tableRow.appendChild(tableDataName);
 
-			let tableData1 = document.createElement('td');
-			tableData1.textContent = cartItem.qty;
-			tableRow.appendChild(tableData1);
+			let tableDataQuantity = document.createElement('td');
+			tableRow.appendChild(tableDataQuantity);
 
-			let tableData2 = document.createElement('td');
-			tableData2.textContent = product.price * cartItem.qty + "Kr";
-			tableRow.appendChild(tableData2);
+			//Input to change qty
+			let qtyInput = document.createElement('input');
+			qtyInput.setAttribute('type', 'number');
+			qtyInput.setAttribute('class', 'cart-qty-input');
+			qtyInput.value = cartItem.qty;
+			tableDataQuantity.appendChild(qtyInput);
+			qtyInput.addEventListener('change', () => ShoppingCart.changeQuantity(cartItem.id, qtyInput.value));
+			
 
-			let tableData3 = document.createElement('td');
-			tableRow.appendChild(tableData3);
+			let tableDataPrice = document.createElement('td');
+			tableDataPrice.textContent = product.price * cartItem.qty + "Kr";
+			tableRow.appendChild(tableDataPrice);
+
+			let tableDataRemove = document.createElement('td');
+			tableRow.appendChild(tableDataRemove);
 
 			//Remove button for removeing items from cart
 			let removeBtn = document.createElement('button');
+			removeBtn.setAttribute('class', 'cart-remove-btn');
 			removeBtn.textContent = "x";
-			tableData3.appendChild(removeBtn);
+			tableDataRemove.appendChild(removeBtn);
 			removeBtn.addEventListener('click', () => ShoppingCart.removeFromCart(cartItem.id));
 
 		});
@@ -78,6 +87,17 @@ export class ShoppingCart{
 		let itemRemoved = ShoppingCart.getCart().filter( cartItem =>  cartItem.id != itemId);
 		window.localStorage.setItem('shoppingCartItems', JSON.stringify(itemRemoved));
 		ShoppingCart.renderShoppingCart();
+	}
+
+	//Changing quantity at checkout
+	static changeQuantity(itemId, newQty){
+		if(newQty == 0){ ShoppingCart.removeFromCart(itemId); }
+		else{
+			ShoppingCart.shoppingCartItems = ShoppingCart.getCart();
+			ShoppingCart.shoppingCartItems.forEach( cartItem => cartItem.id === itemId ? cartItem.qty = newQty : cartItem.qty );
+			window.localStorage.setItem('shoppingCartItems', JSON.stringify(ShoppingCart.shoppingCartItems));
+			ShoppingCart.renderShoppingCart();
+		}		
 	}
 
 }
