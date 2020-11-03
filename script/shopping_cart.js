@@ -1,5 +1,3 @@
-
-
 export class ShoppingCart{
 	static shoppingCartItems = [];
 	static container = document.getElementById('checkout-container');
@@ -19,7 +17,6 @@ export class ShoppingCart{
 		let totalQty = 0;
 		let totalPrice = 0;
 		let productList = JSON.parse(localStorage.getItem('productList')) || [];
-
 		//Finding product based on id in shoppingcart
 		ShoppingCart.getCart().forEach( cartItem => {
 			const product = productList.find( product => product.id == cartItem.id );
@@ -80,6 +77,7 @@ export class ShoppingCart{
 			tableData2.textContent = totalPrice + "Kr";
 			tableRow.appendChild(tableData2);
 	}
+<<<<<<< HEAD
 
 
 	//Removing item from cart
@@ -101,11 +99,43 @@ export class ShoppingCart{
 	}
 
 }
+=======
+	
+	static removeFromCart(id){
+		let shoppingCartItems = ShoppingCart.getCart()
+		shoppingCartItems.filter( cartItem =>  cartItem.id != id);
+		window.localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+		ShoppingCart.renderShoppingCart();
+	}
 
+	static clearCart() {
+		localStorage.removeItem('shoppingCartItems');
+		ShoppingCart.renderShoppingCart();
+	}
+>>>>>>> order
 
+}
 
+export function deliveryMethodChanged() {
+	let method = document.querySelector('input[name="delivery-method"]:checked').value;
+	if (method == "sushiToHome") {
+		document.getElementById("input-address-container").style.visibility = "visible";
+		document.getElementById("input-address").required = true;
+	}
+	if (method == "pickup") {
+		document.getElementById("input-address-container").style.visibility = "hidden";
+	}
+}
+
+export function placeOrder() {
+	event.preventDefault();
+	ShoppingCart.clearCart();
+	document.getElementById("confirm-order-text").innerHTML = "Takk for din bestilling! Din ordre er klar om 15 minutter";
+	event.target.reset;
+}
 
 if(ShoppingCart.container){
 	ShoppingCart.renderShoppingCart();
+	document.getElementById("delivery-method").addEventListener("click", deliveryMethodChanged);
+	document.querySelector("[name='form-place-order']").addEventListener("submit", placeOrder); 
 }
-

@@ -7,7 +7,7 @@
 
       <!-- Style links-->
       <link rel="stylesheet" type="text/css" href="../css/main.css">
-      <link rel="stylesheet" type="text/css" href="../css/product_list.css">
+      <link rel="stylesheet" type="text/css" href="../css/shopping_cart.css">
 
       <!-- Script links -->
       <script src="../script/main.js" type="module" defer></script>
@@ -58,6 +58,24 @@
                </tfoot>
             </table>
             
+         </section>
+         <section id="place-order-container">
+            <h3 id="place-order-title">Legg din ordre!</h3>
+            <form name="form-place-order">
+               <input type="text" placeholder="Ditt navn" class="input-delivery" id="input-name">
+               <input type="text" placeholder="Mobilnummer" class="input-delivery"id="input-phone">
+               <section id="delivery-method">
+                  <input name="delivery-method" type="radio" class="radio-delivery" id="input-delivery-pickup" value="pickup">
+                  <label for="pickup" class="label-delvery" id="label-pickup">Hent selv - (Gratis)</label>
+                  <input name="delivery-method" type="radio" class="radio-delivery" id="input-delivery-home" value="sushiToHome">
+                  <label for="pickup" class="label-delvery" id="label-home">Levert på døren (kr. 79)</label>
+               </section>
+               <section id="input-address-container">
+                  <input type="text" class="input-delivery" id="input-address" placeholder="Adresse">
+               </section>
+               <button id="btn-submit" type="submit">Bestill</button>
+            </form>
+            <p id="confirm-order-text"></p>
          </section>
 
       </main>
