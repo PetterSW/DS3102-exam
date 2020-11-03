@@ -5,7 +5,7 @@ export class Product{
 		this.name = name;
 		this.img = img;
 		this.description = description;
-		this.price = price + "Kr";
+		this.price = price;
 		this.id = Product.getProductList().length;
 		this.addProduct();
 	}
@@ -32,7 +32,7 @@ export class Product{
 			data-product-id="${product.id}"
 			img="${product.img}"
 			description="${product.description}"
-			price="${product.price}"
+			price="${product.price}Kr"
 			></product-list-item>`
 		});
 		Product.productContainer.innerHTML = productHTML;
