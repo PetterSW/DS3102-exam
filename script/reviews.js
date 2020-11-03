@@ -106,9 +106,11 @@ document.querySelector("star-review").addEventListener("mouseover", () => {
             (function(index) {
                 //Event mouseover, "gold stars" from star number one to the users pointer
                 star[index].addEventListener("mouseover", function() {
-                    for(var r = 0; r <= index; r++) {
-                        star[r].style.color = "gold";
-                    }
+                    if(!isClicked) {
+                        for(var r = 0; r <= index; r++) {
+                            star[r].style.color = "gold";
+                        }
+                }
                 })
                //If the user not choose any stars, the stars will reset. 
                 star[index].addEventListener("mouseout", function() {
@@ -147,12 +149,12 @@ document.querySelector('[name="review-form"').addEventListener("submit", () => {
     let reviewDescription = document.querySelector('[name="review-text"]').value;
     
     let date = new Date();
-    let today = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
+    let today = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
 
     const newReview = new Review(reviewName, reviewDescription, today, amountOfStars);
 
-    event.target.reset();
-});
+    event.target.reset()
+    ;});
 
 (function(){
     Review.renderReviews();
