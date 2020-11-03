@@ -117,6 +117,13 @@ export class ProductListElement extends HTMLElement{
 			}
 			return index;
 		}
+
+		//Display and insert product name in feedback box
+		let product = Product.getProductList().find( product => product.id == productId );
+		document.getElementById('cart-feedback__text').innerHTML = `${product.name} <br> Lagt til i handlekurven`;
+		document.getElementById('cart-feedback').style.display = "block";
+
+
 		ShoppingCart.setMenuBarQty();
 	}
 }
@@ -126,6 +133,15 @@ window.customElements.define("product-list-item", ProductListElement);
 
 //Adding event lisentner only if element is loaded
 if(Product.productContainer){
+
+	//Close feedback window
+	document.getElementById('cart-feedback__exit').addEventListener('click', () => 
+		document.getElementById('cart-feedback').style.display = "none" );
+
+	document.getElementById('cart-feedback__continue__btn').addEventListener('click', () => 
+		document.getElementById('cart-feedback').style.display = "none" );
+
+	//Creating products
 	window.localStorage.setItem('productList', JSON.stringify([]));
 	new Product("Liten Tallerken", "../images/food/Liten-tallerken.jpg", "Perfekt som en porsjon.", "89");
 	new Product("Stor Tallerken", "../images/food/Stor-tallerken.jpg", "Ekstra sulten eller på deling?", "149");
