@@ -8,7 +8,7 @@ h1, h2, h3{
 
 body {
      margin: 0;
-     background: #2b2e4a;
+     background: #363333;
      font-family: 'Work Sans', sans-serif;
      font-weight: 400;
 }
@@ -21,14 +21,14 @@ nav {
     top: 0px;
     z-index: 1;
     width: 100%;
-    background-color: #1d2d50;
+    background-color: #222222;
 }
 
 /*Styling navigation list using flex to posisioning list items*/
 nav ul {
     margin: 0;
     min-height: 4rem;
-	padding: 1em;
+	padding: 0em 1em;
     box-sizing: border-box;
 	list-style: none;
 	display: flex;
@@ -41,12 +41,12 @@ nav ul {
 
 .navbar-icon i{
     font-size: 1.5em;
-    color: #34A4C9;
+    color: #ffffff;
     transition: all 0.4s ease 0s;
 }
 
 .navbar-icon i:hover {
-    color: #1e5f74;
+    color: #4d4545;
 }
 
 /*Hide hamburger menu*/
@@ -81,7 +81,7 @@ nav ul {
 nav a {
 	position: relative;
 
-	color: #34A4C9;
+	color: #ffffff;
 	text-decoration: none;
 	font-size: 1.5rem;
 	text-transform: uppercase;
@@ -89,7 +89,7 @@ nav a {
 }
 
 nav a:hover {
-	color: #1e5f74;
+	color: #4d4545;
 }
 
 /*Nav links line transition*/
@@ -97,7 +97,7 @@ nav a:hover {
 	content: '';
 	display: block;
 	height: 2px;
-	background: #133b5c;
+	background: #4d4545;
 	position: absolute;
 	top: -0.2em;
 	left: 0;
@@ -142,7 +142,7 @@ nav a:hover::before {
 }*/
 
 main{
-	background-color: #133b5c;
+	background-color: #222222;
 	margin: 0;
 	padding: 5px;
 	min-height: 30em;
@@ -154,7 +154,7 @@ main{
 #main-title{
 	margin-top: 10px;
 	text-align: center;
-    color: #34A4C9;
+    color: #ffffff;
     font-family: "Montserrat", sans-serif;
     font-size: 1.7em;
     font-weight: 300;
@@ -173,7 +173,7 @@ main{
 }
 
  footer {
- 	background-color: #1d2d50;
+ 	background-color: #222222;
     text-align: center;
     min-height: 5em;
     width: 100%;
@@ -204,8 +204,9 @@ main{
         display: block;
     }
 
-    .navbar-logo{
-        display: none;
+    .navbar-logo img{
+        height: 2.5em;
+        text-align: center;
     }
 
     .navbar-cart{
