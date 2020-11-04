@@ -8,7 +8,7 @@ h1, h2, h3{
 
 body {
      margin: 0;
-     background: #2b2e4a;
+     background: #363333;
      font-family: 'Work Sans', sans-serif;
      font-weight: 400;
 }
@@ -56,7 +56,7 @@ nav {
     top: 0px;
     z-index: 1;
     width: 100%;
-    background-color: #1d2d50;
+    background-color: #222222;
 }
 
 /*Styling navigation list using flex to posisioning list items*/
@@ -104,7 +104,7 @@ nav ul {
 nav a {
 	position: relative;
 
-	color: #34A4C9;
+	color: #ffffff;
 	text-decoration: none;
 	font-size: 1.5rem;
 	text-transform: uppercase;
@@ -112,7 +112,7 @@ nav a {
 }
 
 nav a:hover {
-	color: #1e5f74;
+	color: #4d4545;
 }
 
 /*Nav links line transition*/
@@ -120,7 +120,7 @@ nav a:not(.navbar-icon)::before {
 	content: '';
 	display: block;
 	height: 2px;
-	background: #133b5c;
+	background: #4d4545;
 	position: absolute;
 	top: -.75em;
 	left: 0;
@@ -165,7 +165,7 @@ nav a:hover::before {
 }*/
 
 main{
-	background-color: #133b5c;
+	background-color: #222222;
 	margin: 0;
 	padding: 5px;
 	min-height: 30em;
@@ -177,7 +177,7 @@ main{
 #main-title{
 	margin-top: 10px;
 	text-align: center;
-    color: #34A4C9;
+    color: #ffffff;
     font-family: "Montserrat", sans-serif;
     font-size: 1.7em;
     font-weight: 300;
@@ -196,7 +196,7 @@ main{
 }
 
  footer {
- 	background-color: #1d2d50;
+ 	background-color: #222222;
     text-align: center;
     min-height: 5em;
     width: 100%;
