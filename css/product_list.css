@@ -31,10 +31,13 @@ text-align: center;
 
 .product-description{
     text-align: center;
+    color: white;
+    text-shadow: 3px 3px 3px black;
 }
 
 .product-price{
-  color: white;
+    text-shadow: 3px 3px 3px black;
+    color: white;
     margin-right: 1em;
     
    
