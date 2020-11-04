@@ -14,3 +14,11 @@ export function shoppingCartQty() {
 (function(){
     ShoppingCart.setMenuBarQty();
 })(); 
+
+//Function to show and hide menu on smaller screens
+let navbarToggle = () => {
+	document.querySelectorAll('.navbar-item')
+	.forEach( item => getComputedStyle(item).display == "none" ? item.style.display = "block" :  item.style.display = "none" );
+}
+
+document.getElementById('navbar-toggle').addEventListener('click', navbarToggle);
