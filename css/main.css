@@ -139,11 +139,14 @@ nav a:hover::before {
      margin: 0;
      position: relative;
      width: 100%;
+     overflow: hidden;
+     height: auto;
 }
 
 .slideshow {
-    display: none;
-    width: auto;
+    height: 0px;
+    width: 0px;
+    transform: translateX(-101%);
 }
 
 .slideshow > img  {
