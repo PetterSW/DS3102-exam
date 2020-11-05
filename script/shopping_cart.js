@@ -30,8 +30,11 @@ export class ShoppingCart{
 
 			let tableDataName = document.createElement('td');
 			tableDataName.setAttribute('class', 'cart-table__name');
-			tableDataName.textContent = product.name;
 			tableRow.appendChild(tableDataName);
+
+			let nameP = document.createElement('p');
+			nameP.textContent = product.name;
+			tableDataName.appendChild(nameP);
 
 			let tableDataQuantity = document.createElement('td');
 			tableDataQuantity.setAttribute('class', 'cart-table__qty');
@@ -49,8 +52,11 @@ export class ShoppingCart{
 
 			let tableDataPrice = document.createElement('td');
 			tableDataPrice.setAttribute('class', 'cart-table__price');
-			tableDataPrice.textContent = product.price * cartItem.qty + "Kr";
 			tableRow.appendChild(tableDataPrice);
+
+			let priceP = document.createElement('p');
+			priceP.textContent = product.price * cartItem.qty + "Kr";
+			tableDataPrice.appendChild(priceP);
 
 			//Remove button for removeing items from cart
 			let removeBtn = document.createElement('i');
@@ -67,18 +73,27 @@ export class ShoppingCart{
 
 			let tableDataTotal = document.createElement('td');
 			tableDataTotal.setAttribute('class', 'cart-table__tfoot__name');
-			tableDataTotal.textContent = "Totalt";
 			tableRow.appendChild(tableDataTotal);
+
+			let totalB = document.createElement('strong');
+			totalB.textContent = "Totalt";
+			tableDataTotal.appendChild(totalB);
 
 			let tableDataQuantity = document.createElement('td');
 			tableDataQuantity.setAttribute('class', 'cart-table__tfoot__qty');
-			tableDataQuantity.textContent = totalQty;
 			tableRow.appendChild(tableDataQuantity);
+
+			let quantityB = document.createElement('strong');
+			quantityB.textContent = totalQty;
+			tableDataQuantity.appendChild(quantityB);
 
 			let tableDataPrice = document.createElement('td');
 			tableDataPrice.setAttribute('class', 'cart-table__tfoot__price');
-			tableDataPrice.textContent = totalPrice + "Kr";
 			tableRow.appendChild(tableDataPrice);
+
+			let priceP = document.createElement('strong');
+			priceP.textContent = totalPrice + "Kr";
+			tableDataPrice.appendChild(priceP);
 
 			//Render navbar quantity
 			ShoppingCart.setMenuBarQty();

@@ -43,6 +43,10 @@
     width: 100%;
 }
 
+#cart-table p{
+    display: inline-block;
+}
+
 /*Applying common vertical padding*/
 #cart-table th, #cart-table td{    
     padding-top: 0.5em;
