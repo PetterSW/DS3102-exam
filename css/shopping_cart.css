@@ -25,25 +25,12 @@
 }
 
 #btn-order-submit {
-    border: 1px solid #FFFFFF;
-    border-radius: 0px;
-    background-color: transparent;
-    color: #FFFFFF;
-    padding: 5px;
     margin: 10px 0px 30px 11px;
-    padding-left: 10px;
-    padding-right: 10px;
     font-size: 1.3em;
-      font-family: "Montserrat", sans-serif;
-
 }
+
 #place-order-title{
-	margin-top: 10px;
 	text-align: center;
-    color: #34A4C9;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.4em;
-    font-weight: 300;
 }
 
 

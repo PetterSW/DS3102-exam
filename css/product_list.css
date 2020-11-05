@@ -9,9 +9,8 @@ padding: 0rem 1rem 0rem 1rem;
 }
 /*Styling for product element*/
 .product{
-    
+    cursor: pointer;
     text-align: center;
-    
 }
 
 .product-name{
@@ -34,7 +33,6 @@ padding: 0rem 1rem 0rem 1rem;
 
 .product-description{
     text-align: center;
-    color: white;
     text-shadow: 3px 3px 3px black;
 }
 
@@ -47,29 +45,10 @@ padding: 0rem 1rem 0rem 1rem;
   
 }
 
-#cart-feedback__continue__btn, #cart-feedback__checkout__btn, .add-to-cart-btn{
-  background-color: #8e181b;
-  border: 0px solid white;    
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px black;
-  color: white;
+
+.add-to-cart-btn{
     margin-left: 2em;
    
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  display: inline-block;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
-}
-
-.add-to-cart-btn:hover{
-  background-color: #431011;
-}
-
-.add-to-cart-btn:active{
-  background-color: #431011;
 }
 
 
@@ -97,6 +76,3 @@ padding: 0rem 1rem 0rem 1rem;
   top: 0.5em;
 }
 
-#cart-feedback__continue__btn, #cart-feedback__checkout__btn{
-
-}
