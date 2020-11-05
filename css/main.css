@@ -134,34 +134,32 @@ nav a:hover::before {
 	transform: scale(1,1);
 }
 
+/*Banner slideshow*/
 
  .slideshow-container{
-     margin: 0;
-     position: relative;
-     width: 100%;
-     overflow: hidden;
-     height: auto;
+    position: relative;
 }
+
+/*Each banner*/
 
 .slideshow {
-    height: 0px;
-    width: 0px;
-    transform: translateX(-101%);
+    position: absolute;
+    transform: translateX(-100%);
 }
-
+/*Banner image*/
 .slideshow > img  {
     width: 100%;
-    height: auto;
+
 }
+/*Next and previous banner button*/
 
 .next, .prev {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    bottom: 50%;
     background-color: transparent;
     border: 0px;
     font-size: 2em;
-    width: auto;
     color: #ffffff;
 }
 .next {
@@ -181,25 +179,6 @@ nav a:hover::before {
     text-align: center;
     z-index: 1;
 }
-
-/*
-
-<section class="slideshow-container">
-         <article class="slideshow fade">
-            <p class="slide-text">1 / 2</p>
-            <img src="../images/banner/BannerMain.jpg">
-         </article>
-         <article class="slideshow fade">
-            <p class="slide-text">2 / 2</p>
-            <img src="../images/banner/BannerMain2.jpg">
-         </article>
-
-         <!--Next and previous banner-->
-         <a class="prev" onclick="changeBanner(-1)">Tilbake</a>
-         <a class="next" onclick="changeBanner(1)">Neste</a>
-      </section>
-*/
-
 /*
  .matUtvalg{
      padding: 10px;

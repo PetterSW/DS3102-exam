@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="../css/reviews.css">
 
       <!-- Script links -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
       <script src="../script/main.js" type="module" defer></script>
       <script src="https://kit.fontawesome.com/d02ce28bec.js" crossorigin="anonymous"></script>
       <!-- Fontawesome plugin -->
@@ -34,9 +35,26 @@
             </ul>
         </nav>
 
-      <div class="banner-wrapper">
-         <img class="banner" src="../images/banner/banner-bg1.jpg">
-      </div>
+      <!--Slideshow banner-->
+
+    <section class="slideshow-container">
+        <article class="slideshow fade" style="transform: translateX(0%);">
+           <p class="slide-text">1 / 3</p>
+           <img class="slide-img" src="../images/banner/BannerMain.jpg">
+        </article>
+        <article class="slideshow fade">
+           <p class="slide-text">2 / 3</p>
+           <img class="slide-img" src="../images/banner/BannerMain2.jpg">
+        </article>
+        <article class="slideshow fade">
+           <p class="slide-text">3 / 3</p>
+           <img class="slide-img" src="../images/banner/BannerMain.jpg">
+        </article>
+
+        <!--Next and previous banner-->
+        <i id="next-btn" class="next fas fa-chevron-right"></i>
+        <i id="prev-btn" class="prev fas fa-chevron-left"></i>
+    </section>
 
     <main>
         <header>
