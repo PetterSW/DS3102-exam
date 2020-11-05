@@ -1,13 +1,13 @@
 /*Sort reviews*/
 
 header > select {
-    background-color: #2b2e4a;
+    background-color: #8e181b;
     color: #FFFFFF;
     width: 250px;
     height: 30px;
     margin: 15px;
     font-size: 1em;
-    border: 1px solid #2b2e4a;
+    border: 1px solid #8e181b;
     border-radius: 5px;
 }
 
@@ -30,8 +30,8 @@ restaurant-review {
     height: auto;
     max-height: 300px;
     margin: 10px;
-    background-color: #2b2e4a;
-    border: 1px solid #2b2e4a;
+    background-color: #8e181b;
+    border: 1px solid #8e181b;
     border-radius: 5px;
     padding-left: 10px;
 }
@@ -65,15 +65,17 @@ restaurant-review {
 
 .review-input {
     width: 100%;
+    outline: none;
     padding: 7px 10px 5px 10px;
     border: 1px solid #FFFFFF;
     border-radius: 4px;
-    background-color: #2b2e4a;
+    background-color: #161616;
     margin: 0px 0px 10px 10px;
     color: #FFFFFF;
 }
 #input-name {
     width: auto;
+    outline: none;
     max-width: 400px;
     height: 20px;
     font-size: 1.5em;
@@ -81,12 +83,17 @@ restaurant-review {
 }
 #input-text {
     width: 80%;
+    background-color: #161616;
+    
     resize: none;
     height: 100px;
     font-size: 1.2em;
     font-family: 'Work Sans', sans-serif;
 }
-
+textarea, input {
+    font-family: 'Work Sans', sans-serif;
+    
+}
 #review-visitor-title {
     color: #FFFFFF;
     margin: 30px 20px 20px 15px;
@@ -94,7 +101,9 @@ restaurant-review {
 
 .input-star {
     font-size: 1.5em;
+    color: #161616;
     text-align: center;
+    
 }
 
 #review-submit-btn {

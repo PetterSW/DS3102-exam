@@ -107,7 +107,7 @@ function setAmountOfStars () {
                 star[index].addEventListener("mouseover", function() {
                     if(!isClicked) {
                         for(var r = 0; r <= index; r++) {
-                            star[r].style.color = "gold";
+                            star[r].style.color = "white";
                         }
                 }
                 })
@@ -115,7 +115,7 @@ function setAmountOfStars () {
                 star[index].addEventListener("mouseout", function() {
                     if (!isClicked) {
                         for(var r = 0; r <= index; r++) {
-                            star[r].style.color = "black";
+                            star[r].style.color = "#161616";
                         }
                     }
                 })
@@ -124,7 +124,7 @@ function setAmountOfStars () {
                     isClicked = true;
                     amountOfStars = index+1;
                     for(var r = 0; r <= index; r++) {
-                        star[r].style.color = "gold";
+                        star[r].style.color = "white";
                     }     
                 })
             })(i);
@@ -135,7 +135,7 @@ function setAmountOfStars () {
                 isClicked = true;
                 amountOfStars = index+1;
                 for(var r = index+1; r <= 4; r++) {
-                    star[r].style.color = "black";
+                    star[r].style.color = "#161616";
                 }
             })
         })(i);}

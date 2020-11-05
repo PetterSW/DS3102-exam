@@ -88,16 +88,17 @@ nav ul {
 
  #cart-icon {
      position: absolute;
+     color: #8e181b;
  }
  #menubar-shoppingcart-qty {
      position: absolute;
-     background-color: red;
+     background-color: #ffffff;
      top: -24px;
      right: -16px;
      text-align: center;
      padding: 2px 6px 2px 6px;
      border-radius: 60px;
-     color: white;
+     color: #8e181b;
      font-size: 0.7em;
  }
 
@@ -191,7 +192,7 @@ nav a:hover::before {
 }*/
 
 main{
-	background-color: #222222;
+	background-color: #161616;
 	margin: 0;
 	padding: 5px;
 	min-height: 30em;
