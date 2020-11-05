@@ -28,7 +28,7 @@ export class Product{
 		let productHTML = "";
 		Product.getProductList().forEach( product => {
 			productHTML += 
-			`<product-list-item draggable="true"
+			`<product-list-item
 			name="${product.name} "
 			data-product-id="${product.id}"
 			img="${product.img}"
@@ -62,7 +62,6 @@ export class ProductListElement extends HTMLElement{
 		//creating elements and setting attribute, content and parent element
 		let product = document.createElement('article');
 		product.setAttribute('class', 'product');
-		product.setAttribute('draggable', 'true');
 		this.appendChild(product);
 
 		let name = document.createElement('h3');
@@ -74,6 +73,7 @@ export class ProductListElement extends HTMLElement{
 		img.setAttribute('alt', 'Product image.');
 		img.setAttribute('class', 'product-image');
 		img.setAttribute('src', this.getAttribute('img'));
+		img.setAttribute('draggable', 'true');
 		product.appendChild(img);
 
 		let description = document.createElement('p');
