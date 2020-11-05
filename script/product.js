@@ -95,7 +95,7 @@ export class ProductListElement extends HTMLElement{
 		//Eventlisentner on button
 		addToCartBtn.addEventListener('click', () => ProductListElement.addToCart(this.getAttribute('data-product-id')));
 		//Drag and drop; Dragstart
-		product.addEventListener('dragstart', () => {
+		img.addEventListener('dragstart', () => {
 			ProductListElement.drag(event, this.getAttribute('data-product-id') );
 		} );
 	}

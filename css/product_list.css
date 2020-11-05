@@ -9,7 +9,6 @@ padding: 0rem 1rem 0rem 1rem;
 }
 /*Styling for product element*/
 .product{
-    cursor: pointer;
     text-align: center;
 }
 
@@ -20,15 +19,16 @@ padding: 0rem 1rem 0rem 1rem;
 }
 
 .product-image{
-      display: block;
-        max-width: 100%;
+    cursor: pointer;
+    display: block;
+    max-width: 100%;
 
-      border-radius: 5px;
-      box-shadow: 3px 3px 3px black;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
     
 
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .product-description{
