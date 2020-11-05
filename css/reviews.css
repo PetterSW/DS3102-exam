@@ -30,8 +30,8 @@ restaurant-review {
     height: auto;
     max-height: 300px;
     margin: 10px;
-    background-color: #2b2e4a;
-    border: 1px solid #2b2e4a;
+    background-color: #8e181b;
+    border: 1px solid #8e181b;
     border-radius: 5px;
     padding-left: 10px;
 }
@@ -67,6 +67,7 @@ restaurant-review {
 
 .review-input {
     width: 100%;
+    outline: none;
     padding: 7px 10px 5px 10px;
     border: 1px solid #FFFFFF;
     border-radius: 4px;
@@ -76,6 +77,7 @@ restaurant-review {
 }
 #input-name {
     width: auto;
+    outline: none;
     max-width: 400px;
     height: 20px;
     font-size: 1.5em;
@@ -83,6 +85,8 @@ restaurant-review {
 }
 #input-text {
     width: 80%;
+    background-color: #8e181b;
+    
     resize: none;
     height: 100px;
     font-size: 1.2em;
