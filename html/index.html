@@ -20,18 +20,23 @@
    	<!--Navigation bar-->
    	<nav>
 			<ul>
-				<li><a href="/html/index.html" class="logo navbar-icon">
-					<i class="fas fa-fish"></i>
-				</a></li>
-				<li><a href="index.html">Meny</a></li>
-				<li><a href="reviews.html">Anmeldelser</a></li>
-				<li><a href="universal_design.html">Universell Utforming</a></li>
-            <li><a href="/html/shopping_cart.html" class="navbar-icon">
-               <div id="cart-icon-wrapper">
-                  <i id="cart-icon" class="fas fa-shopping-cart"></i>
-                  <p id="menubar-shoppingcart-qty"></p>
-               </div>
-            </a></li>
+            <li class="navbar-icon" id="navbar-toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+				<li class="navbar-logo navbar-icon">
+               <a href="/html/index.html">
+                  <img class="logo" src="../bilder/LogoNav.png">
+               </a>
+            </li>
+				<li class="navbar-item"><a href="index.html">Meny</a></li>
+				<li class="navbar-item"><a href="reviews.html">Anmeldelser</a></li>
+				<li class="navbar-item"><a href="universal_design.html">Universell Utforming</a></li>
+            <li class="navbar-cart navbar-icon">
+               <a href="/html/shopping_cart.html">
+                  <div id="cart-icon-wrapper">
+                     <i id="cart-icon" class="fas fa-shopping-cart"></i>
+                     <p id="menubar-shoppingcart-qty"></p>
+                  </div>
+               </a>
+            </li>
 			</ul>
 		</nav>
 

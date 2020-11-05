@@ -33,7 +33,7 @@ export class Product{
 			data-product-id="${product.id}"
 			img="${product.img}"
 			description="${product.description}"
-			price="${product.price}Kr"
+			price="${product.price},-"
 			></product-list-item>`
 		});
 		Product.productContainer.innerHTML = productHTML;
@@ -88,7 +88,7 @@ export class ProductListElement extends HTMLElement{
 		let addToCartBtn = document.createElement('button');
 		addToCartBtn.setAttribute('type', 'button');
 		addToCartBtn.setAttribute('class', 'add-to-cart-btn');
-		addToCartBtn.textContent = "Legg til handlekurven!";
+		addToCartBtn.textContent = "KJØP";
 		product.appendChild(addToCartBtn);
 
 		//Eventlisentner on button

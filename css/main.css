@@ -8,47 +8,12 @@ h1, h2, h3{
 
 body {
      margin: 0;
-     background: #2b2e4a;
+     background: #363333;
      font-family: 'Work Sans', sans-serif;
      font-weight: 400;
 }
 
-/*Old nav styling*/
-/* nav {
-     transform: scale(1, 0);
-     transform-origin: top;
-     transition: transform 400ms ease-in-out;
-}
 
- nav {
-     text-align: left;
-     transition: none;
-     transform: scale(1,1);
-     top: initial;
-     left: initial;
-     grid-column: 3 / 4;
-     display: flex;
-     justify-content: flex-end;
-     align-items: center;
-     width: 100%;
-     transition: transform 400ms ease-in-out;
- }*/
-
-/* nav {
-     position: relative;
-     text-align: left;
-     transition: none;
-     transform: scale(1,1);
-     background: none;
-     top: initial;
-     left: initial;
-     grid-column: 3 / 4;
-     display: flex;
-     justify-content: flex-end;
-     align-items: center;
-     width: 100%;
-     transition: transform 400ms ease-in-out;
- }*/
 
 /*Styling nav bar*/
 nav {
@@ -56,14 +21,15 @@ nav {
     top: 0px;
     z-index: 1;
     width: 100%;
-    background-color: #1d2d50;
+    background-color: #222222;
 }
 
 /*Styling navigation list using flex to posisioning list items*/
 nav ul {
     margin: 0;
-    height: 75px;
-	padding: 0;
+    min-height: 4rem;
+	padding: 0em 1em;
+    box-sizing: border-box;
 	list-style: none;
 	display: flex;
 	justify-content: space-around;
@@ -71,10 +37,22 @@ nav ul {
 }
 
 
-/* Navbar icons fonts size */
-.fa-fish{
-    font-size: 70px;
- }
+/* Navbar icons fonts size and hover transition*/
+
+.navbar-icon i{
+    font-size: 1.5em;
+    color: #ffffff;
+    transition: all 0.4s ease 0s;
+}
+
+.navbar-icon i:hover {
+    color: #4d4545;
+}
+
+/*Hide hamburger menu*/
+#navbar-toggle{
+    display: none;
+}
 
  /*Shopping cart icon */
 
@@ -86,7 +64,6 @@ nav ul {
 
  #cart-icon {
      position: absolute;
-     font-size: 45px;
  }
  #menubar-shoppingcart-qty {
      position: absolute;
@@ -104,7 +81,7 @@ nav ul {
 nav a {
 	position: relative;
 
-	color: #34A4C9;
+	color: #ffffff;
 	text-decoration: none;
 	font-size: 1.5rem;
 	text-transform: uppercase;
@@ -112,17 +89,17 @@ nav a {
 }
 
 nav a:hover {
-	color: #1e5f74;
+	color: #4d4545;
 }
 
 /*Nav links line transition*/
-nav a:not(.navbar-icon)::before {
+.navbar-item a::before {
 	content: '';
 	display: block;
 	height: 2px;
-	background: #133b5c;
+	background: #4d4545;
 	position: absolute;
-	top: -.75em;
+	top: -0.2em;
 	left: 0;
 	right: 0;
 	transform: scale(0, 1);
@@ -190,7 +167,7 @@ nav a:hover::before {
 }*/
 
 main{
-	background-color: #133b5c;
+	background-color: #222222;
 	margin: 0;
 	padding: 5px;
 	min-height: 30em;
@@ -202,7 +179,7 @@ main{
 #main-title{
 	margin-top: 10px;
 	text-align: center;
-    color: #34A4C9;
+    color: #ffffff;
     font-family: "Montserrat", sans-serif;
     font-size: 1.7em;
     font-weight: 300;
@@ -221,7 +198,7 @@ main{
 }
 
  footer {
- 	background-color: #1d2d50;
+ 	background-color: #222222;
     text-align: center;
     min-height: 5em;
     width: 100%;
@@ -233,4 +210,40 @@ main{
 }
 .fa-phone {
     color: #ffffff;
+}
+
+/*Styling when screen is 800px or less*/
+@media only screen and (max-width: 800px){
+     
+    /*Navbar styling*/    
+    nav ul{
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .navbar-icon i{
+        font-size: 1.5em;
+    }
+
+    #navbar-toggle{
+        display: block;
+    }
+
+    .navbar-logo img{
+        height: 2.5em;
+        text-align: center;
+    }
+
+    .navbar-cart{
+        order: 1;
+    }
+
+    .navbar-item{
+        order: 2;
+        width: 100%;
+        text-align: center;
+        padding: 0.5em;
+        display: none;
+    }
+
 }
