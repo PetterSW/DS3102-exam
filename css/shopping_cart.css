@@ -1,3 +1,4 @@
+
 #checkout-container{
     padding: 1em;
 }
@@ -9,6 +10,8 @@
     background-color: #2b2e4a;
     margin: 0px 0px 10px 10px;
     color: #FFFFFF;
+      font-family: "Montserrat", sans-serif;
+
 }
 
 .radio-delivery {
@@ -17,6 +20,8 @@
 
 #input-address {
     width: 300px;
+      font-family: "Montserrat", sans-serif;
+
 }
 
 #btn-order-submit {
@@ -29,6 +34,8 @@
     padding-left: 10px;
     padding-right: 10px;
     font-size: 1.3em;
+      font-family: "Montserrat", sans-serif;
+
 }
 #place-order-title{
 	margin-top: 10px;
@@ -71,12 +78,16 @@ for name, quantity and price column, inc. tfoot*/
     padding-left: 0.5em;
     border-bottom: 1px solid white;
     width: 50%;
+    font-family: "Montserrat", sans-serif;
+
 }
 
 .cart-table__tfoot__name{
     text-align: left;
     padding-left: 0.5em;
     width: 50%;
+      font-family: "Montserrat", sans-serif;
+
 }
 
 .cart-table__qty{
@@ -103,6 +114,8 @@ for name, quantity and price column, inc. tfoot*/
     text-align: right;
     padding-right: 1.7em;
     width: 30%;
+      font-family: "Montserrat", sans-serif;
+
 }
 
 
