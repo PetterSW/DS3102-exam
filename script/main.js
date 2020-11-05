@@ -17,12 +17,7 @@ export function shoppingCartQty() {
 
 /* Slideshow */
 
-/**Set height of slideshow container*/
-let slideshowContainer = document.querySelector(".slideshow-container");
-let img = document.getElementsByClassName("slide-img");
-let imgHeight = getComputedStyle(img[0]).height;
 
-slideshowContainer.style.height = imgHeight;
 
 let slideIndex = 1;
 let getSlideIndex = () => slideIndex;
