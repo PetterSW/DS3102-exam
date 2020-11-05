@@ -25,6 +25,14 @@ let imgHeight = getComputedStyle(img[0]).height;
 slideshowContainer.style.height = imgHeight;
 
 let slideIndex = 1;
+let getSlideIndex = () => slideIndex;
+
+
+//Declear auto slide timer and function to start timer
+let autoSlide;
+let startSlideShow = () => autoSlide = setInterval(() => changeBanner(slideIndex,slideIndex += 1), 3000 );   
+
+
 
 /* Change banner */
 
@@ -77,14 +85,18 @@ function changeBanner(currentIndex, newIndex) {
 }
 
 /*Eventlistner for buttons on the banner*/
-
+startSlideShow();
 document.getElementById("next-btn").addEventListener("click", () => {
+    clearInterval(autoSlide);
     changeBanner(slideIndex,slideIndex += 1);
-    
+    startSlideShow();
 })
 
 document.getElementById("prev-btn").addEventListener("click", () => {
+    clearInterval(autoSlide);
     changeBanner(slideIndex,slideIndex += -1);
+    startSlideShow();
+    
 })
 //Function to show and hide menu on smaller screens
 let navbarToggle = () => {
