@@ -28,8 +28,8 @@ export class Product{
 		let productHTML = "";
 		Product.getProductList().forEach( product => {
 			productHTML += 
-			`<product-list-item
-			name="${product.name}"
+			`<product-list-item draggable="true"
+			name="${product.name} "
 			data-product-id="${product.id}"
 			img="${product.img}"
 			description="${product.description}"
@@ -62,6 +62,7 @@ export class ProductListElement extends HTMLElement{
 		//creating elements and setting attribute, content and parent element
 		let product = document.createElement('article');
 		product.setAttribute('class', 'product');
+		product.setAttribute('draggable', 'true');
 		this.appendChild(product);
 
 		let name = document.createElement('h3');
@@ -93,10 +94,30 @@ export class ProductListElement extends HTMLElement{
 
 		//Eventlisentner on button
 		addToCartBtn.addEventListener('click', () => this.addToCart(this.getAttribute('data-product-id')));
+		//Drag and drop; Dragstart
+		product.addEventListener('dragstart', () => {
+			ProductListElement.drag(event, this.getAttribute('data-product-id') );
+		} );
+	}
+	//From https://www.w3schools.com/html/html5_draganddrop.asp
+
+	//Drag and drop products
+	static allowDrop(ev) {
+		ev.preventDefault();
+  	}
+  
+	static drag(ev, productId) {
+		ev.dataTransfer.setData("text/plain", productId);
+	}
+  
+	static drop(ev) {
+		ev.preventDefault();
+		let productId = ev.dataTransfer.getData("text/plain");
+		ProductListElement.addToCart(productId);
 	}
 
 	//Adding product to cart
-	addToCart(productId){
+	static addToCart(productId){
 		var shoppingCartItems = JSON.parse(localStorage.getItem('shoppingCartItems')) || [];
 
 		//Adding or increas qty in local storage
@@ -130,13 +151,19 @@ export class ProductListElement extends HTMLElement{
 
 window.customElements.define("product-list-item", ProductListElement);
 
-
 //Adding event lisentner only if element is loaded
 if(Product.productContainer){
-
+	//Drag and drop events
+	document.querySelector(".navbar-cart").addEventListener('dragover', (event) =>
+		ProductListElement.allowDrop(event));
+	
+	document.querySelector(".navbar-cart").addEventListener('drop', (event) => 
+		ProductListElement.drop(event));
+	
 	//Close feedback window
 	document.getElementById('cart-feedback__exit').addEventListener('click', () => 
 		document.getElementById('cart-feedback').style.display = "none" );
+		
 
 	document.getElementById('cart-feedback__continue__btn').addEventListener('click', () => 
 		document.getElementById('cart-feedback').style.display = "none" );

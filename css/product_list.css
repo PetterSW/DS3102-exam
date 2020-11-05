@@ -10,9 +10,8 @@ text-align: center;
 }
 /*Styling for product element*/
 .product{
-    
+    cursor: pointer;
     text-align: center;
-    
 }
 
 .product-name{
