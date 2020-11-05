@@ -93,7 +93,7 @@ export class ProductListElement extends HTMLElement{
 		product.appendChild(addToCartBtn);
 
 		//Eventlisentner on button
-		addToCartBtn.addEventListener('click', () => this.addToCart(this.getAttribute('data-product-id')));
+		addToCartBtn.addEventListener('click', () => ProductListElement.addToCart(this.getAttribute('data-product-id')));
 		//Drag and drop; Dragstart
 		product.addEventListener('dragstart', () => {
 			ProductListElement.drag(event, this.getAttribute('data-product-id') );
