@@ -38,10 +38,8 @@ restaurant-review {
 
 .review-name {
     position: relative;
-    color: #FFFFFF;
 }
 .review-text {
-    color: #FFFFFF;
     word-wrap: break-word;
     overflow: auto;
     width: auto;
@@ -100,11 +98,6 @@ restaurant-review {
 }
 
 #review-submit-btn {
-    border: 1px solid #FFFFFF;
-    border-radius: 0px;
-    background-color: transparent;
-    color: #FFFFFF;
-    padding: 5px;
     margin: 10px 0px 30px 11px;
     font-size: 1.3em;
 }
