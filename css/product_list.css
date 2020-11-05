@@ -9,9 +9,8 @@ padding: 0rem 1rem 0rem 1rem;
 }
 /*Styling for product element*/
 .product{
-    
+    cursor: pointer;
     text-align: center;
-    
 }
 
 .product-name{
