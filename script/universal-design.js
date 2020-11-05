@@ -20,3 +20,28 @@ export class UUElement extends HTMLElement {
 }
 
 window.customElements.define("universal-design", UUElement);
+
+
+//Selects all 7 information boxes
+let UUArtikkel = document.querySelectorAll(".universal-design-article");
+
+//For-loop that applies event-listener that triggers an anime.js animation on entering and leaving the boxes
+for(let i = 0; i < buttonEl.length; i++) {
+    buttonEl[i].addEventListener('mouseenter', () => {
+        animateButton(1.1, 1200, 800, i);
+    });
+    buttonEl[i].addEventListener('mouseleave', () => {
+        animateButton(1, 300, 300, i);
+    });
+}
+
+//Function that declares what the for-loop values applies to
+function animateButton(scale, duration, elasticity, index) {
+    anime.remove(buttonEl[index]);
+    anime({
+        targets: buttonEl[index],
+        scale: scale,
+        duration: duration,
+        elasticity: elasticity
+    });
+}
