@@ -43,11 +43,16 @@ export class ShoppingCart{
 			tableDataQuantity.setAttribute('class', 'cart-table__qty');
 			tableRow.appendChild(tableDataQuantity);
 
-			//Button to increas quantity
-			let plussIcon = document.createElement('i');
-			plussIcon.setAttribute('class', 'fas fa-plus-circle');
-			tableDataQuantity.appendChild(plussIcon);
-			plussIcon.addEventListener('click', () => ShoppingCart.changeQuantity(cartItem.id, parseInt(qtyInput.value) + 1));
+			/*Wrapper for quantity */
+			let qtyWrapper = document.createElement('div');
+			qtyWrapper.setAttribute('class', 'cart-qty-wrapper');
+			tableDataQuantity.appendChild(qtyWrapper);
+			
+			//Button to decreas quantity
+			let minusIcon = document.createElement('i');
+			minusIcon.setAttribute('class', 'fas fa-minus');
+			qtyWrapper.appendChild(minusIcon);
+			minusIcon.addEventListener('click', () => ShoppingCart.changeQuantity(cartItem.id, parseInt(qtyInput.value) - 1));
 
 			//Input to change qty
 			let qtyInput = document.createElement('input');
@@ -55,15 +60,14 @@ export class ShoppingCart{
 			qtyInput.setAttribute('max', 99);
 			qtyInput.setAttribute('class', 'cart-qty-input');
 			qtyInput.value = cartItem.qty;
-			tableDataQuantity.appendChild(qtyInput);
+			qtyWrapper.appendChild(qtyInput);
 			qtyInput.addEventListener('change', () => ShoppingCart.changeQuantity(cartItem.id, qtyInput.value));
 			
-			//Button to decreas quantity
-			let minusIcon = document.createElement('i');
-			minusIcon.setAttribute('class', 'fas fa-minus-circle');
-			tableDataQuantity.appendChild(minusIcon);
-			minusIcon.addEventListener('click', () => ShoppingCart.changeQuantity(cartItem.id, parseInt(qtyInput.value) - 1));
-
+			//Button to increas quantity
+			let plussIcon = document.createElement('i');
+			plussIcon.setAttribute('class', 'fas fa-plus');
+			qtyWrapper.appendChild(plussIcon);
+			plussIcon.addEventListener('click', () => ShoppingCart.changeQuantity(cartItem.id, parseInt(qtyInput.value) + 1));
 
 			/*Table cell, p tag and remove icon for product price*/
 			let tableDataPrice = document.createElement('td');

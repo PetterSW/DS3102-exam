@@ -1,43 +1,3 @@
-
-#checkout-container{
-    padding: 1em;
-}
-
-.input-delivery{
-    padding: 7px 10px 5px 10px;
-    border: 1px solid #FFFFFF;
-    border-radius: 4px;
-    background-color: #8e181b;
-    margin: 0px 0px 10px 10px;
-    color: #FFFFFF;
-      font-family: "Montserrat", sans-serif;
-
-}
-
-#label-home, #label-pickup{
-    color: #ffffff;
-    
-}
-.radio-delivery {
-    margin-bottom: 20px;
-}
-
-#input-address {
-    width: 300px;
-      font-family: "Montserrat", sans-serif;
-
-}
-
-#btn-order-submit {
-    margin: 10px 0px 30px 11px;
-    font-size: 1.3em;
-}
-
-#place-order-title{
-	text-align: center;
-}
-
-
 /*Center table*/
 #cart-table{
     margin-left: auto;
@@ -86,9 +46,8 @@ for name, quantity and price column, inc. tfoot*/
 }
 
 .cart-table__qty{
-    text-align: center;
-    border-bottom: 1px solid white;
-    width: 20%;
+    align-items: center;
+    border-bottom: 1px solid #ffffff;
 }
 
 .cart-table__tfoot__qty{
@@ -107,20 +66,41 @@ for name, quantity and price column, inc. tfoot*/
     text-align: right;
     padding-right: 1.7em;
     width: 30%;
-      font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif;
 
 }
 
 
 /*Setting size and aligning quantity input*/
+.cart-qty-wrapper {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #453E3E;
+}
+
 .cart-qty-input{
-    height: 1.5em;
-    width: 1.5em;
+    border: none;
+    height: 1.9em;
+    width: 1.7em;
     margin-left: 0.5em;
     margin-right: 0.5em;
     text-align: center;
     outline: none;
 }
+
+#cart-table .fa-plus, .fa-minus{
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#cart-table .fa-plus:hover, #cart-table .fa-minus:hover{
+    color: #83171A;
+}
+
 
 .cart-qty-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -131,14 +111,45 @@ for name, quantity and price column, inc. tfoot*/
     cursor: pointer;
 }
 
-#cart-table .fa-plus-circle{
-    color: green;
-}
-
-#cart-table .fa-minus-circle{
-    color: red;
-}
-
 .cart-remove-btn{
     margin-left: 0.5em;
+    color: #ffffff;
+}
+
+#checkout-container{
+    padding: 1em;
+}
+
+.input-delivery{
+    padding: 7px 10px 5px 10px;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    background-color: #8e181b;
+    margin: 0px 0px 10px 10px;
+    color: #FFFFFF;
+      font-family: "Montserrat", sans-serif;
+
+}
+
+#label-home, #label-pickup{
+    color: #ffffff;
+    
+}
+.radio-delivery {
+    margin-bottom: 20px;
+}
+
+#input-address {
+    width: 300px;
+      font-family: "Montserrat", sans-serif;
+
+}
+
+#btn-order-submit {
+    margin: 10px 0px 30px 11px;
+    font-size: 1.3em;
+}
+
+#place-order-title{
+	text-align: center;
 }
