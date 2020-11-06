@@ -41,9 +41,6 @@ export class Product{
 
 }
 
-
-
-
 //HTML syntax for produkt element:
 
 	/*<product-list-item
@@ -178,12 +175,12 @@ if(Product.productContainer){
 
 	//Creating products
 	window.localStorage.setItem('productList', JSON.stringify([]));
-	new Product("Liten Tallerken", "../images/food/Liten-tallerken.jpg", "Perfekt som en porsjon.", "89");
-	new Product("Stor Tallerken", "../images/food/Stor-tallerken.jpg", "Ekstra sulten eller på deling?", "149");
+	new Product("Liten sushi", "../images/food/Liten-tallerken.jpg", "Perfekt som en porsjon.", "89");
+	new Product("Stor sushin", "../images/food/Stor-tallerken.jpg", "Ekstra sulten eller på deling?", "229");
 	new Product("Lakse-Maki", "../images/food/Maki-salmon.jpg", "Vår klassiske Maki med laks.", "109");
 	new Product("Vegetar-Maki", "../images/food/Maki-vegetar.jpg", "Kutte ned på kjøttinntak? Vegetar-Maki!", "99");
-	new Product("Tempura-Reker", "../images/food/Tempura-Reke.jpg", "Store, friterte reker.", "149");
-	new Product("Sushi-Skål", "../images/food/Sushi-bowl.jpg", "Vår anerkjente Sushi-skål.", "119");
+	new Product("Tempura-Kongereker", "../images/food/Tempura-Reke.jpg", "Store, friterte reker.", "149");
+	new Product("Sashimi", "../images/food/Sushi-bowl.jpg", "Vår anerkjente sashimi.", "119");
 	new Product("Sushi-Burrito", "../images/food/Sushi-Wrap.jpg", "Prøve noe nytt? Sushi i burrito-form!", "99");
 	new Product("Sushi for eventer", "../images/food/Event-tallerken.jpg", "Utrolig stor tallerken, perfekt for eventer!", "999");
 	Product.productContainer.addEventListener('load', Product.renderProducts() );

@@ -13,8 +13,11 @@
     margin: 10px;
 }
 
-
-
 .uu-description {
     margin: 10px;
+}
+
+#uu-source {
+    color: #ffffff;
+    margin-left: 10px;
 }

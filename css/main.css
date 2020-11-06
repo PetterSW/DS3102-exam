@@ -167,7 +167,7 @@ html, body{
      font-size: 1em;
      position: absolute;
      bottom: 1em;
-     left: 50%;
+     width: 100%;
      text-align: center;
      z-index: 1;
 }
