@@ -1,9 +1,13 @@
 export class UUElement extends HTMLElement {
+    static order = 0;
+
 	constructor(){
-		super();
+        super();
 		//creating elements and setting attribute, content and parent element
 		let article = document.createElement('article');
-		article.setAttribute('class', 'universal-design-article');
+        article.setAttribute('class', 'universal-design-article');
+        article.setAttribute('id', UUElement.order)
+        article.setAttribute('draggable', 'true');
 		this.appendChild(article);
 
 		let name = document.createElement('h3');
@@ -15,8 +19,49 @@ export class UUElement extends HTMLElement {
 		description.setAttribute('class', 'uu-description');
 		description.textContent = this.getAttribute('description');
         article.appendChild(description);
+        //Drag and drop eventlisteners
+        article.addEventListener('dragstart', () => {
+            UUElement.drag(event, this.firstChild.id);
+        } );
+        
+        article.addEventListener('drop', () => {
+			UUElement.drop(event, this.firstChild.id);
+        } );
+
+        article.addEventListener('dragover', () => {
+			UUElement.allowDrop(event);
+        } );
+        //
+        UUElement.order++;
+        
         
     }
+    //Drag and drop elements
+
+    static dragged;
+    static draggedID;
+
+	static allowDrop(ev) {
+		ev.preventDefault();
+  	}
+  
+	static drag(ev, dragID) {
+        UUElement.dragged = document.getElementById(dragID).outerHTML;
+        UUElement.draggedID = dragID;
+        console.log(document.getElementById(dragID).outerHTML);
+	}
+  
+	static drop(ev, dropID) {
+        
+        
+        /*let dropHTML = document.getElementById(dropID).outerHTML;
+        console.log(dropHTML);
+        document.getElementById(dropID).outerHTML = UUElement.dragged;
+        document.getElementById(UUElement.draggedID).outerHTML = dropHTML;
+
+        */
+    }
+    
 }
 
 window.customElements.define("universal-design", UUElement);
