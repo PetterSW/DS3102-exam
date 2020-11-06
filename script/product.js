@@ -136,9 +136,17 @@ export class ProductListElement extends HTMLElement{
 			return index;
 		}
 
-		//Display and insert product name in feedback box
+		//Display and insert product name and image in feedback box
 		let product = Product.getProductList().find( product => product.id == productId );
-		document.getElementById('cart-feedback__text').innerHTML = `${product.name} <br> Lagt til i handlekurven`;
+		document.getElementById('cart-feedback__name').innerHTML = product.name;
+
+		document.getElementById('cart-feedback__img-wrap').innerHTML = "";
+		let img = document.createElement('img');
+		img.setAttribute('alt', 'Ordered product.');
+		img.setAttribute('class', 'cart-feedback__img');
+		img.setAttribute('src', product.img);
+		document.getElementById('cart-feedback__img-wrap').appendChild(img);
+
 		document.getElementById('cart-feedback').style.display = "block";
 
 
@@ -160,10 +168,10 @@ if(Product.productContainer){
 	//Close feedback window
 	document.getElementById('cart-feedback__exit').addEventListener('click', () => 
 		document.getElementById('cart-feedback').style.display = "none" );
-		
 
-	document.getElementById('cart-feedback__continue__btn').addEventListener('click', () => 
+	window.addEventListener('scroll', () => 
 		document.getElementById('cart-feedback').style.display = "none" );
+		
 
 	//Creating products
 	window.localStorage.setItem('productList', JSON.stringify([]));

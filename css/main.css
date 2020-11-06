@@ -130,19 +130,19 @@ html, body{
  .slideshow-container{
      position: relative;
      margin-top: 4rem;
-     width: 100vw;
+     width: calc(100vw - (100vw - 100%));
      height: 44.8vw;
 }
 /*Each banner*/
  .slideshow {
      position: absolute;
      transform: translateX(-100%);
-     width: 100vw;
+     width: calc(100vw - (100vw - 100%));
      height: 44.8vw;
 }
 /*Banner image*/
  .slideshow > img {
-     width: 100vw;
+     width: calc(100vw - (100vw - 100%));
      height: 44.8vw;
 }
 /*Next and previous banner button*/
