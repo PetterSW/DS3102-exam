@@ -57,10 +57,12 @@ padding: 0rem 1rem 0rem 1rem;
   display: none;
   background-color: white;
   border: 1px solid black;
+  margin-top: 0.5em;
   margin-right: 0.5em;
   padding: 1em;
   position: fixed;
   z-index: 2;
+  top: 4rem;
   right: 0;
   text-align: center;
   }
