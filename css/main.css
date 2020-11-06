@@ -26,6 +26,12 @@ h1, h2, h3, p, b, strong{
  button:hover{
      background-color: #431011;
 }
+
+html, body{
+    width: 100%;
+    overflow-x: hidden;
+}
+
  body {
      margin: 0;
      background: #363333;
@@ -118,7 +124,7 @@ h1, h2, h3, p, b, strong{
 /*Banner slideshow*/
  .slideshow-container{
      position: relative;
-     top: 4rem;
+     margin-top: 4rem;
      width: 100vw;
      height: 44.8vw;
 }
