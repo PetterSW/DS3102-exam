@@ -28,6 +28,7 @@ export class ShoppingCart{
 			let tableRow = document.createElement('tr');
 			document.querySelector('#cart-table tbody').appendChild(tableRow);
 
+			/*Table cell and p tag for product name*/
 			let tableDataName = document.createElement('td');
 			tableDataName.setAttribute('class', 'cart-table__name');
 			tableRow.appendChild(tableDataName);
@@ -36,9 +37,17 @@ export class ShoppingCart{
 			nameP.textContent = product.name;
 			tableDataName.appendChild(nameP);
 
+
+			/*Table cell, p tag, input and increas/decreas-icons for quantity*/
 			let tableDataQuantity = document.createElement('td');
 			tableDataQuantity.setAttribute('class', 'cart-table__qty');
 			tableRow.appendChild(tableDataQuantity);
+
+			//Button to increas quantity
+			let plussIcon = document.createElement('i');
+			plussIcon.setAttribute('class', 'fas fa-plus-circle');
+			tableDataQuantity.appendChild(plussIcon);
+			plussIcon.addEventListener('click', () => ShoppingCart.changeQuantity(cartItem.id, parseInt(qtyInput.value) + 1));
 
 			//Input to change qty
 			let qtyInput = document.createElement('input');
@@ -49,7 +58,14 @@ export class ShoppingCart{
 			tableDataQuantity.appendChild(qtyInput);
 			qtyInput.addEventListener('change', () => ShoppingCart.changeQuantity(cartItem.id, qtyInput.value));
 			
+			//Button to decreas quantity
+			let minusIcon = document.createElement('i');
+			minusIcon.setAttribute('class', 'fas fa-minus-circle');
+			tableDataQuantity.appendChild(minusIcon);
+			minusIcon.addEventListener('click', () => ShoppingCart.changeQuantity(cartItem.id, parseInt(qtyInput.value) - 1));
 
+
+			/*Table cell, p tag and remove icon for product price*/
 			let tableDataPrice = document.createElement('td');
 			tableDataPrice.setAttribute('class', 'cart-table__price');
 			tableRow.appendChild(tableDataPrice);
@@ -119,7 +135,7 @@ export class ShoppingCart{
 	//Changing quantity at checkout
 	static changeQuantity(itemId, newQty){
 		if(newQty == 0){ ShoppingCart.removeFromCart(itemId); }
-		else{
+		else if(newQty < 100){
 			ShoppingCart.shoppingCartItems = ShoppingCart.getCart();
 			ShoppingCart.shoppingCartItems.forEach( cartItem => cartItem.id === itemId ? cartItem.qty = newQty : cartItem.qty );
 			window.localStorage.setItem('shoppingCartItems', JSON.stringify(ShoppingCart.shoppingCartItems));

@@ -170,6 +170,7 @@ html, body{
  main{
      background-color: #161616;
      margin: 0;
+     box-sizing: border-box;
      min-height: 30em;
      width: 60%;
      margin-left: auto;
