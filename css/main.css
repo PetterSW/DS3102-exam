@@ -205,6 +205,7 @@ html, body{
      min-height: 5em;
      width: 100%;
      padding: 5px;
+     box-sizing: border-box;
 }
  .contact-us-p-tag {
      color: #ffffff;
