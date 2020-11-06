@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>Våre Anmeldelser - HK Sushi</title>
+      <title>HK Sushi - Våre Anmeldelser</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,85 +15,84 @@
       <script src="https://kit.fontawesome.com/d02ce28bec.js" crossorigin="anonymous"></script>
       <!-- Fontawesome plugin -->
    </head>
-   <body>
+<body>
 
   <!--Navigation bar-->
-      <nav>
-        <ul>
-              <li class="navbar-icon" id="navbar-toggle"><a tabindex="0"><i class="fas fa-bars"></i></a></li>
-          <li class="navbar-logo navbar-icon">
-                 <a href="/html/index.html">
-                    <img class="logo" src="../bilder/LogoNav.png">
-                 </a>
-              </li>
-          <li class="navbar-item"><a href="index.html">Meny</a></li>
-          <li class="navbar-item"><a href="reviews.html">Anmeldelser</a></li>
-          <li class="navbar-item"><a href="universal_design.html">Universell Utforming</a></li>
-              <li class="navbar-cart navbar-icon">
-                 <a href="/html/shopping_cart.html">
-                    <div id="cart-icon-wrapper">
-                       <i id="cart-icon" class="fas fa-shopping-cart"></i>
-                       <p id="menubar-shoppingcart-qty"></p>
-                    </div>
-                 </a>
-              </li>
-        </ul>
-      </nav>
+<nav>
+  <ul>
+     <li class="navbar-icon" id="navbar-toggle"><a tabindex="0"><i class="fas fa-bars"></i></a></li>
+     <li class="navbar-logo navbar-icon">
+         <a href="/html/index.html">
+         <img class="logo" src="../bilder/LogoNav.png"></a>
+      </li>
+      <li class="navbar-item"><a href="index.html">Meny</a></li>
+      <li class="navbar-item"><a href="reviews.html">Anmeldelser</a></li>
+      <li class="navbar-item"><a href="universal_design.html">Universell Utforming</a></li>
+      <li class="navbar-cart navbar-icon">
+         <a href="/html/shopping_cart.html">
+            <div id="cart-icon-wrapper">
+               <i id="cart-icon" class="fas fa-shopping-cart"></i>
+               <p id="menubar-shoppingcart-qty"></p>
+            </div>
+         </a>
+      </li>
+   </ul>
+</nav>
 
       <!--Slideshow banner-->
 
-    <section class="slideshow-container">
-        <article class="slideshow fade" style="transform: translateX(0%);">
-           <p class="slide-text">1 / 3</p>
-           <img class="slide-img" src="../images/banner/BannerMain.jpg">
-        </article>
-        <article class="slideshow fade">
-           <p class="slide-text">2 / 3</p>
-           <img class="slide-img" src="../images/banner/BannerMain2.jpg">
-        </article>
-        <article class="slideshow fade">
-           <p class="slide-text">3 / 3</p>
-           <img class="slide-img" src="../images/banner/BannerMain.jpg">
-        </article>
+<section class="slideshow-container">
+   <article class="slideshow" style="transform: translateX(0%);">
+      <p class="slide-text">1 / 3</p>
+      <img class="slide-img" src="../images/banner/BannerLanding.jpg">
+   </article>
+   <article class="slideshow">
+      <p class="slide-text">2 / 3</p>
+      <img class="slide-img" src="../images/banner/BannerBuffet.jpg">
+   </article>
+   <article class="slideshow">
+      <p class="slide-text">3 / 3</p>
+      <img class="slide-img" src="../images/banner/BannerStudent.jpg">
+   </article>
 
-        <!--Next and previous banner-->
-        <i id="next-btn" class="next fas fa-chevron-right"></i>
-        <i id="prev-btn" class="prev fas fa-chevron-left"></i>
-    </section>
+   <!--Next and previous banner-->
+   <i id="next-btn" class="next fas fa-chevron-right"></i>
+   <i id="prev-btn" class="prev fas fa-chevron-left"></i>
+</section>
 
-    <main>
-        <header>
-            <h1 id="main-title">Våre anmeldelser</h1>
-            <select name="review-sort">
-                <option selected value="date-new-first">Nyeste først</option>
-                <option value="date-old-first">Eldste først</option>
-                <option value="review-best-first">Høyeste vurdering</option>
-                <option value="review-bad-first">Laveste vurdering</option>
-            </select>
-        </header>
-        <section id="reviews-container"></section>
+<main>
+   <header>
+      <h1 id="main-title">Våre anmeldelser</h1>
+      <select name="review-sort">
+         <option selected value="date-new-first">Nyeste først</option>
+         <option value="date-old-first">Eldste først</option>
+         <option value="review-best-first">Høyeste vurdering</option>
+         <option value="review-bad-first">Laveste vurdering</option>
+      </select>
+   </header>
 
-        <h2 id="review-visitor-title" >Besøkt oss? Legg igjen din anmeldelse!</h2>
+   <!--List of reviews will display here-->
+   <section id="reviews-container"></section>
 
-        <form name="review-form" id="review-form">
-            <input class="review-input" id="input-name" name="review-name" type="text" maxlength="30" placeholder="Navn" required>
-            <star-review id="star-review"><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i></star-review>
-            <br>
-            <textarea maxlength="600" class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse" required></textarea>
-            <br>
-            <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
-            
-        </form>
-    </main>
+   <h2 id="review-visitor-title" >Besøkt oss? Legg igjen din anmeldelse!</h2>
 
-      <footer>
-        <section id="contact-us-container">
-            <h3>Kontakt oss!</h3>
-            <i class="fas fa-phone"></i>
-            <p class="contact-us-p-tag">Telefon: 67 10 00 00</p>
-            <p class="contact-us-p-tag">Åpningstider: 10:00 - 21:00 (Søndag: 13:00 - 21:00)</p>
-            <p class="contact-us-p-tag">Adresse: Salmakersvenn Marius Jantzens plass 3, 0252 Oslo</p>
-         </section>
-      </footer>
-   </body>
+   <form name="review-form" id="review-form">
+      <input class="review-input" id="input-name" name="review-name" type="text" maxlength="30" placeholder="Navn" required>
+      <star-review id="star-review"><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i></star-review>
+      <br>
+      <textarea maxlength="600" class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse" required></textarea>
+      <br>
+      <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
+  </form>
+</main>
+<footer>
+   <section id="contact-us-container">
+      <h3>Kontakt oss!</h3>
+      <i class="fas fa-phone"></i>
+      <p class="contact-us-p-tag">Telefon: 67 10 00 00</p>
+      <p class="contact-us-p-tag">Åpningstider: 10:00 - 21:00 (Søndag: 13:00 - 21:00)</p>
+      <p class="contact-us-p-tag">Adresse: Salmakersvenn Marius Jantzens plass 3, 0252 Oslo</p>
+   </section>
+</footer>
+</body>
 </html>

@@ -25,7 +25,7 @@ let getSlideIndex = () => slideIndex;
 
 //Declear auto slide timer and function to start timer
 let autoSlide;
-let startSlideShow = () => autoSlide = setInterval(() => changeBanner(slideIndex,slideIndex += 1), 3000 );   
+let startSlideShow = () => autoSlide = setInterval(() => changeBanner(slideIndex,slideIndex += 1), 5000 );   
 
 
 
