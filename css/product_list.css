@@ -11,12 +11,13 @@ padding: 0rem 1rem 0rem 1rem;
 .product{
     text-align: center;
 }
-
+/*Styling all product names and properties*/
 .product-name{
     text-align: center;
     text-shadow: 3px 3px 3px black;
 
 }
+/*Styling all product images and properties*/
 
 .product-image{
     cursor: pointer;
@@ -30,11 +31,13 @@ padding: 0rem 1rem 0rem 1rem;
     margin-left: auto;
     margin-right: auto;
 }
+/*Styling product description and properties*/
 
 .product-description{
     text-align: center;
     text-shadow: 3px 3px 3px black;
 }
+/*Styling product price and properties*/
 
 .product-price{
     text-shadow: 3px 3px 3px black;
@@ -45,6 +48,7 @@ padding: 0rem 1rem 0rem 1rem;
   
 }
 
+/*Add to cart button property*/
 
 .add-to-cart-btn{
     margin-left: 2em;

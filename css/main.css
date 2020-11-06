@@ -1,95 +1,80 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
+ @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+ 
+/*Assigns font and color to all tags mentioned*/
 h1, h2, h3, p, b, strong{
-    font-family: "Montserrat", sans-serif;
-    color: #ffffff;
+     font-family: "Montserrat", sans-serif;
+     color: #ffffff;
 }
-
-h1, h2, h3{
-    font-weight: 300;
+/*Adds a font weight to all h1-3 tags*/
+ h1, h2, h3{
+     font-weight: 300;
 }
-
 /*Styling for buttons*/
-button{
-  background-color: #8e181b;
-  color: #ffffff;
-  box-shadow: 5px 5px 5px black;
-  font-family: "Montserrat", sans-serif;
-  outline: none;
-  cursor: pointer;
-
-  border: 0;    
-  border-radius: 5px;
-  padding: 10px 20px;
-  
+ button{
+     background-color: #8e181b;
+     color: #ffffff;
+     box-shadow: 5px 5px 5px black;
+     font-family: "Montserrat", sans-serif;
+     outline: none;
+     cursor: pointer;
+     border: 0;
+     border-radius: 5px;
+     padding: 10px 20px;
 }
-
-button:hover{
-  background-color: #431011;
+/*Adding a responsive color transition on hover of button*/
+ button:hover{
+     background-color: #431011;
 }
-
-
-body {
+ body {
      margin: 0;
      background: #363333;
      font-family: 'Work Sans', sans-serif;
      font-weight: 400;
 }
-
-
-
 /*Styling nav bar*/
-nav {
-    position: fixed;
-    top: 0px;
-    z-index: 1;
-    width: 100%;
-    background-color: #222222;
+ nav {
+     position: fixed;
+     top: 0px;
+     z-index: 1;
+     width: 100%;
+     background-color: #222222;
 }
-
 /*Styling navigation list using flex to posisioning list items*/
-nav ul {
-    margin: 0;
-    min-height: 4rem;
-	padding: 0em 1em;
-    box-sizing: border-box;
-	list-style: none;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+ nav ul {
+     margin: 0;
+     min-height: 4rem;
+     padding: 0em 1em;
+     box-sizing: border-box;
+     list-style: none;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
 }
-
-
 /* Navbar icons fonts size and hover transition*/
-
-.navbar-icon i{
-    font-size: 1.5em;
-    color: #ffffff;
-    transition: all 0.4s ease 0s;
+ .navbar-icon i{
+     font-size: 1.5em;
+     color: #8e181b;
+     transition: all 0.4s ease 0s;
 }
-
-.navbar-icon i:hover {
-    color: #4d4545;
+/*Adds responsive hover effect for navbar-icons in general*/
+ .navbar-icon i:hover {
+     color: #4d4545;
 }
-
 /*Hide hamburger menu*/
-#navbar-toggle{
-    display: none;
+ #navbar-toggle{
+     display: none;
 }
-
- /*Shopping cart icon */
-
+/*Shopping cart icon */
  #cart-icon-wrapper {
      position: relative;
      width: 50px;
      top: -20px;
- }
-
+}
  #cart-icon {
      position: absolute;
-     color: #8e181b;
- }
+}
+/*Styling and position properties for the quantity indicator*/
  #menubar-shoppingcart-qty {
      position: absolute;
      background-color: #ffffff;
@@ -100,119 +85,97 @@ nav ul {
      border-radius: 60px;
      color: #8e181b;
      font-size: 0.7em;
- }
-
+}
 /*Nav links fade trasition*/
-nav a {
-	position: relative;
-
-	color: #ffffff;
-    outline: none;
-	text-decoration: none;
-	font-size: 1.5rem;
-	text-transform: uppercase;
-	transition: all 0.4s ease 0s;
+ nav a {
+     position: relative;
+     color: #ffffff;
+     outline: none;
+     text-decoration: none;
+     font-size: 1.5rem;
+     text-transform: uppercase;
+     transition: all 0.4s ease 0s;
 }
-
-nav a:hover {
-	color: #4d4545;
+ nav a:hover {
+     color: #4d4545;
 }
-
-/*Nav links line transition*/
-.navbar-item a::before {
-	content: '';
-	display: block;
-	height: 2px;
-	background: #4d4545;
-	position: absolute;
-	top: -0.2em;
-	left: 0;
-	right: 0;
-	transform: scale(0, 1);
-	transition: transform ease-in-out 250ms;
+/*Nav links line transition for responsiveness*/
+ .navbar-item a::before {
+     content: '';
+     display: block;
+     height: 2px;
+     background: #4d4545;
+     position: absolute;
+     top: -0.2em;
+     left: 0;
+     right: 0;
+     transform: scale(0, 1);
+     transition: transform ease-in-out 250ms;
 }
-
-
-nav a:hover::before {
-	transform: scale(1,1);
+ nav a:hover::before {
+     transform: scale(1,1);
 }
-
 /*Banner slideshow*/
-
  .slideshow-container{
-    position: relative;
-    top: 4rem;
-    width: 100vw;
-    height: 44.8vw;
+     position: relative;
+     top: 4rem;
+     width: 100vw;
+     height: 44.8vw;
 }
-
 /*Each banner*/
-
-.slideshow {
-    position: absolute;
-    transform: translateX(-100%);
-    width: 100vw;
-    height: 44.8vw;
+ .slideshow {
+     position: absolute;
+     transform: translateX(-100%);
+     width: 100vw;
+     height: 44.8vw;
 }
 /*Banner image*/
-.slideshow > img  {
-    width: 100vw;
-    height: 44.8vw;
+ .slideshow > img {
+     width: 100vw;
+     height: 44.8vw;
 }
 /*Next and previous banner button*/
-
-.next, .prev {
-    cursor: pointer;
-    position: absolute;
-    bottom: 50%;
-    background-color: transparent;
-    border: 0px;
-    font-size: 2em;
-    color: #ffffff;
+ .next, .prev {
+     cursor: pointer;
+     position: absolute;
+     bottom: 50%;
+     background-color: transparent;
+     border: 0px;
+     font-size: 2em;
+     color: #ffffff;
 }
-.next {
-    right: 0;
-    margin-right: 1em;
+ .next {
+     right: 0;
+     margin-right: 1em;
 }
-.prev {
-    margin-left: 1em;
+ .prev {
+     margin-left: 1em;
 }
-
-.slide-text {
-    color: #ffffff;
-    font-size: 1em;
-    position: absolute;
-    bottom: 1em;
-    left: 50%;
-    text-align: center;
-    z-index: 1;
-}
-/*
- .matUtvalg{
-     padding: 10px;
+ .slide-text {
+     color: #ffffff;
+     font-size: 1em;
+     position: absolute;
+     bottom: 1em;
+     left: 50%;
      text-align: center;
-     color: #1d2d50;
-     font-family: "Montserrat", sans-serif;
-     font-size: 1.7em;
-     font-weight: 300;
-}*/
-
-main{
-	background-color: #161616;
-	margin: 0;
-	min-height: 30em;
-	width: 60%;
-	margin-left: auto;
-	margin-right: auto;
-    padding: 1rem;
+     z-index: 1;
 }
-
-#main-title{
-	margin-top: 10px;
-	text-align: center;
+/*Styling and properties for the main container under banner*/
+ main{
+     background-color: #161616;
+     margin: 0;
+     min-height: 30em;
+     width: 60%;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 1rem;
 }
-
-
+/*Menu title.*/
+ #main-title{
+     margin-top: 10px;
+     text-align: center;
+}
+/*Properties for menu-images using a grid system*/
  .menyBilder{
      width: 60%;
      margin-left: auto;
@@ -223,56 +186,45 @@ main{
      border: 2px solid red;
      align-content: center;
 }
-
+/*Styling for the footer and it's content on the bottom.*/
  footer {
- 	background-color: #222222;
-    text-align: center;
-    min-height: 5em;
-    width: 100%;
-    padding: 5px;     
+     background-color: #222222;
+     text-align: center;
+     min-height: 5em;
+     width: 100%;
+     padding: 5px;
 }
-
-.contact-us-p-tag {
-    color: #ffffff;
+ .contact-us-p-tag {
+     color: #ffffff;
 }
-.fa-phone {
-    color: #ffffff;
+ .fa-phone {
+     color: #ffffff;
 }
-
 /*Styling when screen is 800px or less*/
-@media only screen and (max-width: 800px){
-     
+ @media only screen and (max-width: 800px){
     /*Navbar styling*/
-   
-
-    nav ul{
-        flex-wrap: wrap;
-        justify-content: space-between;
+     nav ul{
+         flex-wrap: wrap;
+         justify-content: space-between;
     }
-
-    .navbar-icon i{
-        font-size: 1.5em;
+     .navbar-icon i{
+         font-size: 1.5em;
     }
-
-    #navbar-toggle{
-        display: block;
+     #navbar-toggle{
+         display: block;
     }
-
-    .navbar-logo img{
-        height: 2.5em;
-        text-align: center;
+     .navbar-logo img{
+         height: 2.5em;
+         text-align: center;
     }
-
-    .navbar-cart{
-        order: 1;
+     .navbar-cart{
+         order: 1;
     }
-
-    .navbar-item{
-        order: 2;
-        width: 100%;
-        text-align: center;
-        padding: 0.5em;
-        display: none;
+     .navbar-item{
+         order: 2;
+         width: 100%;
+         text-align: center;
+         padding: 0.5em;
+         display: none;
     }
-
 }
