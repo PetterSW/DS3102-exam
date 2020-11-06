@@ -41,7 +41,7 @@ body {
 
 /*Styling nav bar*/
 nav {
-    position: sticky;
+    position: fixed;
     top: 0px;
     z-index: 1;
     width: 100%;
@@ -107,6 +107,7 @@ nav a {
 	position: relative;
 
 	color: #ffffff;
+    outline: none;
 	text-decoration: none;
 	font-size: 1.5rem;
 	text-transform: uppercase;
@@ -140,7 +141,9 @@ nav a:hover::before {
 
  .slideshow-container{
     position: relative;
-    height: 44vw;
+    top: 4rem;
+    width: 100vw;
+    height: 44.8vw;
 }
 
 /*Each banner*/
@@ -148,11 +151,13 @@ nav a:hover::before {
 .slideshow {
     position: absolute;
     transform: translateX(-100%);
+    width: 100vw;
+    height: 44.8vw;
 }
 /*Banner image*/
 .slideshow > img  {
-    width: 100%;
-
+    width: 100vw;
+    height: 44.8vw;
 }
 /*Next and previous banner button*/
 
@@ -237,7 +242,9 @@ main{
 /*Styling when screen is 800px or less*/
 @media only screen and (max-width: 800px){
      
-    /*Navbar styling*/    
+    /*Navbar styling*/
+   
+
     nav ul{
         flex-wrap: wrap;
         justify-content: space-between;
