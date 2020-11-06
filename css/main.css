@@ -233,4 +233,9 @@ html, body{
          padding: 0.5em;
          display: none;
     }
+
+    /*Main*/
+    main{
+        width: 100%;
+    }
 }
