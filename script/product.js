@@ -176,7 +176,7 @@ if(Product.productContainer){
 	//Creating products
 	window.localStorage.setItem('productList', JSON.stringify([]));
 	new Product("Liten sushi", "../images/food/Liten-tallerken.jpg", "Perfekt som en porsjon.", "89");
-	new Product("Stor sushin", "../images/food/Stor-tallerken.jpg", "Ekstra sulten eller på deling?", "229");
+	new Product("Stor sushi", "../images/food/Stor-tallerken.jpg", "Ekstra sulten eller på deling?", "229");
 	new Product("Lakse-Maki", "../images/food/Maki-salmon.jpg", "Vår klassiske Maki med laks.", "109");
 	new Product("Vegetar-Maki", "../images/food/Maki-vegetar.jpg", "Kutte ned på kjøttinntak? Vegetar-Maki!", "99");
 	new Product("Tempura-Kongereker", "../images/food/Tempura-Reke.jpg", "Store, friterte reker.", "149");
