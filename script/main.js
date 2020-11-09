@@ -1,3 +1,5 @@
+
+/*Importing js modules*/
 import {UUElement} from '../script/universal-design.js';
 import { Product, ProductListElement } from '../script/product.js';
 import { ShoppingCart, deliveryMethodChanged, placeOrder } from '../script/shopping_cart.js';
@@ -100,3 +102,33 @@ let navbarToggle = () => {
 }
 
 document.getElementById('navbar-toggle').addEventListener('click', navbarToggle);
+
+//Adding event lisentner only if element is loaded
+if(Product.productContainer){
+    //Drag and drop events
+    document.querySelector(".navbar-cart").addEventListener('dragover', (event) =>
+        ProductListElement.allowDrop(event));
+    
+    document.querySelector(".navbar-cart").addEventListener('drop', (event) => 
+        ProductListElement.drop(event));
+    
+    //Close feedback window
+    document.getElementById('cart-feedback__exit').addEventListener('click', () => 
+        document.getElementById('cart-feedback').style.display = "none" );
+
+    window.addEventListener('scroll', () => 
+        document.getElementById('cart-feedback').style.display = "none" );
+        
+
+    //Creating products
+    window.localStorage.setItem('productList', JSON.stringify([]));
+    new Product("Liten sushi", "../images/food/Liten-tallerken.jpg", "Perfekt som en porsjon.", "89");
+    new Product("Stor sushi", "../images/food/Stor-tallerken.jpg", "Ekstra sulten eller på deling?", "229");
+    new Product("Lakse-Maki", "../images/food/Maki-salmon.jpg", "Vår klassiske Maki med laks.", "109");
+    new Product("Vegetar-Maki", "../images/food/Maki-vegetar.jpg", "Kutte ned på kjøttinntak? Vegetar-Maki!", "99");
+    new Product("Tempura-Kongereker", "../images/food/Tempura-Reke.jpg", "Store, friterte reker.", "149");
+    new Product("Sashimi", "../images/food/Sushi-bowl.jpg", "Vår anerkjente sashimi.", "119");
+    new Product("Sushi-Burrito", "../images/food/Sushi-Wrap.jpg", "Prøve noe nytt? Sushi i burrito-form!", "99");
+    new Product("Sushi for eventer", "../images/food/Event-tallerken.jpg", "Utrolig stor tallerken, perfekt for eventer!", "999");
+    Product.productContainer.addEventListener('load', Product.renderProducts() );
+}
