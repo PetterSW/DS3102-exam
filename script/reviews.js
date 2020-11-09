@@ -97,7 +97,7 @@ export class Review {
 //Let the user set the amount of stars.
 var isClicked = false;
 var amountOfStars; 
-function setAmountOfStars () {
+export function setAmountOfStars () {
     var star = document.querySelectorAll('.input-star');
     for(var i = 0; i < star.length; i++) {
         // If the amount not has been set yes
@@ -143,7 +143,7 @@ function setAmountOfStars () {
 }
 
 //Click event for submit-butten to add an review.
-function addReview() {
+export function addReview() {
     let reviewName = document.querySelector('[name="review-name"]').value;
     let reviewDescription = document.querySelector('[name="review-text"]').value;
     
