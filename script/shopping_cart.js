@@ -173,8 +173,3 @@ export function placeOrder() {
 	event.target.reset;
 }
 
-if(ShoppingCart.container){
-	ShoppingCart.renderShoppingCart();
-	document.getElementById("delivery-method").addEventListener("click", deliveryMethodChanged);
-	document.querySelector("[name='form-place-order']").addEventListener("submit", placeOrder); 
-}
