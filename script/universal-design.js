@@ -3,7 +3,7 @@ export class UUElement extends HTMLElement {
 		super();
 		//creating elements and setting attribute, content and parent element
 		let article = document.createElement('article');
-		article.setAttribute('class', 'universal-design-article');
+        article.setAttribute('class', 'universal-design-article');
 		this.appendChild(article);
 
 		let name = document.createElement('h3');
@@ -21,6 +21,37 @@ export class UUElement extends HTMLElement {
 
 window.customElements.define("universal-design", UUElement);
 
+export class UUArticle {
+    static getUUArticles = () => JSON.parse(localStorage.getItem('UUArticles')) || [];
+    static UUList;
+
+    constructor(title, description) {
+        this.title = title;
+        this.description = description;
+        this.addArticle();
+    }
+
+    addArticle() {
+        UUArticle.UUList = UUArticle.getUUArticles();
+		UUArticle.UUList.push(this);
+		window.localStorage.setItem('UUArticles', JSON.stringify(UUArticle.UUList));
+    }
+
+    static renderArticles() {
+        let articleHTML = "";
+
+        UUArticle.getUUArticles().forEach( article => {
+            console.log(article);
+            articleHTML += `<universal-design 
+            name="${article.title}"
+            description="${article.description}">
+            </universal-design>`
+            
+        });
+        document.getElementById("universal-styling-container").innerHTML = articleHTML;
+    }
+}
+UUArticle.renderArticles();
 
 //Selects all 7 information boxes
 let UUArtikkel = document.querySelectorAll(".universal-design-article");
