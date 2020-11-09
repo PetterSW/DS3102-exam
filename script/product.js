@@ -115,26 +115,7 @@ export class ProductListElement extends HTMLElement{
 
 	//Adding product to cart
 	static addToCart(productId){
-		var shoppingCartItems = JSON.parse(localStorage.getItem('shoppingCartItems')) || [];
-
-		//Adding or increas qty in local storage
-		if(AlreadyInCart(productId) === false){
-			let cartItem = {id: productId, qty: 1};
-			shoppingCartItems.push(cartItem);
-		}else{
-			shoppingCartItems[AlreadyInCart(productId)].qty += 1;
-		}
-		
-		window.localStorage.setItem('shoppingCartItems', JSON.stringify(shoppingCartItems));
-
-		//Returns false if item dont exist in array or index if item exists
-		function AlreadyInCart(productId){
-			let index = false;
-			for(var i = 0; shoppingCartItems.length > i; i++){
-				if(shoppingCartItems[i].id === productId){ index = i;}
-			}
-			return index;
-		}
+		ShoppingCart.saveInCart(productId);
 
 		//Display and insert product name and image in feedback box
 		let product = Product.getProductList().find( product => product.id == productId );
@@ -148,9 +129,6 @@ export class ProductListElement extends HTMLElement{
 		document.getElementById('cart-feedback__img-wrap').appendChild(img);
 
 		document.getElementById('cart-feedback').style.display = "block";
-
-
-		ShoppingCart.setMenuBarQty();
 	}
 }
 

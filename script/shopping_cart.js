@@ -5,6 +5,32 @@ export class ShoppingCart{
 
 	static getCart = () => JSON.parse(localStorage.getItem('shoppingCartItems')) || [];
 
+	//Save new cart item in localstorage
+	static saveInCart(productId){
+		var shoppingCartItems = ShoppingCart.getCart();
+
+		//Adding or increas qty in local storage
+		if(AlreadyInCart(productId) === false){
+			let cartItem = {id: productId, qty: 1};
+			shoppingCartItems.push(cartItem);
+		}else if(productId != "delivery"){
+			shoppingCartItems[AlreadyInCart(productId)].qty += 1;
+		}
+		
+		window.localStorage.setItem('shoppingCartItems', JSON.stringify(shoppingCartItems));
+
+		//Returns false if item dont exist in array or index if item exists
+		function AlreadyInCart(productId){
+			let index = false;
+			for(var i = 0; shoppingCartItems.length > i; i++){
+				if(shoppingCartItems[i].id === productId){ index = i;}
+			}
+			return index;
+		}
+
+		ShoppingCart.setMenuBarQty();
+	}
+
 	//Function to render shoppingcart at checkout
 	static renderShoppingCart(){
 
@@ -18,8 +44,10 @@ export class ShoppingCart{
 		let totalPrice = 0;
 		let productList = JSON.parse(localStorage.getItem('productList')) || [];
 		//Finding product based on id in shoppingcart
-		ShoppingCart.getCart().forEach( cartItem => {
-			const product = productList.find( product => product.id == cartItem.id );
+		ShoppingCart.getCart()
+		.filter( cartItem => cartItem.id != "delivery")
+		.forEach( cartItem => {
+			const product = productList.find( product => parseInt(product.id) === parseInt(cartItem.id) );
 			totalQty += parseInt(cartItem.qty);
 			totalPrice += parseInt(product.price) * parseInt(cartItem.qty);
 
@@ -85,6 +113,43 @@ export class ShoppingCart{
 			removeBtn.addEventListener('click', () => ShoppingCart.removeFromCart(cartItem.id));
 
 		});
+
+		//Adding home delivery
+		const delivery = ShoppingCart.getCart().find( item => item.id == "delivery");
+		if (delivery){
+
+			totalPrice += parseInt(75);
+
+			//Creating, appending and setting content for table body elements
+			let tableRow = document.createElement('tr');
+			document.querySelector('#cart-table tbody').appendChild(tableRow);
+
+			/*Table cell and p tag for Deleviry*/
+			let tableDataDelivery = document.createElement('td');
+			tableDataDelivery.setAttribute('class', 'cart-table__name');
+			tableRow.appendChild(tableDataDelivery);
+
+			let nameD = document.createElement('p');
+			nameD.textContent = "Hjem levering";
+			tableDataDelivery.appendChild(nameD);
+
+
+			/*Emty cell where qty would be*/
+			let emtyCell = document.createElement('td');
+			emtyCell.setAttribute('class', 'cart-table__qty');
+			tableRow.appendChild(emtyCell);
+
+			//Table cell for delivery price
+			let tableDataPrice = document.createElement('td');
+			tableDataPrice.setAttribute('class', 'cart-table__price');
+			tableRow.appendChild(tableDataPrice);
+
+			let priceP = document.createElement('p');
+			priceP.textContent = "75 Kr";
+			tableDataPrice.appendChild(priceP);
+
+			document.getElementById('input-delivery-home').checked = true;
+		}
 
 		//Printing total qty and total price in table foot
 		//Creating, appending and setting content for table footer elements
@@ -160,10 +225,15 @@ export function deliveryMethodChanged() {
 	if (method == "sushiToHome") {
 		document.getElementById("input-address-container").style.visibility = "visible";
 		document.getElementById("input-address").required = true;
+		ShoppingCart.saveInCart("delivery");
+
 	}
 	if (method == "pickup") {
 		document.getElementById("input-address-container").style.visibility = "hidden";
+		ShoppingCart.removeFromCart("delivery");
 	}
+
+	ShoppingCart.renderShoppingCart();
 }
 //Place the selected order
 export function placeOrder() {
