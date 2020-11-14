@@ -2,7 +2,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
  
 /*Assigns font and color to all tags mentioned*/
-h1, h2, h3, p, b, strong{
+h1, h2, h3, h4, p, b, strong{
      font-family: "Montserrat", sans-serif;
      color: #ffffff;
 }
@@ -198,33 +198,45 @@ html, body{
      margin-top: 10px;
      text-align: center;
 }
-/*Properties for menu-images using a grid system*/
- .menyBilder{
-     width: 60%;
-     margin-left: auto;
-     margin-right: auto;
-     display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-     grid-gap: 15px;
-     border: 2px solid red;
-     align-content: center;
-}
-/*Styling for the footer and it's content on the bottom.*/
+
+
+
+/*Styling footer using grid*/
  footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    text-align: center;
      background-color: #222222;
-     text-align: center;
-     min-height: 5em;
+     min-height: 5rem;
      width: 100%;
-     padding: 5px;
+     padding: 1rem;
      box-sizing: border-box;
 }
- .contact-us-p-tag {
-     color: #ffffff;
-}
- .fa-phone {
-     color: #ffffff;
+
+/*Centered div to make every line start at the same place*/
+#footer-contact-wrapper {
+    width: 15rem;
+    padding-left: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    text-align: left;
 }
 
+.footer-column__resturant h4{
+    margin-bottom: 0;
+}
+
+
+/*Styling icons in footer*/
+footer i {
+     color: #ffffff;
+     font-size: 1.5em;
+     margin: 0em 0.5em;
+}
+
+/*Main is covering the hole screen if window is 1024px or less*/
  @media only screen and (max-width: 1024px){
     /*Main*/
     main{
@@ -232,7 +244,14 @@ html, body{
     }
  }
 
-/*Styling when screen is 800px or less*/
+/*Footer has only on column when screen is 800px or less*/
+@media only screen and (max-width: 800px){
+    footer{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/*Styling navbar on smaller screens*/
  @media only screen and (max-width: 800px){
     /*Navbar styling*/
      nav ul{
