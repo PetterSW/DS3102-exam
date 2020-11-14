@@ -49,14 +49,29 @@ export class UUElement extends HTMLElement {
     static dragAndDrop() {
         var UUList = UUArticle.getUUArticles();
 
-        let dragIndex = UUList.findIndex(a => a.sortIndex === UUElement.draggedIndex);
-        let dropIndex = UUList.findIndex(b => b.sortIndex === UUElement.droppedIndex);
+        //Find the index of the dragged and dropped item
+        let dragIndex = UUElement.draggedIndex;
+        let dropIndex = UUElement.droppedIndex;
 
+        //Tempoery store items
         let dragItem = UUList[dragIndex];
         let dropItem = UUList[dropIndex];
-
-        UUList[dragIndex] = dropItem;
-        UUList[dropIndex] = dragItem;
+        
+        //Switch positions of arrays in UUList
+        
+        if(dragIndex > dropIndex) {
+            UUList.splice(dropIndex, 0, dragItem);
+            UUList.splice(dragIndex+1, 1);
+            console.table(UUList);
+        }
+        
+        else {
+            UUList.splice(dropIndex, 0, dragItem);
+            UUList.splice(dropIndex, 0, dropItem);
+            UUList.splice(dragIndex, 1);
+            UUList.splice(dropIndex+1, 1);
+            console.table(UUList);
+        }
         
         window.localStorage.setItem('UUArticles', JSON.stringify(UUList));
         UUArticle.renderArticles();
@@ -93,7 +108,7 @@ export class UUArticle {
             articleHTML += `<universal-design 
             name="${article.title}"
             description="${article.description}"
-            data-sort-index="${article.sortIndex}">
+            data-sort-index="${UUList.findIndex(a => a.title === article.title)}">
             </universal-design>`
             
         });
