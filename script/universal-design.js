@@ -1,12 +1,10 @@
 export class UUElement extends HTMLElement {
-    static articleID = 0;
 	constructor(){
 		super();
 		//creating elements and setting attribute, content and parent element
 		let article = document.createElement('article');
         article.setAttribute('class', 'universal-design-article');
         this.setAttribute('draggable', 'true');
-        article.setAttribute('id', UUElement.articleID)
 		this.appendChild(article);
 
 		let name = document.createElement('h3');
@@ -21,44 +19,49 @@ export class UUElement extends HTMLElement {
         article.appendChild(description);
 
         this.addEventListener('dragstart', () => {
-            UUElement.drag(event, this.getAttribute("id"));
+            UUElement.drag(event, parseInt(this.getAttribute("data-sort-index")));
         } );
         
         this.addEventListener('drop', () => {
-            UUElement.drop(event, this.querySelector("article").id);
+            UUElement.drop(event, parseInt(this.getAttribute("data-sort-index")));
         } );
     
         this.addEventListener('dragover', () => {
             UUElement.allowDrop(event);
         } );
-        UUElement.articleID++;
         
     }
 
-    static draggedID;
+    static draggedIndex;
+    static droppedIndex;
 
     static allowDrop(ev) {
 		ev.preventDefault();
       }
       
-    static drag(ev, id) {
-        console.log(id);
-        UUElement.draggedID = id;
+    static drag(ev, draggedIndex) {
+        UUElement.draggedIndex = draggedIndex;
     }
-    static drop(ev, id) {
-        UUElement.dragAndDrop(UUElement.draggedID, id);
+    static drop(ev, dropIndex) {
+        UUElement.droppedIndex = dropIndex;
+        UUElement.dragAndDrop();
     }
+    static dragAndDrop() {
+        var UUList = UUArticle.getUUArticles();
 
-    static dragAndDrop(draggedID, dropID) {
-        let UUList = UUArticle.getUUArticles();
-        let draggedItem = UUList[draggedID];
-        let droppedItem = UUList[dropID];
-        UUList.splice(dropID, 1, draggedItem);
-        UUList.splice(draggedID, 1, droppedItem);
+        let dragIndex = UUList.findIndex(a => a.sortIndex === UUElement.draggedIndex);
+        let dropIndex = UUList.findIndex(b => b.sortIndex === UUElement.droppedIndex);
+
+        let dragItem = UUList[dragIndex];
+        let dropItem = UUList[dropIndex];
+
+        UUList[dragIndex] = dropItem;
+        UUList[dropIndex] = dragItem;
+        
         window.localStorage.setItem('UUArticles', JSON.stringify(UUList));
         UUArticle.renderArticles();
+        
     }
-    
 
 }
 
@@ -68,9 +71,10 @@ export class UUArticle {
     static getUUArticles = () => JSON.parse(localStorage.getItem('UUArticles')) || [];
     static UUList;
 
-    constructor(title, description) {
+    constructor(title, description, sortIndex) {
         this.title = title;
         this.description = description;
+        this.sortIndex = sortIndex;
         this.addArticle();
     }
 
@@ -82,21 +86,21 @@ export class UUArticle {
 
     static renderArticles() {
         let articleHTML = "";
-        UUElement.articleID = 0;
+        let UUList = UUArticle.getUUArticles();
+        //UUList.sort((a,b) => a.sortIndex - b.sortIndex);
 
-        UUArticle.getUUArticles().forEach( article => {
+        UUList.forEach( article => {
             articleHTML += `<universal-design 
             name="${article.title}"
-            description="${article.description}">
+            description="${article.description}"
+            data-sort-index="${article.sortIndex}">
             </universal-design>`
             
         });
         document.getElementById("universal-styling-container").innerHTML = articleHTML;
     }
 
-
 }
-UUArticle.renderArticles();
 
 //Selects all 7 information boxes
 let UUArtikkel = document.querySelectorAll(".universal-design-article");

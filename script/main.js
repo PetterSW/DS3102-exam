@@ -160,15 +160,15 @@ if(ShoppingCart.container){
 }
 
 if(document.getElementById("universal-styling-container")) {
-    console.log("Load UU elements");
     if(localStorage.getItem("UUArticles") === null) {
-        new UUArticle("Like muligheter for bruk", "Utformingen skal være brukbar og tilgjengelig for personer med ulike evner");
-        new UUArticle("Fleksibel i bruk", "Utformingen skal tjene et vidt spekter av indviduelle preferanser og ferdigheter");
-        new UUArticle("Enkel og intuitiv i bruk", "Utformingen skal være lett å forstå uten hensyn til brukerens erfaring, kunnskap, språkferdigheter eller konsentrasjonsnivå.");
-        new UUArticle("Forståelig informasjon", "Utformingen skal kommunisere nødvendig informasjon til brukeren på en effektiv måte, uavhengig av forhold knyttet til omgivelsene eller brukerens sensoriske ferdigheter.");
-        new UUArticle("Toleranse for feil", "Utformingen skal minimalisere farer og skader som kan gi ugunstige konsekvenser, eller minimalisere utilsiktede handlinger.");
-        new UUArticle("Lav fysisk anstrengelse", "Utformingen skal kunne brukes effektivt og bekvemt med et minimum av besvær.");
-        new UUArticle("Størrelse og plass for tilgang og bruk", "Hensiktsmessig størrelse og plass skal muliggjøre tilgang, rekkevidde, betjening og bruk, uavhengig av brukerens kroppsstørrelse, kroppsstilling eller mobilitet.");
-        UUArticle.renderArticles();
+        new UUArticle("Like muligheter for bruk", "Utformingen skal være brukbar og tilgjengelig for personer med ulike evner", 1);
+        new UUArticle("Fleksibel i bruk", "Utformingen skal tjene et vidt spekter av indviduelle preferanser og ferdigheter", 2);
+        new UUArticle("Enkel og intuitiv i bruk", "Utformingen skal være lett å forstå uten hensyn til brukerens erfaring, kunnskap, språkferdigheter eller konsentrasjonsnivå.", 3);
+        new UUArticle("Forståelig informasjon", "Utformingen skal kommunisere nødvendig informasjon til brukeren på en effektiv måte, uavhengig av forhold knyttet til omgivelsene eller brukerens sensoriske ferdigheter.", 4);
+        new UUArticle("Toleranse for feil", "Utformingen skal minimalisere farer og skader som kan gi ugunstige konsekvenser, eller minimalisere utilsiktede handlinger.", 5);
+        new UUArticle("Lav fysisk anstrengelse", "Utformingen skal kunne brukes effektivt og bekvemt med et minimum av besvær.", 5);
+        new UUArticle("Størrelse og plass for tilgang og bruk", "Hensiktsmessig størrelse og plass skal muliggjøre tilgang, rekkevidde, betjening og bruk, uavhengig av brukerens kroppsstørrelse, kroppsstilling eller mobilitet.", 6);
+        
     }
+    UUArticle.renderArticles();
 }
