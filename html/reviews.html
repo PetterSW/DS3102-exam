@@ -58,9 +58,13 @@
    <!--Next and previous banner-->
    <i id="next-btn" class="next fas fa-chevron-right"></i>
    <i id="prev-btn" class="prev fas fa-chevron-left"></i>
-</section>
+     
+          <div id="scroll-indicator-wrap">          
+              <a id="scroll-indicator" href="#main"><i class="fas fa-angle-double-down"></i></a>          
+          </div>
+    </section>
 
-<main>
+<main id="main">
    <header>
       <h1 id="main-title">Våre anmeldelser</h1>
       <select name="review-sort" class="select-option">
@@ -77,11 +81,16 @@
    <h2 id="review-visitor-title" >Besøkt oss? Legg igjen din anmeldelse!</h2>
 
    <form name="review-form" id="review-form">
+      <label for="review-name">Navn:</label><br>
       <input class="review-input" id="input-name" name="review-name" type="text" maxlength="30" placeholder="Navn" required>
+
       <star-review id="star-review"><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i></star-review>
-      <br>
+      <br><br>
+
+      <label for="review-text">Anmeldelse:</label><br>
       <textarea maxlength="600" class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse" required></textarea>
       <br>
+
       <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
   </form>
 </main>

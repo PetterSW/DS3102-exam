@@ -32,25 +32,11 @@ restaurant-review {
 
 /*Form for adding a review*/
 
-.review-form {
-    width: 100%;
-    padding: 10px;
-}
-
-
-#input-name {
-    width: auto;
-    max-width: 400px;
-    height: 20px;
-    font-size: 1.4em;
-
-}
 #input-text {
     width: 80%;
     
     resize: none;
-    height: 100px;
-    font-size: 1.2em;
+    height: 6rem;
 }
 
 #review-visitor-title {
@@ -64,12 +50,3 @@ restaurant-review {
     text-align: center;
     
 }
-
-#review-submit-btn {
-    margin: 10px 0px 30px 11px;
-    font-size: 1.3em;
-}
-
-/*
-margin: top right bottom left
-
