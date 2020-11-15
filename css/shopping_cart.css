@@ -119,30 +119,31 @@ for name, quantity and price column, inc. tfoot*/
 #checkout-container{
     padding: 1em;
 }
-
-.input-delivery{
-    padding: 7px 10px 5px 10px;
-    border: 1px solid #FFFFFF;
-    border-radius: 4px;
-    background-color: #8e181b;
-    margin: 0px 0px 10px 10px;
-    color: #FFFFFF;
-      font-family: "Montserrat", sans-serif;
-
+#place-order-title{
+	text-align: center;
 }
 
 #label-home, #label-pickup{
     color: #ffffff;
     
 }
+#input-address-container {
+    display: none;
+}
+#select-pickup {
+    display: none;
+}
 .radio-delivery {
     margin-bottom: 20px;
 }
 
+.select-option {
+    width: auto;
+    max-width: 400px;
+}
+
 #input-address {
     width: 300px;
-      font-family: "Montserrat", sans-serif;
-
 }
 
 #btn-order-submit {
@@ -150,6 +151,6 @@ for name, quantity and price column, inc. tfoot*/
     font-size: 1.3em;
 }
 
-#place-order-title{
-	text-align: center;
+#confirm-order-text {
+    line-height: 1.6;
 }

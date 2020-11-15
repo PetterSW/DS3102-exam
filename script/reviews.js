@@ -45,7 +45,10 @@ export class Review {
         Review.reviewList = Review.getReviews();
         Review.reviewList.push(this);
         window.localStorage.setItem('reviews', JSON.stringify(Review.reviewList));
-        Review.renderReviews();
+        if (document.getElementById("reviews-container")) {
+            Review.renderReviews();
+        }
+        
     }
 
     static renderReviewStars(stars) {
@@ -73,7 +76,7 @@ export class Review {
                     return reviewList.sort((a,b) => a.reviewStars < b.reviewStars ? 1 : -1);
                     break;
                 case "review-bad-first":
-                    return reviewList.sort((a,b) => a.reviewStars > b.reviewStars ? 1 : -1);;
+                    return reviewList.sort((a,b) => a.reviewStars > b.reviewStars ? 1 : -1);
                     break;
             }
         }
