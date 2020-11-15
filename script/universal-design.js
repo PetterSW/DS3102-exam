@@ -18,6 +18,8 @@ export class UUElement extends HTMLElement {
 		description.textContent = this.getAttribute('description');
         article.appendChild(description);
 
+        //Eventlisteners for drag and drop
+
         this.addEventListener('dragstart', () => {
             UUElement.drag(event, parseInt(this.getAttribute("data-sort-index")));
         } );
@@ -29,9 +31,17 @@ export class UUElement extends HTMLElement {
         this.addEventListener('dragover', () => {
             UUElement.allowDrop(event);
         } );
+
+        this.addEventListener('mouseenter', () => {
+            console.log("YES!");
+            UUElement.animateElement(1.1, 1200, 800, parseInt(this.getAttribute("data-sort-index")));
+        } );
+        this.addEventListener('mouseleave', () => {
+            UUElement.animateElement(1, 300, 300, parseInt(this.getAttribute("data-sort-index")));
+        } );
         
     }
-
+    //Drag and drop
     static draggedIndex;
     static droppedIndex;
 
@@ -46,6 +56,17 @@ export class UUElement extends HTMLElement {
         UUElement.droppedIndex = dropIndex;
         UUElement.dragAndDrop();
     }
+    static animateElement(scale, duration, elasticity, index) {
+        let UUArticles = document.querySelectorAll(".universal-design-article");
+        anime.remove(UUArticles[index]);
+        anime({
+            targets: UUArticles[index],
+            scale: scale,
+            duration: duration,
+            elasticity: elasticity
+        });
+    }
+
     static dragAndDrop() {
         var UUList = UUArticle.getUUArticles();
 
@@ -71,10 +92,10 @@ export class UUElement extends HTMLElement {
             UUList.splice(dragIndex, 1);
             UUList.splice(dropIndex+1, 1);
             console.table(UUList);
-        }
+    }
         
-        window.localStorage.setItem('UUArticles', JSON.stringify(UUList));
-        UUArticle.renderArticles();
+    window.localStorage.setItem('UUArticles', JSON.stringify(UUList));
+    UUArticle.renderArticles();
         
     }
 
@@ -116,27 +137,29 @@ export class UUArticle {
     }
 
 }
-
+/*
 //Selects all 7 information boxes
-let UUArtikkel = document.querySelectorAll(".universal-design-article");
+let UUArticles = document.querySelectorAll(".universal-styling-container");
+console.log(UUArticles);
 
 //For-loop that applies event-listener that triggers an anime.js animation on entering and leaving the boxes
-for(let i = 0; i < UUArtikkel.length; i++) {
-    UUArtikkel[i].addEventListener('mouseenter', () => {
+for(let i = 0; i < UUArticles.length; i++) {
+    UUArticles[i].addEventListener('mouseenter', () => {
         animateButton(1.1, 1200, 800, i);
     });
-    UUArtikkel[i].addEventListener('mouseleave', () => {
+    UUArticles[i].addEventListener('mouseleave', () => {
         animateButton(1, 300, 300, i);
     });
 }
+/*
 
 //Function that declares what the for-loop values applies to
 function animateButton(scale, duration, elasticity, index) {
-    anime.remove(UUArtikkel[index]);
+    anime.remove(UUArticles[index]);
     anime({
-        targets: UUArtikkel[index],
+        targets: UUArticles[index],
         scale: scale,
         duration: duration,
         elasticity: elasticity
     });
-}
+}*/
