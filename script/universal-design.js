@@ -31,6 +31,8 @@ export class UUElement extends HTMLElement {
             UUElement.allowDrop(event);
         } );
 
+        //Calls animation on articles
+
         this.addEventListener('mouseenter', () => {
             UUElement.animateElement(1.1, 1200, 800, parseInt(this.getAttribute("data-sort-index")), this.getAttribute('data-article-type'));
         } );
@@ -58,8 +60,11 @@ export class UUElement extends HTMLElement {
             UUElement.dragAndDrop(articleType);
         }
     }
+
+    //Scale animation on UUElements
     static animateElement(scale, duration, elasticity, index, articleType) {
         let UUArticles = document.querySelectorAll(".universal-design-article");
+        //Addition to index if the user has the pointer on WCAG facts
         if(articleType === "UUWCAG") {
             index+=7;
         }
@@ -74,6 +79,7 @@ export class UUElement extends HTMLElement {
 
     static dragAndDrop(articleType) {
         var UUList;
+        //Retrieving correct localstorage object
         if(articleType === "UUArticles") {
             UUList = UUArticle.getUUArticles();
         }
@@ -113,8 +119,6 @@ export class UUElement extends HTMLElement {
 }
 window.customElements.define('universal-design', UUElement);
 
-//customElements.get('the-element') || customElements.define('the-element', HTMLTheElement);
-
 export class UUArticle {
     static getWCAGArticles = () => JSON.parse(localStorage.getItem('UUWCAG')) || [];
     static getUUArticles = () => JSON.parse(localStorage.getItem('UUArticles')) || [];
@@ -130,7 +134,7 @@ export class UUArticle {
     }
 
     addArticle() {
-        console.log("Add");
+        //Adds UUArticles to correct LocalStorage
         if(this.type === "UUArticles") {
             UUArticle.UUList = UUArticle.getUUArticles();
 		    UUArticle.UUList.push(this);
@@ -149,6 +153,7 @@ export class UUArticle {
         let UUList = UUArticle.getUUArticles();
         let WCAGList = UUArticle.getWCAGArticles();
 
+        //Render UU articles
         UUList.forEach( article => {
             UUhtml += `<universal-design 
             name="${article.title}"
@@ -158,6 +163,8 @@ export class UUArticle {
             </universal-design>`
             
         });
+
+        //Render WCAG articles
         WCAGList.forEach( article => {
             WCAGhtml += `<universal-design
             name="${article.title}"
@@ -171,36 +178,3 @@ export class UUArticle {
         document.getElementById("universal-styling-container").innerHTML = UUhtml;
     }
 }
-/*
-export class WCAGArticle {
-    static getWCAGArticles = () => JSON.parse(localStorage.getItem('UUWCAG')) || [];
-    static list;
-
-    constructor(title, description, sortIndex) {
-        this.title = title;
-        this.description = description;
-        this.sortIndex = sortIndex;
-        this.addArticle();
-    }
-
-    addArticle() {
-        WCAGArticle.list = WCAGArticle.getWCAGArticles();
-		WCAGArticle.list.push(this);
-		window.localStorage.setItem('UUWCAG', JSON.stringify(WCAGArticle.list));
-    }
-
-    static renderArticles() {
-        let articleHTML = "";
-        let list = WCAGArticle.getWCAGArticles();
-
-        list.forEach( article => {
-            articleHTML += `<universal-design 
-            name="${article.title}"
-            description="${article.description}"
-            data-sort-index="${list.findIndex(a => a.title === article.title)}">
-            </universal-design>`
-            
-        });
-        document.getElementById("wcag-styling-container").innerHTML = articleHTML;
-    }
-}*/
