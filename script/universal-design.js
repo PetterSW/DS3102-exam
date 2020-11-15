@@ -20,11 +20,11 @@ export class UUElement extends HTMLElement {
 
         //Eventlisteners for drag and drop
         this.addEventListener('dragstart', () => {
-            UUElement.drag(event, parseInt(this.getAttribute("data-sort-index")));
+            UUElement.drag(event, parseInt(this.getAttribute("data-sort-index")), this.getAttribute('data-article-type'));
         } );
         
         this.addEventListener('drop', () => {
-            UUElement.drop(event, parseInt(this.getAttribute("data-sort-index")));
+            UUElement.drop(event, parseInt(this.getAttribute("data-sort-index")), this.getAttribute('data-article-type'));
         } );
     
         this.addEventListener('dragover', () => {
@@ -32,31 +32,37 @@ export class UUElement extends HTMLElement {
         } );
 
         this.addEventListener('mouseenter', () => {
-            console.log("YES!");
-            UUElement.animateElement(1.1, 1200, 800, parseInt(this.getAttribute("data-sort-index")));
+            UUElement.animateElement(1.1, 1200, 800, parseInt(this.getAttribute("data-sort-index")), this.getAttribute('data-article-type'));
         } );
         this.addEventListener('mouseleave', () => {
-            UUElement.animateElement(1, 300, 300, parseInt(this.getAttribute("data-sort-index")));
+            UUElement.animateElement(1, 300, 300, parseInt(this.getAttribute("data-sort-index")), this.getAttribute('data-article-type'));
         } );
         
     }
     //Drag and drop
     static draggedIndex;
     static droppedIndex;
+    static articleType;
 
     static allowDrop(ev) {
 		ev.preventDefault();
       }
       
-    static drag(ev, draggedIndex) {
+    static drag(ev, draggedIndex, articleType) {
+        UUElement.articleType = articleType;
         UUElement.draggedIndex = draggedIndex;
     }
-    static drop(ev, dropIndex) {
+    static drop(ev, dropIndex, articleType) {
         UUElement.droppedIndex = dropIndex;
-        UUElement.dragAndDrop();
+        if (UUElement.articleType === articleType) {
+            UUElement.dragAndDrop(articleType);
+        }
     }
-    static animateElement(scale, duration, elasticity, index) {
+    static animateElement(scale, duration, elasticity, index, articleType) {
         let UUArticles = document.querySelectorAll(".universal-design-article");
+        if(articleType === "UUWCAG") {
+            index+=7;
+        }
         anime.remove(UUArticles[index]);
         anime({
             targets: UUArticles[index],
@@ -66,8 +72,14 @@ export class UUElement extends HTMLElement {
         });
     }
 
-    static dragAndDrop() {
-        var UUList = UUArticle.getUUArticles();
+    static dragAndDrop(articleType) {
+        var UUList;
+        if(articleType === "UUArticles") {
+            UUList = UUArticle.getUUArticles();
+        }
+        else if (articleType === "UUWCAG") {
+            UUList = UUArticle.getWCAGArticles();
+        }
 
         //Find the index of the dragged and dropped item
         let dragIndex = UUElement.draggedIndex;
@@ -93,7 +105,8 @@ export class UUElement extends HTMLElement {
             console.table(UUList);
     }
       
-    window.localStorage.setItem('UUArticles', JSON.stringify(UUList));
+    window.localStorage.setItem(articleType, JSON.stringify(UUList));
+    UUArticle.renderArticles();
 
     }
 
@@ -118,12 +131,12 @@ export class UUArticle {
 
     addArticle() {
         console.log("Add");
-        if(this.type === "UU") {
+        if(this.type === "UUArticles") {
             UUArticle.UUList = UUArticle.getUUArticles();
 		    UUArticle.UUList.push(this);
 		    window.localStorage.setItem('UUArticles', JSON.stringify(UUArticle.UUList));
         }
-        else if (this.type === "WCAG") {
+        else if (this.type === "UUWCAG") {
             UUArticle.WCAGList = UUArticle.getWCAGArticles();
             UUArticle.WCAGList.push(this);
             window.localStorage.setItem('UUWCAG', JSON.stringify(UUArticle.WCAGList));
@@ -141,7 +154,7 @@ export class UUArticle {
             name="${article.title}"
             description="${article.description}"
             data-sort-index="${UUList.findIndex(a => a.title === article.title)}"
-            data-type="UU">
+            data-article-type="${article.type}">
             </universal-design>`
             
         });
@@ -150,7 +163,7 @@ export class UUArticle {
             name="${article.title}"
             description="${article.description}"
             data-sort-index="${WCAGList.findIndex(a => a.title === article.title)}"
-            data-type="WCAG">
+            data-article-type="${article.type}">
             </universal-design>`
             
         });
