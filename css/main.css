@@ -119,7 +119,7 @@ html, body{
      text-transform: uppercase;
      transition: all 0.4s ease 0s;
 }
- nav a.not(.navbar-link__current):hover {
+nav a.not(.navbar-link__current):hover {
      color: #4d4545;
 }
 

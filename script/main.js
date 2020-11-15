@@ -108,14 +108,22 @@ if (localStorage.getItem("reviews") === null) {
 //Creat UU elements
 if(document.getElementById("universal-styling-container")) {
     if(localStorage.getItem("UUArticles") === null) {
-        new UUArticle("Like muligheter for bruk", "Utformingen skal være brukbar og tilgjengelig for personer med ulike evner", 1);
-        new UUArticle("Fleksibel i bruk", "Utformingen skal tjene et vidt spekter av indviduelle preferanser og ferdigheter", 2);
-        new UUArticle("Enkel og intuitiv i bruk", "Utformingen skal være lett å forstå uten hensyn til brukerens erfaring, kunnskap, språkferdigheter eller konsentrasjonsnivå.", 3);
-        new UUArticle("Forståelig informasjon", "Utformingen skal kommunisere nødvendig informasjon til brukeren på en effektiv måte, uavhengig av forhold knyttet til omgivelsene eller brukerens sensoriske ferdigheter.", 4);
-        new UUArticle("Toleranse for feil", "Utformingen skal minimalisere farer og skader som kan gi ugunstige konsekvenser, eller minimalisere utilsiktede handlinger.", 5);
-        new UUArticle("Lav fysisk anstrengelse", "Utformingen skal kunne brukes effektivt og bekvemt med et minimum av besvær.", 5);
-        new UUArticle("Størrelse og plass for tilgang og bruk", "Hensiktsmessig størrelse og plass skal muliggjøre tilgang, rekkevidde, betjening og bruk, uavhengig av brukerens kroppsstørrelse, kroppsstilling eller mobilitet.", 6);
-        
+        //UU Articles
+        new UUArticle("Like muligheter for bruk", "Utformingen skal være brukbar og tilgjengelig for personer med ulike evner", 1, "UUArticles");
+        new UUArticle("Fleksibel i bruk", "Utformingen skal tjene et vidt spekter av indviduelle preferanser og ferdigheter", 2, "UUArticles");
+        new UUArticle("Enkel og intuitiv i bruk", "Utformingen skal være lett å forstå uten hensyn til brukerens erfaring, kunnskap, språkferdigheter eller konsentrasjonsnivå.", 3, "UUArticles");
+        new UUArticle("Forståelig informasjon", "Utformingen skal kommunisere nødvendig informasjon til brukeren på en effektiv måte, uavhengig av forhold knyttet til omgivelsene eller brukerens sensoriske ferdigheter.", 4, "UUArticles");
+        new UUArticle("Toleranse for feil", "Utformingen skal minimalisere farer og skader som kan gi ugunstige konsekvenser, eller minimalisere utilsiktede handlinger.", 5, "UUArticles");
+        new UUArticle("Lav fysisk anstrengelse", "Utformingen skal kunne brukes effektivt og bekvemt med et minimum av besvær.", 5, "UUArticles");
+        new UUArticle("Størrelse og plass for tilgang og bruk", "Hensiktsmessig størrelse og plass skal muliggjøre tilgang, rekkevidde, betjening og bruk, uavhengig av brukerens kroppsstørrelse, kroppsstilling eller mobilitet.", 6, "UUArticles");
+        //WCAG Articles
+        new UUArticle("Gode kontraster", "God kontrast mellom bakgrunn og innhold. F. eks.: Svart tekst på hvit bakgrunn fungerer mye bedre enn grå tekst på grå bakgrunn.", 7, "UUWCAG");
+        new UUArticle("ALT-tag på bilder", "Alle bilder må ha en alternativ tekst som forklarer hva bildet inneholder. Dette er noe som allerede burde ha blitt gjort, ettersom det er bra for søkemotorene. For å følge kravene til universell utforming må dette gjøres på alle nye bilder, og dessuten på bilder som allerede er på nettsiden.", 8, "UUWCAG");
+        new UUArticle("Mulighet for forstørre teksten", "Det skal være mulig å forstørre teksten 200% uten at nettsiden mister sin funksjon. Nei, det kommer mest sannsynlig ikke til å bli så pent, men kravet er å kunne forstørre teksten uten at viktig innhold eller funksjonalitet går tapt.", 9, "UUWCAG");
+        new UUArticle("Gi respons til brukeren", "Dersom du for eksempel har et kontaktskjema på nettsiden, må det gis forslag til hva som må rettes hvis brukeren gjør noe feil.", 10, "UUWCAG");
+        new UUArticle("Tittel på hver enkelt side", "Hver nettside må ha en tittel (gjerne H1) som beskriver hva siden inneholder. Dette gjelder også subtitler (gjerne H2) på en side som skal fortelle hva teksten handler om.", 11, "UUWCAG");
+        new UUArticle("Korrekt bruk av HTML-tags", "Hovedtittelen er en H1 og burde ikke brukes mer enn én gang per side. Dette er ikke bare på grunn av universell utforming, men også slik at søkemotorer forstår hva som er viktigst på siden. Ellers kan du bruke H2 – H6 for subtitler.", 12, "UUWCAG");
+        new UUArticle("Tilpasset alle enheter", "Løsningen må være tilpasset flere størrelseforhold avhengig av skjermstørrelsen til brukeren", 13, "UUWCAG");
     }
     UUArticle.renderArticles();
 }

@@ -1,16 +1,31 @@
+/*p tag with facts for UU*/
+.p-text {
+    padding: 0px 25px 0px 25px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+h2 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+#uu-source-container {
+    padding: 5px 25px 5px 25px
+}
 
 .universal-design-article{
     background-color: #8e181b;
     border: 1px solid #8e181b;
     border-radius: 5px;
     margin: 10px;
+    cursor: pointer;
 }
 
 .uu-description {
     margin: 10px;
 }
 
-#uu-source {
+.uu-source {
     color: #ffffff;
-    margin-left: 10px;
 }
