@@ -221,7 +221,6 @@ export class ShoppingCart{
 
 //View address input if the user want the sushi home
 export function deliveryMethodChanged() {
-	console.log("Clicked");
 	let delivery = document.querySelector('input[name="delivery"]:checked').value;
 	if (delivery == "home-delivery") {
 		document.getElementById("input-address-container").style.visibility = "visible";
