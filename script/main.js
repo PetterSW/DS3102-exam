@@ -192,7 +192,8 @@ if(document.getElementById("reviews-container")) {
 
     /* Eventisentners only on checkout page */
 if(ShoppingCart.container){
-    document.getElementById("delivery-method").addEventListener("click", deliveryMethodChanged);
+    document.getElementById("pickup").addEventListener("click", deliveryMethodChanged);
+    document.getElementById("home-delivery").addEventListener("click", deliveryMethodChanged);
     document.querySelector("[name='form-place-order']").addEventListener("submit", placeOrder); 
 
     window.addEventListener('load', ShoppingCart.renderShoppingCart);
