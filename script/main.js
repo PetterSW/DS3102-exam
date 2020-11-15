@@ -126,7 +126,6 @@ if(document.getElementById("universal-styling-container")) {
         new UUArticle("Tilpasset alle enheter", "Løsningen må være tilpasset flere størrelseforhold avhengig av skjermstørrelsen til brukeren", 13, "UUWCAG");
     }
     UUArticle.renderArticles();
-    //WCAGArticle.renderArticles();
 }
 
 

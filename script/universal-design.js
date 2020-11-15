@@ -100,7 +100,6 @@ export class UUElement extends HTMLElement {
         if(dragIndex > dropIndex) {
             UUList.splice(dropIndex, 0, dragItem);
             UUList.splice(dragIndex+1, 1);
-            console.table(UUList);
         }
         
         else {
@@ -108,7 +107,6 @@ export class UUElement extends HTMLElement {
             UUList.splice(dropIndex, 0, dropItem);
             UUList.splice(dragIndex, 1);
             UUList.splice(dropIndex+1, 1);
-            console.table(UUList);
     }
       
     window.localStorage.setItem(articleType, JSON.stringify(UUList));
