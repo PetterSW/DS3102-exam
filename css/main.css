@@ -12,7 +12,6 @@ h1, h2, h3, h4, p, b, strong{
 }
 /*Styling for buttons*/
  button{
-     background-color: #8e181b;
      color: #ffffff;
      box-shadow: 5px 5px 5px black;
      font-family: "Montserrat", sans-serif;
@@ -22,14 +21,23 @@ h1, h2, h3, h4, p, b, strong{
      border-radius: 5px;
      padding: 10px 20px;
 }
-/*Adding a responsive color transition on hover of button*/
- button:hover{
-     background-color: #431011;
+
+
+/*Animation that fades the color from white to red on hover*/
+button{
+    transition: all .2s ease-in;
+    background-color: #8e181b; 
 }
 
+button:hover { 
+    background-color: #431011;
+}
+/* Adding a smooth scroll effect when jumping to menu with arrow button*/
 html, body{
     width: 100%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    
 }
 
  body {
@@ -171,6 +179,48 @@ html, body{
      text-align: center;
      z-index: 1;
 }
+/*Positions the scroll-indicator-wrap in the bottom middle*/
+#scroll-indicator-wrap{
+     position: absolute;
+     bottom: 6%;
+     text-align: center;
+     width: 100%;
+}
+/*Scroll-indicator properties*/
+ #scroll-indicator {
+     font-size: 4.5rem;
+     display: block;
+     width: 3rem;
+     margin-left: auto;
+     margin-right: auto;
+     
+    
+     
+ } 
+/*Adding an infinite animation moving the button a set amount, with alternate playing it back and forth*/
+#scroll-indicator {
+    -webkit-animation: action 1s infinite  alternate;
+    animation: action 1s infinite  alternate;
+    }
+    @-webkit-keyframes action {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-9px); }
+    }
+    @keyframes action {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-9px); }
+    }
+/*Animation that fades the color from white to red on hover*/
+#scroll-indicator{
+    transition: all .2s ease-in;
+    color: #ffffff; 
+   
+}
+
+#scroll-indicator:hover { 
+    color: #8e181b;
+}
+
 /*Styling and properties for the main container under banner*/
  main{
      background-color: #161616;
