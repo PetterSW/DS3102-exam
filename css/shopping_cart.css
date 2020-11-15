@@ -146,6 +146,11 @@ for name, quantity and price column, inc. tfoot*/
     width: 300px;
 }
 
+#error-order-message {
+    color: red;
+    font-weight: bold;
+}
+
 #btn-order-submit {
     margin: 10px 0px 30px 11px;
     font-size: 1.3em;

@@ -227,6 +227,7 @@ export class ShoppingCart{
 
 //View address input if the user want the sushi home
 export function deliveryMethodChanged() {
+	document.getElementById("error-order-message").innerHTML = "";
 	let delivery = document.querySelector('input[name="delivery"]:checked').value;
 	if (delivery == "home-delivery") {
 		document.getElementById("input-address-container").style.display = "block";
@@ -246,31 +247,39 @@ export function deliveryMethodChanged() {
 //Place the selected order
 export function placeOrder() {
 	event.preventDefault();
+
 	/* Error message if the cartQty = 0 */
 	if (ShoppingCart.getCartQty() === 0) {
-		document.getElementById("confirm-order-header").innerHTML = "Handlekurven er tom! Legg varer i handlekurven for å bestille.";
+		document.getElementById("error-order-message").innerText = "Handlekurven er tom! Legg varer i handlekurven for å bestille.";
+	}
+	else if (!document.querySelector('[name="delivery"]:checked')) {
+		document.getElementById("error-order-message").innerHTML = `Velg ønsket leveringsmetode, deretter trykk "Bestill" igjen!`;
+
+		let deliveryMethodP = document.getElementById("delivery-p");
+		deliveryMethodP.style = "font-weight: bold";
 	}
 	else {
 		let customerName = document.getElementById("input-name").value;
 		let deliveryMethod = document.querySelector('[name="delivery"]:checked').value;
 
+		/* Confimed order header-text generator*/
 		document.getElementById("confirm-order-header").innerHTML = `Takk for din besilling ${customerName}!`;
 
 		/* Confirmed order text generator */
 		if(deliveryMethod === 'home-delivery') {
 			let customerAddress = document.getElementById("input-address").value;
-			document.getElementById("confirm-order-text").innerHTML = `Takk for din bestilling ${customerName}! Så snart din sushi er klar kjører vi den til ${customerAddress}! Estimert tid er: ${ShoppingCart.getCartQty() + 35} minutter`;
+			document.getElementById("confirm-order-text").innerHTML = `Så snart din sushi er klar kjører vi den til ${customerAddress}! Estimert leveringstid er: ${ShoppingCart.getCartQty() + 35} minutter. Vi sender deg en SMS fem minutter før levering.`;
 		}
 		else if(deliveryMethod === 'pickup') {
 			let pickupPoint;
 			if (document.querySelector('[name="select-pickup-point"]').value === 'akerbrygge') {
-				pickupPoint = "HK-Sushi på Aker Brygge - Salmakersvenn Marius Jantzens plass 3"
+				pickupPoint = "HK-Sushi Aker Brygge på Salmakersvenn Marius Jantzens plass 3";
 			}
 			else if (document.querySelector('[name="select-pickup-point"]').value === 'barcode') {
-				pickupPoint = "HK-Sushi i Bjørvika - Dronning Eufemias gate 18, 0191 Oslo"
+				pickupPoint = "HK-Sushi Bjørvika i Dronning Eufemias gate 18";
 
 			}
-			document.getElementById("confirm-order-text").innerHTML = `Takk for din bestilling ${customerName}! Din ordre er klar til henting om ${ShoppingCart.getCartQty() + 15} minutter. Velkommen innom ${pickupPoint}!`;
+			document.getElementById("confirm-order-text").innerHTML = `Din ordre er klar til henting om ca ${ShoppingCart.getCartQty() + 15} minutter. Velkommen innom ${pickupPoint}!`;
 		}
 		ShoppingCart.clearCart();
 		event.target.reset;

@@ -198,6 +198,4 @@ if(ShoppingCart.container){
 (() => {
     startSlideShow();
     ShoppingCart.setMenuBarQty();
-    console.log(ShoppingCart.getCartQty() + 20);
-    
 })()

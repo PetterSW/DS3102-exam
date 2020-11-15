@@ -98,7 +98,7 @@
                <input type="text" placeholder="Mobilnummer" name="customer-phone" class="input-delivery"id="input-phone" required>
 
                <section id="delivery-method">
-                  <p>Velg ønsket leveringsmetode:</p>
+                  <p id="delivery-p">Velg ønsket leveringsmetode:</p>
                   <label for="pickup" class="label-delvery" id="label-pickup">Hent selv - (Gratis)</label>
                   <input name="delivery" type="radio" class="radio-delivery" id="pickup" value="pickup">
 
@@ -117,6 +117,8 @@
                      <option value="barcode">HK-Sushi Bjørvika</option>
                   </select>
                </section>
+               <strong id="error-order-message"></strong>
+               <br>
                <button id="btn-order-submit" type="submit">Bestill</button>
             </form>
             <!--Confirm order-->
