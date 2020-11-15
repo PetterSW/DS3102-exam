@@ -236,6 +236,24 @@ footer i {
      margin: 0em 0.5em;
 }
 
+/*Styling links in footer*/
+footer a{
+    text-decoration: none;
+}
+
+#footer-phone__link:hover p, #footer-phone__link:hover i{
+    color: #4d4545;
+}
+
+#footer-facebook__link:hover p, #footer-facebook__link:hover i{
+    color: #4267B2;
+}
+
+#footer-instagram__link:hover p, #footer-instagram__link:hover i{
+    color: #bc2a8d;
+}
+
+
 /*Main is covering the hole screen if window is 1024px or less*/
  @media only screen and (max-width: 1024px){
     /*Main*/
