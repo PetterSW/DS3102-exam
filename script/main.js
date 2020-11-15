@@ -187,6 +187,7 @@ if(document.getElementById("reviews-container")) {
 
     /* Eventisentners only on checkout page */
 if(ShoppingCart.container){
+    document.getElementById("delivery-method").addEventListener("load", deliveryMethodChanged);
     document.getElementById("delivery-method").addEventListener("click", deliveryMethodChanged);
     document.querySelector("[name='form-place-order']").addEventListener("submit", placeOrder); 
 
@@ -196,6 +197,7 @@ if(ShoppingCart.container){
     /* Selv calling functions */
 (() => {
     startSlideShow();
-    setMenuBarQty();
+    ShoppingCart.setMenuBarQty();
+    console.log(ShoppingCart.getCartQty() + 20);
     
 })()

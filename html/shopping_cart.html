@@ -94,6 +94,7 @@
                <input type="text" placeholder="Mobilnummer" name="customer-phone" class="input-delivery"id="input-phone">
 
                <section id="delivery-method">
+                  <p>Velg ønsket leveringsmetode:</p>
                   <label for="pickup" class="label-delvery" id="label-pickup">Hent selv - (Gratis)</label>
                   <input name="delivery" type="radio" class="radio-delivery" id="pickup" value="pickup">
 
@@ -105,16 +106,20 @@
                   <label for="address">Adresse:</label>
                   <input type="text" name="address" class="input-delivery" id="input-address" placeholder="Adresse">
                </section>
-               <section id="selectPickup">
+               <section id="select-pickup">
+                  <label for="select-pickup-point">Velg restaurant:</label>
                   <select name="select-pickup-point" class="select-option">
-                     <option selected>Velg restaurant...</option>
-                     <option value="akerbrygge">Aker Brygge - Salmakersvenn Marius Jantzens plass 3</option>
-                     <option value="barcode">Bjørvika - Dronning Eufemias gate 18</option>
+                     <option value="akerbrygge">HK-Sushi Aker Brygge</option>
+                     <option value="barcode">HK-Sushi Bjørvika</option>
                   </select>
                </section>
                <button id="btn-order-submit" type="submit">Bestill</button>
             </form>
-            <p id="confirm-order-text"></p>
+            <!--Confirm order-->
+            <section id="confirm-order-container">
+               <h3 id="confirm-order-header"></h3>
+               <p id="confirm-order-text"></p>
+            </section> 
          </section>
 
       </main>
