@@ -2,7 +2,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
  
 /*Assigns font and color to all tags mentioned*/
-h1, h2, h3, h4, p, b, strong{
+h1, h2, h3, h4, p, b, strong, label{
      font-family: "Montserrat", sans-serif;
      color: #ffffff;
 }
@@ -20,19 +20,33 @@ h1, h2, h3, h4, p, b, strong{
      border: 0;
      border-radius: 5px;
      padding: 10px 20px;
+     /*Animation that fades the color from white to red on hover*/
+     transition: all .2s ease-in;
+     background-color: #8e181b;
 }
 
 
-/*Animation that fades the color from white to red on hover*/
-button{
-    transition: all .2s ease-in;
-    background-color: #8e181b; 
-}
+
+
+    
+
 
 button:hover { 
     background-color: #431011;
 }
-/* Adding a smooth scroll effect when jumping to menu with arrow button*/
+
+/*Common styling for text input and textarea*/
+input[type="text"], textarea{
+    background-color: #161616;
+    padding: 0.5em;
+    margin: 1em;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: "Montserrat", sans-serif;
+}
+
+
 html, body{
     width: 100%;
     overflow-x: hidden;
@@ -115,11 +129,25 @@ html, body{
      text-transform: uppercase;
      transition: all 0.4s ease 0s;
 }
- nav a:hover {
+nav a.not(.navbar-link__current):hover {
      color: #4d4545;
 }
+
+/*Line under current link*/
+.navbar-link__current:link::after, .navbar-link__current:visited::after {
+    content: '';
+     display: block;
+     height: 2px;
+     background: #8e181b;
+     position: absolute;
+     top: 1.2em;
+     left: 0;
+     right: 0;
+}
+
+
 /*Nav links line transition for responsiveness*/
- .navbar-item a::before {
+ .navbar-item a:not(.navbar-link__current)::before {
      content: '';
      display: block;
      height: 2px;
@@ -131,7 +159,7 @@ html, body{
      transform: scale(0, 1);
      transition: transform ease-in-out 250ms;
 }
- nav a:hover::before {
+ nav a:not(.navbar-link__current):hover::before {
      transform: scale(1,1);
 }
 /*Banner slideshow*/
