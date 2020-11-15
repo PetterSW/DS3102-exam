@@ -148,7 +148,7 @@ export class ShoppingCart{
 			priceP.textContent = "75 Kr";
 			tableDataPrice.appendChild(priceP);
 
-			document.getElementById('input-delivery-home').checked = true;
+			document.getElementById('home-delivery').checked = true;
 		}
 
 		//Printing total qty and total price in table foot
@@ -221,14 +221,15 @@ export class ShoppingCart{
 
 //View address input if the user want the sushi home
 export function deliveryMethodChanged() {
-	let method = document.querySelector('input[name="delivery-method"]:checked').value;
-	if (method == "sushiToHome") {
+	console.log("Clicked");
+	let delivery = document.querySelector('input[name="delivery"]:checked').value;
+	if (delivery == "home-delivery") {
 		document.getElementById("input-address-container").style.visibility = "visible";
 		document.getElementById("input-address").required = true;
 		ShoppingCart.saveInCart("delivery");
 
 	}
-	if (method == "pickup") {
+	if (delivery == "pickup") {
 		document.getElementById("input-address-container").style.visibility = "hidden";
 		ShoppingCart.removeFromCart("delivery");
 	}

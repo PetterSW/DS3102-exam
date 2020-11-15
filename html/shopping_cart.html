@@ -87,16 +87,23 @@
          <section id="place-order-container">
             <h2 id="place-order-title">Kundeinformasjon</h2>
             <form name="form-place-order">
-               <input type="text" placeholder="Ditt navn" class="input-delivery" id="input-name">
-               <input type="text" placeholder="Mobilnummer" class="input-delivery"id="input-phone">
+               <label for="customer-name">Navn:</label><br>
+               <input type="text" placeholder="Ditt navn" name="customer-name" class="input-delivery" id="input-name"><br>
+
+               <label for="customer-phone">Mobilnummer:</label><br>
+               <input type="text" placeholder="Mobilnummer" name="customer-phone" class="input-delivery"id="input-phone">
+
                <section id="delivery-method">
-                  <input name="delivery-method" type="radio" class="radio-delivery" id="input-delivery-pickup" value="pickup">
                   <label for="pickup" class="label-delvery" id="label-pickup">Hent selv - (Gratis)</label>
-                  <input name="delivery-method" type="radio" class="radio-delivery" id="input-delivery-home" value="sushiToHome">
-                  <label for="pickup" class="label-delvery" id="label-home">Levert på døren (75,-)</label>
+                  <input name="delivery" type="radio" class="radio-delivery" id="pickup" value="pickup">
+
+                  <label for="home-delivery" class="label-delvery" id="label-home">Levert på døren (75,-)</label>
+                  <input name="delivery" type="radio" class="radio-delivery" id="home-delivery" value="home-delivery">
                </section>
+
                <section id="input-address-container">
-                  <input type="text" class="input-delivery" id="input-address" placeholder="Adresse">
+                  <label for="address">Adresse:</label>
+                  <input type="text" name="address" class="input-delivery" id="input-address" placeholder="Adresse">
                </section>
                <button id="btn-order-submit" type="submit">Bestill</button>
             </form>
