@@ -27,6 +27,18 @@ h1, h2, h3, h4, p, b, strong{
      background-color: #431011;
 }
 
+/*Common styling for text input and textarea*/
+input[type="text"], textarea{
+    background-color: #161616;
+    padding: 0.5em;
+    margin: 1em;
+    border: 1px solid #FFFFFF;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: "Montserrat", sans-serif;
+}
+
+
 html, body{
     width: 100%;
     overflow-x: hidden;
