@@ -108,16 +108,21 @@ if (localStorage.getItem("reviews") === null) {
 //Creat UU elements
 if(document.getElementById("universal-styling-container")) {
     if(localStorage.getItem("UUArticles") === null) {
-        new UUArticle("Like muligheter for bruk", "Utformingen skal være brukbar og tilgjengelig for personer med ulike evner", 1);
-        new UUArticle("Fleksibel i bruk", "Utformingen skal tjene et vidt spekter av indviduelle preferanser og ferdigheter", 2);
-        new UUArticle("Enkel og intuitiv i bruk", "Utformingen skal være lett å forstå uten hensyn til brukerens erfaring, kunnskap, språkferdigheter eller konsentrasjonsnivå.", 3);
-        new UUArticle("Forståelig informasjon", "Utformingen skal kommunisere nødvendig informasjon til brukeren på en effektiv måte, uavhengig av forhold knyttet til omgivelsene eller brukerens sensoriske ferdigheter.", 4);
-        new UUArticle("Toleranse for feil", "Utformingen skal minimalisere farer og skader som kan gi ugunstige konsekvenser, eller minimalisere utilsiktede handlinger.", 5);
-        new UUArticle("Lav fysisk anstrengelse", "Utformingen skal kunne brukes effektivt og bekvemt med et minimum av besvær.", 5);
-        new UUArticle("Størrelse og plass for tilgang og bruk", "Hensiktsmessig størrelse og plass skal muliggjøre tilgang, rekkevidde, betjening og bruk, uavhengig av brukerens kroppsstørrelse, kroppsstilling eller mobilitet.", 6);
-        
+        //UU Articles
+        new UUArticle("Like muligheter for bruk", "Utformingen skal være brukbar og tilgjengelig for personer med ulike evner", 1, "UU");
+        new UUArticle("Fleksibel i bruk", "Utformingen skal tjene et vidt spekter av indviduelle preferanser og ferdigheter", 2, "UU");
+        new UUArticle("Enkel og intuitiv i bruk", "Utformingen skal være lett å forstå uten hensyn til brukerens erfaring, kunnskap, språkferdigheter eller konsentrasjonsnivå.", 3, "UU");
+        new UUArticle("Forståelig informasjon", "Utformingen skal kommunisere nødvendig informasjon til brukeren på en effektiv måte, uavhengig av forhold knyttet til omgivelsene eller brukerens sensoriske ferdigheter.", 4, "UU");
+        new UUArticle("Toleranse for feil", "Utformingen skal minimalisere farer og skader som kan gi ugunstige konsekvenser, eller minimalisere utilsiktede handlinger.", 5, "UU");
+        new UUArticle("Lav fysisk anstrengelse", "Utformingen skal kunne brukes effektivt og bekvemt med et minimum av besvær.", 5, "UU");
+        new UUArticle("Størrelse og plass for tilgang og bruk", "Hensiktsmessig størrelse og plass skal muliggjøre tilgang, rekkevidde, betjening og bruk, uavhengig av brukerens kroppsstørrelse, kroppsstilling eller mobilitet.", 6, "UU");
+        //WCAG Articles
+        new UUArticle("Gode kontraster", "God kontrast mellom bakgrunn og innhold. F. eks.: Svart tekst på hvit bakgrunn fungerer mye bedre enn grå tekst på grå bakgrunn.", 1, "WCAG");
+        new UUArticle("ALT-tag på bilder", "Alle bilder må ha en alternativ tekst som forklarer hva bildet inneholder. Dette er noe som allerede burde ha blitt gjort, ettersom det er bra for søkemotorene. For å følge kravene til universell utforming må dette gjøres på alle nye bilder, og dessuten på bilder som allerede er på nettsiden.", 2, "WCAG");
+
     }
     UUArticle.renderArticles();
+    //WCAGArticle.renderArticles();
 }
 
 
