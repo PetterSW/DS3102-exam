@@ -10,11 +10,6 @@ export {
 }
 
 
-
-function setMenuBarQty() {
-    document.getElementById("menubar-shoppingcart-qty").innerHTML = ShoppingCart.getCartQty();;
-}
-
     /* Change banner function */
 
 function changeBanner(currentIndex, newIndex) {
@@ -192,8 +187,7 @@ if(document.getElementById("reviews-container")) {
 
     /* Eventisentners only on checkout page */
 if(ShoppingCart.container){
-    document.getElementById("pickup").addEventListener("click", deliveryMethodChanged);
-    document.getElementById("home-delivery").addEventListener("click", deliveryMethodChanged);
+    document.getElementById("delivery-method").addEventListener("click", deliveryMethodChanged);
     document.querySelector("[name='form-place-order']").addEventListener("submit", placeOrder); 
 
     window.addEventListener('load', ShoppingCart.renderShoppingCart);

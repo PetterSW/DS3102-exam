@@ -2,7 +2,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
  
 /*Assigns font and color to all tags mentioned*/
-h1, h2, h3, h4, p, b, strong, label{
+h1, h2, h3, h4, p, b, strong, label {
      font-family: "Montserrat", sans-serif;
      color: #ffffff;
 }
@@ -225,7 +225,7 @@ nav a.not(.navbar-link__current):hover {
      text-align: center;
 }
 
-/*Select option HTML-tag*/
+/*Select-option HTML-tag*/
 
 .select-option{
     background-color: #8e181b;
