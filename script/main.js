@@ -11,9 +11,9 @@ export {
 
 
 
-
-
-
+function setMenuBarQty() {
+    document.getElementById("menubar-shoppingcart-qty").innerHTML = ShoppingCart.getCartQty();;
+}
 
     /* Change banner function */
 
@@ -201,5 +201,6 @@ if(ShoppingCart.container){
     /* Selv calling functions */
 (() => {
     startSlideShow();
-    ShoppingCart.setMenuBarQty();
+    setMenuBarQty();
+    
 })()

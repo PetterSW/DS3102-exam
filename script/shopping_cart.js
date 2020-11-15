@@ -182,16 +182,21 @@ export class ShoppingCart{
 
 			//Render navbar quantity
 			ShoppingCart.setMenuBarQty();
+			
 	}
 
-	static setMenuBarQty() {
+	static getCartQty() {
 		let qty = 0;
 		let productList = JSON.parse(localStorage.getItem('productList')) || [];
 		ShoppingCart.getCart().forEach( cartItem => {
 			const product = productList.find( product => product.id == cartItem.id );
 			qty += parseInt(cartItem.qty);
 		})
-		document.getElementById("menubar-shoppingcart-qty").innerHTML = qty;
+		return qty;
+	}
+
+	static setMenuBarQty() {
+		document.getElementById("menubar-shoppingcart-qty").innerHTML = ShoppingCart.getCartQty();;
 	}
 
 	//Removing item from cart
@@ -237,9 +242,17 @@ export function deliveryMethodChanged() {
 }
 //Place the selected order
 export function placeOrder() {
+	let customerName = document.getElementById("input-name").value;
+	let method = document.querySelector('input[name="delivery-method"]:checked').value;
 	event.preventDefault();
+	if(method === 'sushiToHome') {
+		document.getElementById("confirm-order-text").innerHTML = `Takk for din bestilling ${customerName}! Så snart din sushi er klar kjører vi den hjem til deg! Estimert tid er: ${Math.floor(Math.random() * ShoppingCart.getCartQty()) + 10} minutter`;
+	}
+	if(method === 'pickup') {
+		document.getElementById("confirm-order-text").innerHTML = `Takk for din bestilling ${customerName}! Din ordre er klar om ${Math.floor(Math.random() * ShoppingCart.getCartQty()) + 10} minutter. Velkommen innom!`;
+	}
 	ShoppingCart.clearCart();
-	document.getElementById("confirm-order-text").innerHTML = "Takk for din bestilling! Din ordre er klar om 15 minutter";
+
 	event.target.reset;
 }
 
