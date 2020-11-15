@@ -107,11 +107,25 @@ html, body{
      text-transform: uppercase;
      transition: all 0.4s ease 0s;
 }
- nav a:hover {
+ nav a.not(.navbar-link__current):hover {
      color: #4d4545;
 }
+
+/*Line under current link*/
+.navbar-link__current:link::after, .navbar-link__current:visited::after {
+    content: '';
+     display: block;
+     height: 2px;
+     background: #8e181b;
+     position: absolute;
+     top: 1.2em;
+     left: 0;
+     right: 0;
+}
+
+
 /*Nav links line transition for responsiveness*/
- .navbar-item a::before {
+ .navbar-item a:not(.navbar-link__current)::before {
      content: '';
      display: block;
      height: 2px;
@@ -123,7 +137,7 @@ html, body{
      transform: scale(0, 1);
      transition: transform ease-in-out 250ms;
 }
- nav a:hover::before {
+ nav a:not(.navbar-link__current):hover::before {
      transform: scale(1,1);
 }
 /*Banner slideshow*/
