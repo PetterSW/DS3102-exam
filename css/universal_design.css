@@ -20,6 +20,7 @@ h2 {
     border-radius: 5px;
     margin: 10px;
     cursor: pointer;
+    box-shadow: 5px 5px 5px black;
 }
 
 .uu-description {
