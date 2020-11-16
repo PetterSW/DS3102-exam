@@ -235,8 +235,8 @@ export function deliveryMethodChanged() {
 	document.getElementById("error-order-message").innerHTML = "";
 	let delivery = document.querySelector('input[name="delivery"]:checked').value;
 	if (delivery == "home-delivery") {
-		document.getElementById("input-address-container").style.display = "block";
 		document.getElementById("select-pickup").style.display = "none";
+		document.getElementById("input-address-container").style.display = "block";
 		document.getElementById("input-address").required = true;
 		ShoppingCart.saveInCart("delivery");
 
@@ -244,6 +244,7 @@ export function deliveryMethodChanged() {
 	if (delivery == "pickup") {
 		document.getElementById("input-address-container").style.display = "none";
 		document.getElementById("select-pickup").style.display = "block";
+		document.getElementById("input-address").required = false;
 		ShoppingCart.removeFromCart("delivery");
 	}
 
