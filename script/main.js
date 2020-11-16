@@ -112,7 +112,7 @@ new Product("Stor Sushi (28 biter)", "../images/food/Stor-tallerken.jpg", "6 sus
 new Product("Medium Sushi vegetar (21 biter)", "../images/food/Maki-vegetar.jpg", "21 ulike makibiter med advokado, sesamfrø, gulrot, philadelphia, agurk", "199");
 new Product("Tempura-Kongereke", "../images/food/Tempura-Reke.jpg", "2 friterte kongereker", "79");
 new Product("Sashimi-bowl", "../images/food/Sushi-bowl.jpg", "Vår anerkjente sashimi bestående av laks, kveite, smørfisk, tunfisk", "149");
-new Product("Sushi-Burrito", "../images/food/Sushi-Wrap.jpg", "2 Sushi burrito bestående av scampi tempura, agurko og gulrot", "99");
+new Product("Sushi-Burrito", "../images/food/Sushi-Wrap.jpg", "2 Sushi burrito bestående av scampi tempura, agurk og gulrot", "99");
 new Product("HK-Sushi for eventer (70 biter) ", "../images/food/Event-tallerken.jpg", "70 makibiter av laks, kvite, tunfisk, smørfisk, scampi tempurar eller vegetar", "999");
 
 //Sets default reviews in localStorage
