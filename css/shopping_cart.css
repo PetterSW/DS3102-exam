@@ -151,11 +151,6 @@ for name, quantity and price column, inc. tfoot*/
     font-weight: bold;
 }
 
-#btn-order-submit {
-    margin: 10px 0px 30px 11px;
-    font-size: 1.3em;
-}
-
 #confirm-order-text {
     line-height: 1.6;
 }

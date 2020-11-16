@@ -189,6 +189,11 @@ export class ShoppingCart{
 	static getCartQty() {
 		let qty = 0;
 		let productList = JSON.parse(localStorage.getItem('productList')) || [];
+
+		//Removes home-delivery as a cart Qty
+		if(ShoppingCart.getCart().find( item => item.id == "delivery")) {
+			qty = -1;
+		}
 		ShoppingCart.getCart().forEach( cartItem => {
 			const product = productList.find( product => product.id == cartItem.id );
 			qty += parseInt(cartItem.qty);
@@ -230,8 +235,8 @@ export function deliveryMethodChanged() {
 	document.getElementById("error-order-message").innerHTML = "";
 	let delivery = document.querySelector('input[name="delivery"]:checked').value;
 	if (delivery == "home-delivery") {
-		document.getElementById("input-address-container").style.display = "block";
 		document.getElementById("select-pickup").style.display = "none";
+		document.getElementById("input-address-container").style.display = "block";
 		document.getElementById("input-address").required = true;
 		ShoppingCart.saveInCart("delivery");
 
@@ -239,6 +244,7 @@ export function deliveryMethodChanged() {
 	if (delivery == "pickup") {
 		document.getElementById("input-address-container").style.display = "none";
 		document.getElementById("select-pickup").style.display = "block";
+		document.getElementById("input-address").required = false;
 		ShoppingCart.removeFromCart("delivery");
 	}
 

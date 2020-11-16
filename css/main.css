@@ -25,16 +25,15 @@ h1, h2, h3, h4, p, b, strong, label {
      background-color: #8e181b;
 }
 
-
-
-
-    
-
-
 button:hover { 
     background-color: #431011;
 }
-
+.logo {
+  transition: transform .5s ease-in-out;
+}
+.logo:hover {
+  transform: rotate(30deg);
+}
 form{
     padding: 1em;
 }
@@ -184,6 +183,9 @@ nav a:not(.navbar-link__current):hover {
  .slideshow > img {
      width: calc(100vw - (100vw - 100%));
      height: 44.8vw;
+}
+.slide-mobile {
+    display: none;
 }
 /*Next and previous banner button*/
  .next, .prev {
@@ -338,14 +340,17 @@ footer a{
 
 #footer-phone__link:hover p, #footer-phone__link:hover i{
     color: #4d4545;
+    transition: all .4s ease-in;
 }
 
 #footer-facebook__link:hover p, #footer-facebook__link:hover i{
     color: #4267B2;
+    transition: all .4s ease-in;
 }
 
 #footer-instagram__link:hover p, #footer-instagram__link:hover i{
     color: #bc2a8d;
+    transition: all .4s ease-in;
 }
 
 
@@ -365,7 +370,7 @@ footer a{
 }
 
 /*Styling navbar on smaller screens*/
- @media only screen and (max-width: 800px){
+@media only screen and (max-width: 800px){
     /*Navbar styling*/
      nav ul{
          flex-wrap: wrap;
@@ -391,7 +396,12 @@ footer a{
          padding: 0.5em;
          display: none;
     }
-
+    .slide-desktop {
+        display: none;
+    }
+    .slide-mobile {
+        display: block;
+    }
     
 }
 
