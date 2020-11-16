@@ -149,6 +149,7 @@ export class ShoppingCart{
 			tableDataPrice.appendChild(priceP);
 
 			document.getElementById('home-delivery').checked = true;
+			document.getElementById('input-address-container').style.display = "block"
 		}
 
 		//Printing total qty and total price in table foot
@@ -182,16 +183,21 @@ export class ShoppingCart{
 
 			//Render navbar quantity
 			ShoppingCart.setMenuBarQty();
+			
 	}
 
-	static setMenuBarQty() {
+	static getCartQty() {
 		let qty = 0;
 		let productList = JSON.parse(localStorage.getItem('productList')) || [];
 		ShoppingCart.getCart().forEach( cartItem => {
 			const product = productList.find( product => product.id == cartItem.id );
 			qty += parseInt(cartItem.qty);
 		})
-		document.getElementById("menubar-shoppingcart-qty").innerHTML = qty;
+		return qty;
+	}
+
+	static setMenuBarQty() {
+		document.getElementById("menubar-shoppingcart-qty").innerHTML = ShoppingCart.getCartQty();;
 	}
 
 	//Removing item from cart
@@ -221,15 +227,18 @@ export class ShoppingCart{
 
 //View address input if the user want the sushi home
 export function deliveryMethodChanged() {
+	document.getElementById("error-order-message").innerHTML = "";
 	let delivery = document.querySelector('input[name="delivery"]:checked').value;
 	if (delivery == "home-delivery") {
-		document.getElementById("input-address-container").style.visibility = "visible";
+		document.getElementById("input-address-container").style.display = "block";
+		document.getElementById("select-pickup").style.display = "none";
 		document.getElementById("input-address").required = true;
 		ShoppingCart.saveInCart("delivery");
 
 	}
 	if (delivery == "pickup") {
-		document.getElementById("input-address-container").style.visibility = "hidden";
+		document.getElementById("input-address-container").style.display = "none";
+		document.getElementById("select-pickup").style.display = "block";
 		ShoppingCart.removeFromCart("delivery");
 	}
 
@@ -238,8 +247,42 @@ export function deliveryMethodChanged() {
 //Place the selected order
 export function placeOrder() {
 	event.preventDefault();
-	ShoppingCart.clearCart();
-	document.getElementById("confirm-order-text").innerHTML = "Takk for din bestilling! Din ordre er klar om 15 minutter";
-	event.target.reset;
+
+	/* Error message if the cartQty = 0 */
+	if (ShoppingCart.getCartQty() === 0) {
+		document.getElementById("error-order-message").innerText = "Handlekurven er tom! Legg varer i handlekurven for å bestille.";
+	}
+	else if (!document.querySelector('[name="delivery"]:checked')) {
+		document.getElementById("error-order-message").innerHTML = `Velg ønsket leveringsmetode, deretter trykk "Bestill" igjen!`;
+
+		let deliveryMethodP = document.getElementById("delivery-p");
+		deliveryMethodP.style = "font-weight: bold";
+	}
+	else {
+		let customerName = document.getElementById("input-name").value;
+		let deliveryMethod = document.querySelector('[name="delivery"]:checked').value;
+
+		/* Confimed order header-text generator*/
+		document.getElementById("confirm-order-header").innerHTML = `Takk for din besilling ${customerName}!`;
+
+		/* Confirmed order text generator */
+		if(deliveryMethod === 'home-delivery') {
+			let customerAddress = document.getElementById("input-address").value;
+			document.getElementById("confirm-order-text").innerHTML = `Så snart din sushi er klar kjører vi den til ${customerAddress}! Estimert leveringstid er: ${ShoppingCart.getCartQty() + 35} minutter. Vi sender deg en SMS fem minutter før levering.`;
+		}
+		else if(deliveryMethod === 'pickup') {
+			let pickupPoint;
+			if (document.querySelector('[name="select-pickup-point"]').value === 'akerbrygge') {
+				pickupPoint = "HK-Sushi Aker Brygge på Salmakersvenn Marius Jantzens plass 3";
+			}
+			else if (document.querySelector('[name="select-pickup-point"]').value === 'barcode') {
+				pickupPoint = "HK-Sushi Bjørvika i Dronning Eufemias gate 18";
+
+			}
+			document.getElementById("confirm-order-text").innerHTML = `Din ordre er klar til henting om ca ${ShoppingCart.getCartQty() + 15} minutter. Velkommen innom ${pickupPoint}!`;
+		}
+		ShoppingCart.clearCart();
+		event.target.reset;
+	}
 }
 

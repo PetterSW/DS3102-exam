@@ -2,7 +2,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
  
 /*Assigns font and color to all tags mentioned*/
-h1, h2, h3, h4, p, b, strong, label{
+h1, h2, h3, h4, p, b, strong, label {
      font-family: "Montserrat", sans-serif;
      color: #ffffff;
 }
@@ -206,7 +206,7 @@ nav a:not(.navbar-link__current):hover {
      color: #ffffff;
      font-size: 1em;
      position: absolute;
-     bottom: 1em;
+     bottom: 0;
      width: 100%;
      text-align: center;
      z-index: 1;
@@ -279,6 +279,19 @@ nav a:not(.navbar-link__current):hover {
  #main-title{
      margin-top: 10px;
      text-align: center;
+}
+
+/*Select-option HTML-tag*/
+
+.select-option{
+    background-color: #8e181b;
+    color: #FFFFFF;
+    width: 250px;
+    height: 30px;
+    margin: 15px;
+    font-size: 1em;
+    border: 1px solid #8e181b;
+    border-radius: 5px;
 }
 
 

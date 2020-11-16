@@ -119,18 +119,36 @@ for name, quantity and price column, inc. tfoot*/
 #checkout-container{
     padding: 1em;
 }
-
+#place-order-title{
+	text-align: center;
+}
 
 #label-home, #label-pickup{
     color: #ffffff;
     
 }
+#input-address-container {
+    display: none;
+}
+#select-pickup {
+    display: none;
+}
 .radio-delivery {
     margin-bottom: 20px;
 }
 
+.select-option {
+    width: auto;
+    max-width: 400px;
+}
+
 #input-address {
     width: 300px;
+}
+
+#error-order-message {
+    color: red;
+    font-weight: bold;
 }
 
 #btn-order-submit {
@@ -138,6 +156,6 @@ for name, quantity and price column, inc. tfoot*/
     font-size: 1.3em;
 }
 
-#place-order-title{
-	text-align: center;
+#confirm-order-text {
+    line-height: 1.6;
 }
