@@ -22,7 +22,7 @@ restaurant-review {
     border: 1px solid #8e181b;
     border-radius: 5px;
     padding: 1em;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 7px 7px 7px black;
 }
 
 .review-star-element {
