@@ -148,7 +148,7 @@ export class ShoppingCart{
 			priceP.textContent = "75 Kr";
 			tableDataPrice.appendChild(priceP);
 
-			document.getElementById('home-delivery').checked = true;
+			document.getElementById('home-radio').checked = true;
 			document.getElementById('input-address-container').style.display = "block"
 		}
 

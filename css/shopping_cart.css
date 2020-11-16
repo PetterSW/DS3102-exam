@@ -127,21 +127,45 @@ for name, quantity and price column, inc. tfoot*/
 #place-order-title{
 	text-align: center;
 }
+/*
+#delivery-method-container {
+    position: relative;
+}
+*/
 
-#label-home, #label-pickup{
-    color: #ffffff;
+.delivery-wrapper {
+    width: 15rem;
+    margin-bottom: 10px;
+    vertical-align: middle;
+}
+
+.delivery-radio {
+    right: 0.5rem;
+    float: right;
+}
+
+.delivery-label {
+}
+
+#pickup-label {
     
 }
+#pickup-radio {
+
+}
+#home-label {
+
+}
+#home-radio {
+
+}
+
 #input-address-container {
     display: none;
 }
 #select-pickup {
     display: none;
 }
-.radio-delivery {
-    margin-bottom: 20px;
-}
-
 .select-option {
     width: auto;
     max-width: 400px;

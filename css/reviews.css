@@ -22,6 +22,7 @@ restaurant-review {
     border: 1px solid #8e181b;
     border-radius: 5px;
     padding: 1em;
+    box-shadow: 5px 5px 5px black;
 }
 
 .review-star-element {
@@ -46,19 +47,9 @@ restaurant-review {
     height: 6rem;
 }
 
-<<<<<<< HEAD
-#review-label {
-    margin-top: 10px;
-}
-
 #star-review {
     display: inline-block;
     flex-wrap: nowrap;
-=======
-#review-visitor-title {
-    color: #FFFFFF;
-    margin: 2rem 1rem 1rem 1rem;
->>>>>>> fe0369a0e34511f2e1ff0ae8c011573250469c9a
 }
 
 .input-star {

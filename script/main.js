@@ -228,8 +228,8 @@ if(document.getElementById('universal-styling-container')){
 
     /* Eventisentners only on checkout page */
 if(ShoppingCart.container){
-    document.getElementById("delivery-method").addEventListener("load", deliveryMethodChanged);
-    document.getElementById("delivery-method").addEventListener("click", deliveryMethodChanged);
+    document.getElementById("delivery-method-container").addEventListener("load", deliveryMethodChanged);
+    document.getElementById("delivery-method-container").addEventListener("click", deliveryMethodChanged);
     document.querySelector("[name='form-place-order']").addEventListener("submit", placeOrder); 
 
     window.addEventListener('load', ShoppingCart.renderShoppingCart);
