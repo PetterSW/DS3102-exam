@@ -194,21 +194,22 @@ nav a:not(.navbar-link__current):hover {
      bottom: 50%;
      background-color: transparent;
      border: 0px;
-     font-size: 2em;
+     font-size: 32px;
      color: #ffffff;
 }
  .next {
      right: 0;
-     margin-right: 1em;
+     margin-right: 16px;
 }
  .prev {
-     margin-left: 1em;
+     margin-left: 16px;
 }
  .slide-text {
      color: #ffffff;
-     font-size: 1em;
+     font-size: 16px;
      position: absolute;
      bottom: 0;
+     margin-bottom: 0.5em;
      width: 100%;
      text-align: center;
      z-index: 1;
@@ -222,7 +223,7 @@ nav a:not(.navbar-link__current):hover {
 }
 /*Scroll-indicator properties*/
  #scroll-indicator {
-     font-size: 4.5rem;
+     font-size: 60px;
      display: block;
      outline: none;
      width: 3rem;
@@ -401,6 +402,11 @@ footer a{
     }
     .slide-mobile {
         display: block;
+    }
+
+    /*Remove scroll indicator on small screens*/
+    #scroll-indicator-wrap{
+        display: none;
     }
     
 }
