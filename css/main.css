@@ -70,6 +70,19 @@ html, body{
      z-index: 1;
      width: 100%;
      background-color: #222222;
+     animation: 1.0s ease-in-out 0s 1 slideInFromLeft, 3s opacityTransform;
+}
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes opacityTransform {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 /*Styling navigation list using flex to posisioning list items*/
  nav ul {
@@ -170,6 +183,20 @@ nav a:not(.navbar-link__current):hover {
      margin-top: 4.09374rem;
      width: calc(100vw - (100vw - 100%));
      height: 44.8vw;
+     animation: 1.0s ease-in-out 0s 1 slideInFromRight, 3s opacityTransform;
+    
+}
+@keyframes slideInFromRight{
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes opacityTransform {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 /*Each banner*/
  .slideshow {
