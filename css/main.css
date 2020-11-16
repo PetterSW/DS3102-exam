@@ -72,6 +72,7 @@ html, body{
      background-color: #222222;
 }
 
+/*Nav animation in seperated class, that way we can toggle it with js*/
 .nav-animation{
     animation: 1.0s ease-in-out 0s 1 slideInFromLeft, 3s opacityTransform;
 }
@@ -190,7 +191,7 @@ nav a:not(.navbar-link__current):hover {
      height: 44.8vw;   
 }
 
-/*Slide show animation in seperated*/
+/*Slideshow animation in seperated class, that way we can toggle it with js*/
 .slideshow-animation{
      animation: 1.0s ease-in-out 0s 1 slideInFromRight, 3s opacityTransform; 
 }
