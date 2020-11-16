@@ -184,6 +184,9 @@ nav a:not(.navbar-link__current):hover {
      width: calc(100vw - (100vw - 100%));
      height: 44.8vw;
 }
+.slide-mobile {
+    display: none;
+}
 /*Next and previous banner button*/
  .next, .prev {
      cursor: pointer;
@@ -364,7 +367,7 @@ footer a{
 }
 
 /*Styling navbar on smaller screens*/
- @media only screen and (max-width: 800px){
+@media only screen and (max-width: 800px){
     /*Navbar styling*/
      nav ul{
          flex-wrap: wrap;
@@ -390,7 +393,12 @@ footer a{
          padding: 0.5em;
          display: none;
     }
-
+    .slide-desktop {
+        display: none;
+    }
+    .slide-mobile {
+        display: block;
+    }
     
 }
 
