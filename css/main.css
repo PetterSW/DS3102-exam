@@ -375,6 +375,10 @@ footer a{
     text-decoration: none;
 }
 
+.footer-column__resturant a{
+    text-decoration: initial;
+}
+
 #footer-phone__link:hover p, #footer-phone__link:hover i{
     color: #4d4545;
     transition: all .4s ease-in;
@@ -389,7 +393,14 @@ footer a{
     color: #bc2a8d;
     transition: all .4s ease-in;
 }
+#adress1, #adress2{
+    color: #ffffff;
+}
 
+#adress1:hover, #adress2:hover{
+    color: #4d4545;
+    transition: all .4s ease-in;
+}
 
 /*Main is covering the hole screen if window is 1024px or less*/
  @media only screen and (max-width: 1024px){
@@ -419,6 +430,7 @@ footer a{
     }
      #navbar-toggle{
          display: block;
+         
     }
      .navbar-logo img{
          text-align: center;
@@ -436,8 +448,16 @@ footer a{
     /*Seperated class to view navbar-items with js*/
     .show-navbar-item{
         display: block;
-        
+         animation: 1.0s ease-in-out 0s 1 hamburgerSlide, 3s opacityTransform;
     }
+    @keyframes hamburgerSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
     .slide-desktop {
         display: none;
     }
