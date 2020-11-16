@@ -81,6 +81,21 @@ let scrollPastBanner = () => {
     window.scrollTo(0, bannerHeight);
 }
 
+    /*Make sure on load animation only runs first time unless its triggered*/
+function firstTimeAnimation(){
+    let runLoadAnimation = sessionStorage.getItem("runLoadAnimation") || "";
+    if(runLoadAnimation == "false"){
+        document.querySelector('nav').classList.remove("nav-animation");
+        document.querySelector('.slideshow-container').classList.remove("slideshow-animation");
+    }
+    window.sessionStorage.setItem('runLoadAnimation', 'false');
+}
+
+    /*Trigger on load animation*/
+function triggerFirstTimeAnimation(){
+    window.sessionStorage.setItem('runLoadAnimation', 'trigger');
+}
+
 
 
 
@@ -154,6 +169,8 @@ document.getElementById("prev-btn").addEventListener("click", () => {
 //Eventlisentner on hamburger menu
 document.getElementById('navbar-toggle').addEventListener('click', navbarToggle);
 
+document.querySelector('nav .logo').addEventListener('click', triggerFirstTimeAnimation);
+
 //Eventlisentner scroll button
 document.getElementById('scroll-indicator').addEventListener('click', scrollPastBanner);
 document.querySelector('.navbar-link__current').addEventListener('click', scrollPastBanner);
@@ -178,6 +195,7 @@ if(Product.productContainer){
         
     //Render products on load
     window.addEventListener('load', Product.renderProducts );
+    firstTimeAnimation();
 }
 
 
