@@ -75,7 +75,6 @@ html, body{
 /*Styling navigation list using flex to posisioning list items*/
  nav ul {
      margin: 0;
-     height: 4rem;
      padding: 0em 1em;
      box-sizing: border-box;
      list-style: none;
@@ -169,7 +168,7 @@ nav a:not(.navbar-link__current):hover {
 /*Banner slideshow*/
  .slideshow-container{
      position: relative;
-     margin-top: 4rem;
+     margin-top: 4.09374rem;
      width: calc(100vw - (100vw - 100%));
      height: 44.8vw;
 }
