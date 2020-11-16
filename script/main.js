@@ -74,6 +74,13 @@ let navbarToggle = () => {
     .forEach( item => getComputedStyle(item).display === "block" ? item.style.display = "none" :  item.style.display = "block" );
 }
 
+    /* Scroll past banner function */
+let scrollPastBanner = () => {
+    let banner = document.querySelector('.slideshow-container');
+    let bannerHeight = parseInt(getComputedStyle(banner).height);
+    window.scrollTo(0, bannerHeight);
+}
+
 
 
 
@@ -147,6 +154,10 @@ document.getElementById("prev-btn").addEventListener("click", () => {
 //Eventlisentner on hamburger menu
 document.getElementById('navbar-toggle').addEventListener('click', navbarToggle);
 
+//Eventlisentner scroll button
+document.getElementById('scroll-indicator').addEventListener('click', scrollPastBanner);
+document.querySelector('.navbar-link__current').addEventListener('click', scrollPastBanner);
+
 
 
         /* Eventlisentners only on product/main page */
@@ -181,7 +192,13 @@ if(document.getElementById("reviews-container")) {
     } );
     document.querySelector('[name="review-form"').addEventListener("submit", () => {
         addReview();
-    } );    
+    } );
+
+    window.addEventListener('load', scrollPastBanner);   
+}
+        /* Eventlisentners only on universal design page */
+if(document.getElementById('universal-styling-container')){    
+    window.addEventListener('load', scrollPastBanner);
 }
 
 
@@ -192,6 +209,7 @@ if(ShoppingCart.container){
     document.querySelector("[name='form-place-order']").addEventListener("submit", placeOrder); 
 
     window.addEventListener('load', ShoppingCart.renderShoppingCart);
+    window.addEventListener('load', scrollPastBanner);
 }
 
     /* Selv calling functions */
