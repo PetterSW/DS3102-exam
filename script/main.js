@@ -11,25 +11,73 @@ export {
 
 
     /* Change banner function */
+let slideIndex = 1;
+let slide = document.getElementsByClassName("slideshow");
+let slideInDirection;
+let slideOutDirection;
+let currentIndex;
 
-function changeBanner(currentIndex, newIndex) {
-    let slide = document.getElementsByClassName("slideshow");
+function changeBanner(currentIndexArg, newIndex, direction) {
+    currentIndex = currentIndexArg;
+    fadeIn.pause();
+    fadeOut.pause();
+    switch(direction) {
+        case "next":
+            slideOutDirection = '-100%';
+            slideInDirection = '100%';
+            break;
+        case "prev":
+            slideOutDirection = '100%';
+            slideInDirection = '-100%';
+            break;
+    }
+    switch(newIndex) {
+        case 0:
+            slideIndex = 3;
+            break;
+        case 1:
+            slideIndex = 1;
+            break;
+        case 2:
+            slideIndex = 2;
+            break;
+        case 3:
+            slideIndex = 3;
+            break;
+        case 4:
+            slideIndex = 1;
+            break;
+        }
+        fadeIn.play();
+        fadeOut.play();
+        setTimeout(function () {
+            slide[currentIndex-1].style.transform = `translateX(${slideOutDirection})`;
+        }, 3000);
+}
+
+let fadeIn = anime({
+    targets: slide[slideIndex-1],
+    keyframes: [
+        {translateX: '0%', duration: 1000, easing: 'easeInOutExpo'},
+        {scale: 1.015, duration: 5000, easing: 'linear'}]
+});
+
+let fadeOut = anime({
+    targets: slide[currentIndex-1],
+    translateX: slideOutDirection,
+    scale: 1,
+    easing: 'easeInOutExpo'
+});
     
-    /*If user clickes next on the last banner, start on new*/
-    if (newIndex > slide.length) {
-        slideIndex = 1;
-    }
-    /*If user clickes previous on the first banner, */
-    if (newIndex < 1) {
-        slideIndex = slide.length;
-    }
-    /*Animation for going backward */
+   /*
    if(currentIndex > slideIndex) {
     slide[slideIndex-1].style.transform = "translateX(-100%)";
     anime({
         targets: slide[slideIndex-1],
-        translateX: '0%',
-        easing: 'easeInOutExpo'
+        keyframes: [
+            {translateX: '0%', duration: 1000, easing: 'easeInOutExpo'},
+            {scale: 1.015, duration: 4000, easing: 'linear'}
+        ]
       });
     anime({
         targets: slide[currentIndex-1],
@@ -40,7 +88,7 @@ function changeBanner(currentIndex, newIndex) {
         slide[currentIndex-1].style.transform = "translateX(100%)";
     }, 1000); 
    }
-   /*Animation for going forward */
+   /*Animation for going forward
    if(currentIndex < slideIndex) {
     slide[slideIndex-1].style.transform = "translateX(100%)";
     anime({
@@ -56,16 +104,13 @@ function changeBanner(currentIndex, newIndex) {
     setTimeout(function () {
         slide[currentIndex-1].style.transform = "translateX(-100%)";
     }, 1000); 
-   }
-    
-}
+
+    */
+
 
 //Declear auto slide timer and function to start/restart timer
 let autoSlide;
-let startSlideShow = () => autoSlide = setInterval(() => changeBanner(slideIndex,slideIndex += 1), 5000 );   
-
-//Banner index
-let slideIndex = 1;
+//let startSlideShow = () => autoSlide = setInterval(() => changeBanner(slideIndex,slideIndex += 1), 6000 );   
 
 
         /* Function to show and hide menu on smaller screens */
@@ -139,15 +184,15 @@ if(document.getElementById("universal-styling-container")) {
 
 //Eventlistner for manuely controll slideshow
 document.getElementById("next-btn").addEventListener("click", () => {
-    clearInterval(autoSlide);
-    changeBanner(slideIndex,slideIndex += 1);
-    startSlideShow();
+    //clearInterval(autoSlide);
+    changeBanner(slideIndex,slideIndex += 1, "next");
+    //startSlideShow();
 })
 
 document.getElementById("prev-btn").addEventListener("click", () => {
-    clearInterval(autoSlide);
-    changeBanner(slideIndex,slideIndex += -1);
-    startSlideShow();
+    //clearInterval(autoSlide);
+    changeBanner(slideIndex,slideIndex += -1, "prev");
+    //startSlideShow();
     
 })
 
@@ -214,6 +259,6 @@ if(ShoppingCart.container){
 
     /* Selv calling functions */
 (() => {
-    startSlideShow();
+    //startSlideShow();
     ShoppingCart.setMenuBarQty();
 })()
