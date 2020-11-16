@@ -126,6 +126,7 @@ html, body{
  nav a {
      position: relative;
      color: #ffffff;
+     cursor: pointer;
      outline: none;
      text-decoration: none;
      font-size: 1.5rem;
@@ -137,7 +138,7 @@ nav a:not(.navbar-link__current):hover {
 }
 
 /*Line under current link*/
-.navbar-link__current:link::after, .navbar-link__current:visited::after {
+.navbar-link__current::after {
     content: '';
      display: block;
      height: 2px;
@@ -221,13 +222,20 @@ nav a:not(.navbar-link__current):hover {
  #scroll-indicator {
      font-size: 4.5rem;
      display: block;
+     outline: none;
      width: 3rem;
      margin-left: auto;
      margin-right: auto;
-     
-    
-     
+
+/*Animation that fades the color from white to red on hover*/
+    transition: all .2s ease-in;
+    color: #ffffff;     
  } 
+
+#scroll-indicator:hover { 
+    color: #8e181b;
+}
+
 /*Adding an infinite animation moving the button a set amount, with alternate playing it back and forth*/
 #scroll-indicator {
     -webkit-animation: action 1s infinite  alternate;
@@ -241,16 +249,9 @@ nav a:not(.navbar-link__current):hover {
         0% { transform: translateY(0); }
         100% { transform: translateY(-9px); }
     }
-/*Animation that fades the color from white to red on hover*/
-#scroll-indicator{
-    transition: all .2s ease-in;
-    color: #ffffff; 
-   
-}
 
-#scroll-indicator:hover { 
-    color: #8e181b;
-}
+
+
 
 /*Styling and properties for the main container under banner*/
  main{
