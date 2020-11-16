@@ -189,6 +189,11 @@ export class ShoppingCart{
 	static getCartQty() {
 		let qty = 0;
 		let productList = JSON.parse(localStorage.getItem('productList')) || [];
+
+		//Removes home-delivery as a cart Qty
+		if(ShoppingCart.getCart().find( item => item.id == "delivery")) {
+			qty = -1;
+		}
 		ShoppingCart.getCart().forEach( cartItem => {
 			const product = productList.find( product => product.id == cartItem.id );
 			qty += parseInt(cartItem.qty);

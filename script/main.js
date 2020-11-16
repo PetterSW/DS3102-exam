@@ -6,7 +6,7 @@ import { ShoppingCart, deliveryMethodChanged, placeOrder } from '../script/shopp
 import { Review, ReviewElement, setAmountOfStars, addReview } from '../script/reviews.js';
 
 export {
-    UUElement, Product, ProductListElement, Review, ShoppingCart, ReviewElement, setAmountOfStars, deliveryMethodChanged, placeOrder
+    UUElement, ProductListElement, Review, ShoppingCart, ReviewElement, setAmountOfStars, deliveryMethodChanged, placeOrder, addReview
 }
 
 
