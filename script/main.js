@@ -84,14 +84,14 @@ could remove, change and register new menu items*/
 
     /* Clear local storage and create new product objects */
 window.localStorage.setItem('productList', JSON.stringify([]));
-new Product("Liten sushi", "../images/food/Liten-tallerken.jpg", "Perfekt som en porsjon.", "89");
-new Product("Stor sushi", "../images/food/Stor-tallerken.jpg", "Ekstra sulten eller på deling?", "229");
-new Product("Lakse-Maki", "../images/food/Maki-salmon.jpg", "Vår klassiske Maki med laks.", "109");
-new Product("Vegetar-Maki", "../images/food/Maki-vegetar.jpg", "Kutte ned på kjøttinntak? Vegetar-Maki!", "99");
-new Product("Tempura-Kongereker", "../images/food/Tempura-Reke.jpg", "Store, friterte reker.", "149");
-new Product("Sashimi", "../images/food/Sushi-bowl.jpg", "Vår anerkjente sashimi.", "119");
-new Product("Sushi-Burrito", "../images/food/Sushi-Wrap.jpg", "Prøve noe nytt? Sushi i burrito-form!", "99");
-new Product("Sushi for eventer", "../images/food/Event-tallerken.jpg", "Utrolig stor tallerken, perfekt for eventer!", "999");
+new Product("HK-Sushi maki (9 biter)", "../images/food/Liten-tallerken.jpg", "9 makibiter - 3 tuna, 3 kongereke, 3 laks", "89");
+new Product("Laks Maki (6 biter)", "../images/food/Maki-salmon.jpg", "6 laks maki med philadelfia", "109");
+new Product("Stor Sushi (28 biter)", "../images/food/Stor-tallerken.jpg", "6 sushi og 22 makibiter - 10 tuna maki, 6 laks, 8 laks maki, 4 laks maki med philadelfia", "249");
+new Product("Medium Sushi vegetar (21 biter)", "../images/food/Maki-vegetar.jpg", "21 ulike makibiter med advokado, sesamfrø, gulrot, philadelphia, agurk", "199");
+new Product("Tempura-Kongereke", "../images/food/Tempura-Reke.jpg", "2 friterte kongereker", "79");
+new Product("Sashimi-bowl", "../images/food/Sushi-bowl.jpg", "Vår anerkjente sashimi bestående av laks, kveite, smørfisk, tunfisk", "149");
+new Product("Sushi-Burrito", "../images/food/Sushi-Wrap.jpg", "2 Sushi burrito bestående av scampi tempura, agurko og gulrot", "99");
+new Product("HK-Sushi for eventer (70 biter) ", "../images/food/Event-tallerken.jpg", "70 makibiter av laks, kvite, tunfisk, smørfisk, scampi tempurar eller vegetar", "999");
 
 //Sets default reviews in localStorage
 if (localStorage.getItem("reviews") === null) {
