@@ -433,6 +433,11 @@ footer a{
          padding: 0.5em;
          display: none;
     }
+    /*Seperated class to view navbar-items with js*/
+    .show-navbar-item{
+        display: block;
+        
+    }
     .slide-desktop {
         display: none;
     }
