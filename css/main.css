@@ -420,6 +420,11 @@ footer a{
      #navbar-toggle{
          display: block;
     }
+
+    .navbar-logo{
+        margin-left: 0.5em;
+    }
+
      .navbar-logo img{
          text-align: center;
     }
