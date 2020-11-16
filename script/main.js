@@ -69,9 +69,15 @@ let slideIndex = 1;
 
 
         /* Function to show and hide menu on smaller screens */
-let navbarToggle = () => {
+let navbarToggle = () => { 
     document.querySelectorAll('.navbar-item')
-    .forEach( item => getComputedStyle(item).display === "block" ? item.style.display = "none" :  item.style.display = "block" );
+    .forEach( item => {
+        if(item.className=='navbar-item show-navbar-item'){
+            item.classList.remove('show-navbar-item');
+        }else{
+            item.classList.add('show-navbar-item');
+        }
+    });
 }
 
     /* Scroll past banner function */
