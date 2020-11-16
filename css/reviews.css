@@ -1,5 +1,6 @@
 /*Rendering existing reviews*/
 
+
 #reviews-container {
     width: 100%;
     margin: 0;
@@ -15,12 +16,12 @@ restaurant-review {
     position: relative;
     width: auto;
     height: auto;
-    max-height: 400px;
-    margin: 10px;
+    max-height: 25rem;
+    margin: 1em;
     background-color: #8e181b;
     border: 1px solid #8e181b;
     border-radius: 5px;
-    padding-left: 10px;
+    padding: 1em;
 }
 
 .review-star-element {
@@ -41,12 +42,11 @@ restaurant-review {
 
 #review-visitor-title {
     color: #FFFFFF;
-    margin: 30px 20px 20px 15px;
+    margin: 2rem 1rem 1rem 1rem;
 }
 
 .input-star {
     font-size: 1.5em;
     color: #FFFFFF;
-    text-align: center;
-    
+    text-align: center;    
 }
