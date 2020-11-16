@@ -121,17 +121,15 @@ for name, quantity and price column, inc. tfoot*/
     color: #ffffff;
 }
 
+/*Checkout*/
+
 #checkout-container{
     padding: 1em;
 }
 #place-order-title{
 	text-align: center;
 }
-/*
-#delivery-method-container {
-    position: relative;
-}
-*/
+/*Delivery metohd*/
 
 .delivery-wrapper {
     width: 15rem;
@@ -142,22 +140,6 @@ for name, quantity and price column, inc. tfoot*/
 .delivery-radio {
     right: 0.5rem;
     float: right;
-}
-
-.delivery-label {
-}
-
-#pickup-label {
-    
-}
-#pickup-radio {
-
-}
-#home-label {
-
-}
-#home-radio {
-
 }
 
 #input-address-container {
