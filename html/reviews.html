@@ -78,17 +78,18 @@
    <!--List of reviews will display here-->
    <section id="reviews-container"></section>
 
-   <h2 id="review-visitor-title" >Besøkt oss? Legg igjen din anmeldelse!</h2>
+   <h2 id="review-visitor-title" >Besøkt oss? Legg igjen din vurdering!</h2>
 
    <form name="review-form" id="review-form">
-      <label for="review-name">Navn:</label><br>
-      <input class="review-input" id="input-name" name="review-name" type="text" maxlength="30" placeholder="Navn" required>
-
-      <star-review id="star-review"><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i></star-review>
-      <br><br>
-
-      <label for="review-text">Anmeldelse:</label><br>
-      <textarea maxlength="600" class="review-input" id="input-text" name="review-text" placeholder="Din anmeldelse" required></textarea>
+      <label for="name-label">Navn:</label><br>
+      <input class="review-input" id="input-name" name="review-name" type="text" maxlength="30" placeholder="Fyll inn ditt navn..." required>
+      <br>
+      <label for="star-label" class="star-review">Din vurdering: </label>
+      <star-review name="star-review" id="star-review" class="star-review"><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i><i class="input-star fas fa-star"></i></star-review>
+      <br>
+      <br>
+      <label for="review-text" id="review-label">Anmeldelse:</label><br>
+      <textarea maxlength="600" class="review-input" id="input-text" name="review-text" placeholder="Fortell oss mer om du opplevde ditt besøk..." required></textarea>
       <br>
 
       <button id="review-submit-btn" type="submit">Legg til din opplevelse med oss!</button>
