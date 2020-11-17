@@ -60,12 +60,12 @@ function changeBanner(currentIndex, newIndex) {
     
 }
 
+//Banner index
+let slideIndex = 1;
+
 //Declear auto slide timer and function to start/restart timer
 let autoSlide;
 let startSlideShow = () => autoSlide = setInterval(() => changeBanner(slideIndex,slideIndex += 1), 5000 );   
-
-//Banner index
-let slideIndex = 1;
 
 
         /* Function to show and hide menu on smaller screens */
