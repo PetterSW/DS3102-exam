@@ -27,23 +27,22 @@ restaurant-review {
 .review-star-element {
     color: #FFFFFF;
     text-align: right;
-    padding-bottom: 10px;
-    padding-right: 10px;
+    padding-bottom: 0.5em;
+    padding-right: 0.5em;
 }
 
 /*Form for adding a review*/
 
 #review-visitor-title {
     color: #FFFFFF;
-    margin: 30px 20px 20px 15px;
+    margin: 2rem 1.5rem 1.5rem 1rem;
 }
 
 #input-text {
-    margin-top: 10px;
-    width: 100%;
-    max-width: 600px;
-    resize: none;
     height: 6rem;
+    width: 95%;
+    max-width: 37.5rem;
+    resize: none;
 }
 
 #star-review {
