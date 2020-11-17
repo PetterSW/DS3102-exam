@@ -54,27 +54,25 @@ for name, quantity and price column, inc. tfoot*/
 .cart-table__qty{
     align-items: center;
     border-bottom: 1px solid #ffffff;
-    width: 25%;
     padding-left: 2em;
     padding-right: 2em;
 }
 
 .cart-table__tfoot__qty{
     text-align: center;
-    width: 25%;
 }
 
 .cart-table__price{
     text-align: right;
     padding-right: 0.5em;
     border-bottom: 1px solid white;
-    width: 25%;
+    width: 20%;
 }
 
 #cart-table-thead__price, .cart-table__tfoot__price{
     text-align: right;
     padding-right: 1.7em;
-    width: 25%;
+    width: 20%;
     font-family: "Montserrat", sans-serif;
 
 }
@@ -82,30 +80,40 @@ for name, quantity and price column, inc. tfoot*/
 
 /*Setting size and aligning quantity input*/
 .cart-qty-wrapper {
+    height: 1.9em;
     width: 6.25em;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid white;
     border-radius: 5px;
-    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: #453E3E;
 }
 
 .cart-qty-input{
     border: none;
-    height: 1.9em;
-    width: 1.7em;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    height: 100%;
+    width: 1.5em;
     text-align: center;
+    box-sizing: border-box;
     outline: none;
 }
 
 #cart-table .fa-plus, .fa-minus{
     color: white;
-    padding-left: 5px;
-    padding-right: 5px;
 }
+
+#cart-table .fa-plus{
+    margin-right: 4px;
+}
+
+#cart-table .fa-minus{
+    margin-left: 4px;
+}
+
 #cart-table .fa-plus:hover, #cart-table .fa-minus:hover{
     color: #83171A;
 }
@@ -162,4 +170,57 @@ for name, quantity and price column, inc. tfoot*/
 
 #confirm-order-text {
     line-height: 1.6;
+}
+
+    /* Cart table optimized for smaller screens */
+@media only screen and (max-width: 420px){
+
+
+    thead .cart-table__qty{
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    #cart-table tbody .cart-table__qty{
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }    
+
+    /* Make qty changer vertical */
+    .cart-qty-wrapper {
+    height: 5.5em;
+    width: 1.7em;
+    flex-direction: column;
+    }
+
+    .cart-qty-input{
+        height: 1.9em;
+        width: 100%;
+        order: 1;
+    }
+    #cart-table .fa-plus{
+        margin: 2px 0px 0px 0px;
+        order: 0;
+    }
+
+    #cart-table .fa-minus{
+        margin: 0px 0px 2px 0px;
+        order: 2;
+    }
+}
+
+    /* Optimize container and cart text for smaller screens */
+@media only screen and (max-width: 380px){
+
+    #checkout-container{
+        padding: 0;
+    }
+
+    #cart-table h3{
+        font-size: 1em;
+    }
+
+    #cart-table p{
+        font-size: 0.9em;
+    }
 }
