@@ -106,9 +106,9 @@ function triggerFirstTimeAnimation(){
 
 
 
-/*Instead of hard coding menu items in html, we made a class. 
+/*Instead of hard coding everything in html, we made a classes and use webcomponents. 
 That way we can more easly expand functionality so the resturant 
-could remove, change and register new menu items*/
+could remove, change and register new content*/
 
     /* Clear local storage and create new product objects */
 window.localStorage.setItem('productList', JSON.stringify([]));
@@ -121,7 +121,7 @@ new Product("Sashimi-bowl", "../images/food/Sushi-bowl.jpg", "Vår anerkjente sa
 new Product("Sushi-Burrito", "../images/food/Sushi-Wrap.jpg", "2 Sushi burrito bestående av scampi tempura, agurk og gulrot", "99");
 new Product("HK-Sushi for eventer (70 biter) ", "../images/food/Event-tallerken.jpg", "70 makibiter av laks, kvite, tunfisk, smørfisk, scampi tempurar eller vegetar", "999");
 
-//Sets default reviews in localStorage
+//Sets default reviews in localStorage, that way "test users" can sort by date without waiting 24 hours
 if (localStorage.getItem("reviews") === null) {
     new Review("Ola Nordman", "Total opplevelsen 5/5 - dette er best 🏆🥇skal du ha en fantastisk sushi opplevelse, så er dette stedet,Mat 5/5 - beste sushi og en bra vinmeny Service 5/5 - bra service og presentasjon av maten", "2010-10-10", 5);
     new Review("Kari Nordman", "Bestilte Sushi middag til hele familien men fikk feil leveranse. Vi ga beskjed og tilbakemeldingen fra HK Sushi var at vi skulle gi beskjed neste gang vi bestilte så skulle de ordne opp. Når vi så bestilte neste gang fikk vi beskjed om dette skulle vært ordnet med en gang, noe som er stikk motsatt av den første beskjeden", "2020-03-20", 1);
