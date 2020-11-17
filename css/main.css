@@ -2,12 +2,12 @@
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
  
 /*Assigns font and color to all tags mentioned*/
-h1, h2, h3, h4, p, b, strong, label {
+h1, h2, h3, h4, h5, p, b, strong, label {
      font-family: "Montserrat", sans-serif;
      color: #ffffff;
 }
-/*Adds a font weight to all h1-3 tags*/
- h1, h2, h3{
+/*Adds a font weight to all h1-4 tags*/
+ h1, h2, h3, h4{
      font-weight: 300;
 }
 /*Styling for buttons*/
