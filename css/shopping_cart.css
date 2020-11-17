@@ -21,6 +21,9 @@
 #cart-table th{    
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+     font-family: "Montserrat", sans-serif;
+     color: #ffffff;
+    font-weight: 300;
 } 
 
 #cart-table td{
@@ -208,7 +211,7 @@ for name, quantity and price column, inc. tfoot*/
         padding: 0;
     }
 
-    #cart-table h3{
+    #cart-table th{
         font-size: 1em;
     }
 

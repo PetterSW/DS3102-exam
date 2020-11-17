@@ -76,9 +76,9 @@
             <table id="cart-table">
                <thead>
                   <tr>
-                     <th class="cart-table__name"><h3>Produkt</h3></th>
-                     <th class="cart-table__qty"><h3>Antall</h3></th>
-                     <th id="cart-table-thead__price" class="cart-table__price"><h3>Pris</h3></th>
+                     <th class="cart-table__name">Produkt</th>
+                     <th class="cart-table__qty">Antall</th>
+                     <th id="cart-table-thead__price" class="cart-table__price">Pris</th>
                   </tr>
                </thead>
                <tbody></tbody>
@@ -95,31 +95,31 @@
          <section id="place-order-container">
             <h2 id="place-order-title">Fullfør bestilling</h2>
             <form name="form-place-order">
-               <label for="customer-name">Navn:</label><br>
+               <label for="input-name">Navn:</label><br>
                <input type="text" placeholder="Ditt navn" name="customer-name" class="input-delivery" id="input-name" required><br>
 
-               <label for="customer-phone">Mobilnummer:</label><br>
-               <input type="text" placeholder="Mobilnummer" name="customer-phone" class="input-delivery"id="input-phone" required>
+               <label for="input-phone">Mobilnummer:</label><br>
+               <input type="text" placeholder="Mobilnummer" name="customer-phone" class="input-delivery" id="input-phone" required>
                
                <section id="delivery-method-container">
                   <p id="delivery-p">Velg ønsket leveringsmetode:</p>
                   <div class=delivery-wrapper>
-                     <label for="pickup" id="pickup-label" class="delivery-label">Hent selv (Gratis)</label>
+                     <label for="pickup-radio" id="pickup-label" class="delivery-label">Hent selv (Gratis)</label>
                      <input name="delivery" type="radio" id="pickup-radio" class="delivery-radio" value="pickup">
                   </div>
                   <div class=delivery-wrapper>
-                     <label for="home-delivery" id="home-label" class="delivery-label">Levert på døren (75,-)</label>
+                     <label for="home-radio" id="home-label" class="delivery-label">Levert på døren (75,-)</label>
                      <input name="delivery" type="radio" id="home-radio" class="delivery-radio" value="home-delivery">
                   </div>
                </section>
                <br>
                <section id="input-address-container">
-                  <label for="address">Adresse:</label>
+                  <label for="input-address">Adresse:</label>
                   <input type="text" name="address" class="input-delivery" id="input-address" placeholder="Adresse">
                </section>
                <section id="select-pickup">
                   <label for="select-pickup-point">Velg restaurant:</label>
-                  <select name="select-pickup-point" class="select-option">
+                  <select name="select-pickup-point" id="select-pickup-point" class="select-option">
                      <option value="akerbrygge">HK-Sushi Aker Brygge</option>
                      <option value="barcode">HK-Sushi Bjørvika</option>
                   </select>
