@@ -36,7 +36,8 @@
 /*Styling add to cart feedback*/
  #cart-feedback{
      display: none;
-     background-color: white;
+     background-color: #363333;
+     width: 15rem;
      border: 1px solid black;
      margin-top: 0.5em;
      margin-right: 0.5em;
@@ -46,25 +47,32 @@
      top: 4rem;
      right: 0;
      text-align: center;
+     border-radius: 5px;
+     box-shadow: 3px 3px 3px black;
 }
 
 #cart-feedback__img-wrap{
   margin-left: auto;
   margin-right: auto;
-  width: 10em;
+  width: 11em;
 }
 
 .cart-feedback__img{
-  width: 100%;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px black;
 }
 
  #cart-feedback__name, #cart-feedback p{
-     color: black;
 }
  #cart-feedback__exit{
      position: absolute;
+     color: #FFFFFF;
      cursor: pointer;
      right: 0.5em;
      top: 0.5em;
 }
 
+#cart-feedback__checkout__btn{
+    display: inline-block;
+}
