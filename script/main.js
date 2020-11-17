@@ -139,10 +139,13 @@ if(document.getElementById("universal-styling-container")) {
         new UUArticle("Toleranse for feil", "Utformingen skal minimalisere farer og skader som kan gi ugunstige konsekvenser, eller minimalisere utilsiktede handlinger.", 5, "UUArticles");
         new UUArticle("Lav fysisk anstrengelse", "Utformingen skal kunne brukes effektivt og bekvemt med et minimum av besvær.", 5, "UUArticles");
         new UUArticle("Størrelse og plass for tilgang og bruk", "Hensiktsmessig størrelse og plass skal muliggjøre tilgang, rekkevidde, betjening og bruk, uavhengig av brukerens kroppsstørrelse, kroppsstilling eller mobilitet.", 6, "UUArticles");
+    }
+
+    if(localStorage.getItem("UUWCAG") === null){
         //WCAG Articles
         new UUArticle("Gode kontraster", "God kontrast mellom bakgrunn og innhold. F. eks.: Svart tekst på hvit bakgrunn fungerer mye bedre enn grå tekst på grå bakgrunn.", 7, "UUWCAG");
         new UUArticle("ALT-tag på bilder", "Alle bilder må ha en alternativ tekst som forklarer hva bildet inneholder. Dette er noe som allerede burde ha blitt gjort, ettersom det er bra for søkemotorene. For å følge kravene til universell utforming må dette gjøres på alle nye bilder, og dessuten på bilder som allerede er på nettsiden.", 8, "UUWCAG");
-        new UUArticle("Mulighet for forstørre teksten", "Det skal være mulig å forstørre teksten 200% uten at nettsiden mister sin funksjon. Nei, det kommer mest sannsynlig ikke til å bli så pent, men kravet er å kunne forstørre teksten uten at viktig innhold eller funksjonalitet går tapt.", 9, "UUWCAG");
+        new UUArticle("Mulighet for å forstørre teksten", "Det skal være mulig å forstørre teksten 200% uten at nettsiden mister sin funksjon. Nei, det kommer mest sannsynlig ikke til å bli så pent, men kravet er å kunne forstørre teksten uten at viktig innhold eller funksjonalitet går tapt.", 9, "UUWCAG");
         new UUArticle("Gi respons til brukeren", "Dersom du for eksempel har et kontaktskjema på nettsiden, må det gis forslag til hva som må rettes hvis brukeren gjør noe feil.", 10, "UUWCAG");
         new UUArticle("Tittel på hver enkelt side", "Hver nettside må ha en tittel (gjerne H1) som beskriver hva siden inneholder. Dette gjelder også subtitler (gjerne H2) på en side som skal fortelle hva teksten handler om.", 11, "UUWCAG");
         new UUArticle("Korrekt bruk av HTML-tags", "Hovedtittelen er en H1 og burde ikke brukes mer enn én gang per side. Dette er ikke bare på grunn av universell utforming, men også slik at søkemotorer forstår hva som er viktigst på siden. Ellers kan du bruke H2 – H6 for subtitler.", 12, "UUWCAG");
