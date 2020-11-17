@@ -110,7 +110,7 @@ export function setAmountOfStars () {
                 star[index].addEventListener("mouseover", function() {
                     if(!isClicked) {
                         for(var r = 0; r <= index; r++) {
-                            star[r].style.color = "#FF1801";
+                            star[r].style.color = "#8e181b";
                         }
                 }
                 })
@@ -127,7 +127,7 @@ export function setAmountOfStars () {
                     isClicked = true;
                     amountOfStars = index+1;
                     for(var r = 0; r <= index; r++) {
-                        star[r].style.color = "#FF1801";
+                        star[r].style.color = "#8e181b";
                     }     
                 })
             })(i);
