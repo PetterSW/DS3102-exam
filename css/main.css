@@ -455,16 +455,16 @@ footer a{
     /*Seperated class to view navbar-items with js*/
     .show-navbar-item{
         display: block;
-         animation: 0.4s ease-in-out 0s 1 hamburgerSlide, 3s opacityTransform;
+        animation: 0.4s ease-in-out 0s 1 hamburgerSlide, 3s opacityTransform;
     }
     @keyframes hamburgerSlide {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
     .slide-desktop {
         display: none;
     }
